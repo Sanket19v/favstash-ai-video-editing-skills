@@ -38,9 +38,10 @@ def load_spec(reel):
 def find_hyperframes(start):
     env = os.environ.get('FAVSTASH_HYPERFRAMES')
     if env: return [env]
+    bin_name = 'hyperframes.cmd' if sys.platform == 'win32' else 'hyperframes'
     for base in (pathlib.Path(start).resolve(), pathlib.Path.cwd()):
         for p in [base, *base.parents]:
-            c = p / '.favstash-studio/runtime/node_modules/.bin/hyperframes'
+            c = p / f'.favstash-studio/runtime/node_modules/.bin/{bin_name}'
             if c.is_file(): return [str(c)]
     raise SystemExit("HyperFrames not found. Run edit-video's scripts/init-workspace.mjs --workspace <project> --install, "
                      "or set FAVSTASH_HYPERFRAMES to its executable.")
@@ -83,14 +84,14 @@ def trim(x):
 
 
 def tts_hyperframes(hf, text, voice, out):
-    r = subprocess.run([*hf, 'tts', text, '-v', voice, '-o', str(out), '--json'], capture_output=True, text=True)
+    r = subprocess.run([*hf, 'tts', text, '-v', voice, '-o', str(out), '--json'], capture_output=True, text=True, shell=(sys.platform == 'win32'))
     if r.returncode or not out.exists(): raise SystemExit(f'hyperframes tts failed: {(r.stdout + r.stderr)[-500:]}')
 
 
 def heard(hf, wav):
     """Word times in a trimmed take, from `hyperframes transcribe`."""
     with tempfile.TemporaryDirectory() as d:
-        r = subprocess.run([*hf, 'transcribe', str(wav), '--dir', d, '--json'], capture_output=True, text=True)
+        r = subprocess.run([*hf, 'transcribe', str(wav), '--dir', d, '--json'], capture_output=True, text=True, shell=(sys.platform == 'win32'))
         p = pathlib.Path(d) / 'transcript.json'
         if r.returncode or not p.exists(): raise SystemExit(f'hyperframes transcribe failed: {(r.stdout + r.stderr)[-500:]}')
         return json.loads(p.read_text())
@@ -151,7 +152,7 @@ def main():
             rms = np.sqrt(np.mean(raw_take[:nn * fr].reshape(nn, fr) ** 2, axis=1)) + 1e-9
             lead = max(0, np.where(20 * np.log10(rms / rms.max()) > -40)[0][0] * fr - int(.03 * SR)) / SR
             words = [{'text': w['text'], 'start': (w['start'] - lead) / a.tempo, 'end': (w['end'] - lead) / a.tempo}
-                     for w in json.loads(aligned.read_text())]
+                     for w in json.loads(aligned.read_text(encoding='utf-8-sig'))]
         else:
             hf = hf or find_hyperframes(reel)
             with tempfile.TemporaryDirectory() as d:
@@ -173,3 +174,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+xxxxxxxx

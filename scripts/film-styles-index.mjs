@@ -65,7 +65,8 @@ async function main() {
   const nextReadme = readme.slice(0, readme.indexOf(START) + START.length) + "\n" + table + "\n" + readme.slice(readme.indexOf(END));
   const currentIndex = await fs.readFile(indexFile, "utf8").catch(() => "");
   if (check) {
-    const stale = [currentIndex !== index && "the style index", nextReadme !== readme && "the README's film looks"].filter(Boolean);
+    const norm = (s) => s.replace(/\r\n/g, "\n").trim();
+    const stale = [norm(currentIndex) !== norm(index) && "the style index", norm(nextReadme) !== norm(readme) && "the README's film looks"].filter(Boolean);
     if (stale.length) { console.error(`Out of date: ${stale.join(" and ")}. Run npm run film-index.`); process.exit(1); }
     return;
   }

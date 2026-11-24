@@ -1,0 +1,1112 @@
+[
+  {
+    "second": 0,
+    "speaker": "peter",
+    "line": "Teach me PC, Stewie!",
+    "words": [
+      "Teach",
+      "me",
+      "PC,",
+      "Stewie!"
+    ],
+    "graphic": "hook_warning",
+    "stepNumber": 0,
+    "title": "PC Masterclass",
+    "breadcrumb": "Student Peter vs Teacher Stewie",
+    "captionWords": [
+      {
+        "text": "Teach",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "me",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "PC,",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "Stewie!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 1,
+    "speaker": "stewie",
+    "line": "Class is in session.",
+    "words": [
+      "Class",
+      "is",
+      "in",
+      "session."
+    ],
+    "graphic": "hook_confused",
+    "stepNumber": 0,
+    "title": "PC Masterclass",
+    "breadcrumb": "Rule #1: Fix Defaults First",
+    "captionWords": [
+      {
+        "text": "Class",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "is",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "in",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "session.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 2,
+    "speaker": "peter",
+    "line": "What setting first?",
+    "words": [
+      "What",
+      "setting",
+      "first?"
+    ],
+    "graphic": "hook_checklist",
+    "stepNumber": 0,
+    "title": "PC Masterclass",
+    "breadcrumb": "4 Essential Lessons",
+    "captionWords": [
+      {
+        "text": "What",
+        "start": 0.05,
+        "end": 0.35
+      },
+      {
+        "text": "setting",
+        "start": 0.35,
+        "end": 0.65
+      },
+      {
+        "text": "first?",
+        "start": 0.65,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 3,
+    "speaker": "stewie",
+    "line": "Lesson one: File extensions.",
+    "words": [
+      "Lesson",
+      "one:",
+      "File",
+      "extensions."
+    ],
+    "graphic": "step1_title",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "File Explorer \u203a View \u203a Show",
+    "captionWords": [
+      {
+        "text": "Lesson",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "one:",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "File",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "extensions.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 4,
+    "speaker": "peter",
+    "line": "Why? What's wrong?",
+    "words": [
+      "Why?",
+      "What's",
+      "wrong?"
+    ],
+    "graphic": "step1_explorer_closed",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "Hidden File Format Danger",
+    "captionWords": [
+      {
+        "text": "Why?",
+        "start": 0.05,
+        "end": 0.35
+      },
+      {
+        "text": "What's",
+        "start": 0.35,
+        "end": 0.65
+      },
+      {
+        "text": "wrong?",
+        "start": 0.65,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 5,
+    "speaker": "stewie",
+    "line": "Open Explorer, click View.",
+    "words": [
+      "Open",
+      "Explorer,",
+      "click",
+      "View."
+    ],
+    "graphic": "step1_click_view",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "Explorer \u203a Toolbar \u203a View",
+    "captionWords": [
+      {
+        "text": "Open",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "Explorer,",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "click",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "View.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 6,
+    "speaker": "peter",
+    "line": "Check File extensions?",
+    "words": [
+      "Check",
+      "File",
+      "extensions?"
+    ],
+    "graphic": "step1_dropdown",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "View \u203a Show \u203a File name extensions",
+    "captionWords": [
+      {
+        "text": "Check",
+        "start": 0.05,
+        "end": 0.35
+      },
+      {
+        "text": "File",
+        "start": 0.35,
+        "end": 0.65
+      },
+      {
+        "text": "extensions?",
+        "start": 0.65,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 7,
+    "speaker": "stewie",
+    "line": "Yes! That's fake PDF!",
+    "words": [
+      "Yes!",
+      "That's",
+      "fake",
+      "PDF!"
+    ],
+    "graphic": "step1_reveal_exe",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "Disguised Malware Detected!",
+    "captionWords": [
+      {
+        "text": "Yes!",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "That's",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "fake",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "PDF!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 8,
+    "speaker": "peter",
+    "line": "It's an EXE malware!",
+    "words": [
+      "It's",
+      "an",
+      "EXE",
+      "malware!"
+    ],
+    "graphic": "step1_success",
+    "stepNumber": 1,
+    "title": "Show File Extensions",
+    "breadcrumb": "Virus Avoided \u2713",
+    "captionWords": [
+      {
+        "text": "It's",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "an",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "EXE",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "malware!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 9,
+    "speaker": "stewie",
+    "line": "Lesson two: Clipboard History.",
+    "words": [
+      "Lesson",
+      "two:",
+      "Clipboard",
+      "History."
+    ],
+    "graphic": "step2_title",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Windows Key + V",
+    "captionWords": [
+      {
+        "text": "Lesson",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "two:",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "Clipboard",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "History.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 10,
+    "speaker": "peter",
+    "line": "Can I copy multiple?",
+    "words": [
+      "Can",
+      "I",
+      "copy",
+      "multiple?"
+    ],
+    "graphic": "step2_keys_ctrl_c",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Forget Single Ctrl + C",
+    "captionWords": [
+      {
+        "text": "Can",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "I",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "copy",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "multiple?",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 11,
+    "speaker": "stewie",
+    "line": "Press Windows key V.",
+    "words": [
+      "Press",
+      "Windows",
+      "key",
+      "V."
+    ],
+    "graphic": "step2_keys_win_v",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Shortcut: \u229e Win + V",
+    "captionWords": [
+      {
+        "text": "Press",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "Windows",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "key",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "V.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 12,
+    "speaker": "peter",
+    "line": "And click Turn On?",
+    "words": [
+      "And",
+      "click",
+      "Turn",
+      "On?"
+    ],
+    "graphic": "step2_turn_on",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Click 'Turn on' Button",
+    "captionWords": [
+      {
+        "text": "And",
+        "start": 0.05,
+        "end": 0.263
+      },
+      {
+        "text": "click",
+        "start": 0.263,
+        "end": 0.475
+      },
+      {
+        "text": "Turn",
+        "start": 0.475,
+        "end": 0.688
+      },
+      {
+        "text": "On?",
+        "start": 0.688,
+        "end": 0.9
+      }
+    ],
+    "clipDuration": 0.850091
+  },
+  {
+    "second": 13,
+    "speaker": "stewie",
+    "line": "All your copies save!",
+    "words": [
+      "All",
+      "your",
+      "copies",
+      "save!"
+    ],
+    "graphic": "step2_history_list",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Multi-Snippet History",
+    "captionWords": [
+      {
+        "text": "All",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "your",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "copies",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "save!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 14,
+    "speaker": "peter",
+    "line": "Stewie, you're a genius!",
+    "words": [
+      "Stewie,",
+      "you're",
+      "a",
+      "genius!"
+    ],
+    "graphic": "step2_pin_item",
+    "stepNumber": 2,
+    "title": "Clipboard History",
+    "breadcrumb": "Pin Favorite Clips \u2713",
+    "captionWords": [
+      {
+        "text": "Stewie,",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "you're",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "a",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "genius!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 15,
+    "speaker": "stewie",
+    "line": "Lesson three: Startup apps.",
+    "words": [
+      "Lesson",
+      "three:",
+      "Startup",
+      "apps."
+    ],
+    "graphic": "step3_title",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "Settings \u203a Apps \u203a Startup",
+    "captionWords": [
+      {
+        "text": "Lesson",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "three:",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "Startup",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "apps.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 16,
+    "speaker": "peter",
+    "line": "Why boots so slow?",
+    "words": [
+      "Why",
+      "boots",
+      "so",
+      "slow?"
+    ],
+    "graphic": "step3_slow_boot",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "Boot Lag Problem",
+    "captionWords": [
+      {
+        "text": "Why",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "boots",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "so",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "slow?",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 17,
+    "speaker": "stewie",
+    "line": "Open Settings, Apps, Startup.",
+    "words": [
+      "Open",
+      "Settings,",
+      "Apps,",
+      "Startup."
+    ],
+    "graphic": "step3_settings_page",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "Settings \u203a Apps \u203a Startup",
+    "captionWords": [
+      {
+        "text": "Open",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "Settings,",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "Apps,",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "Startup.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 18,
+    "speaker": "peter",
+    "line": "Turn off everything?",
+    "words": [
+      "Turn",
+      "off",
+      "everything?"
+    ],
+    "graphic": "step3_toggle_off",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "Toggle Background Launchers",
+    "captionWords": [
+      {
+        "text": "Turn",
+        "start": 0.05,
+        "end": 0.298
+      },
+      {
+        "text": "off",
+        "start": 0.298,
+        "end": 0.546
+      },
+      {
+        "text": "everything?",
+        "start": 0.546,
+        "end": 0.794
+      }
+    ],
+    "clipDuration": 0.744014
+  },
+  {
+    "second": 19,
+    "speaker": "stewie",
+    "line": "Turn off background junk!",
+    "words": [
+      "Turn",
+      "off",
+      "background",
+      "junk!"
+    ],
+    "graphic": "step3_disabled_list",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "Startup Impact: Low",
+    "captionWords": [
+      {
+        "text": "Turn",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "off",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "background",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "junk!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 20,
+    "speaker": "peter",
+    "line": "Boots in ten seconds!",
+    "words": [
+      "Boots",
+      "in",
+      "ten",
+      "seconds!"
+    ],
+    "graphic": "step3_fast_boot",
+    "stepNumber": 3,
+    "title": "Kill Startup Apps",
+    "breadcrumb": "10x Boot Acceleration \u2713",
+    "captionWords": [
+      {
+        "text": "Boots",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "in",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "ten",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "seconds!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 21,
+    "speaker": "stewie",
+    "line": "Lesson four: Storage Sense.",
+    "words": [
+      "Lesson",
+      "four:",
+      "Storage",
+      "Sense."
+    ],
+    "graphic": "step4_title",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "Settings \u203a System \u203a Storage",
+    "captionWords": [
+      {
+        "text": "Lesson",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "four:",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "Storage",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "Sense.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 22,
+    "speaker": "peter",
+    "line": "Is my disk full?",
+    "words": [
+      "Is",
+      "my",
+      "disk",
+      "full?"
+    ],
+    "graphic": "step4_drive_red",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "C: Drive Out of Space",
+    "captionWords": [
+      {
+        "text": "Is",
+        "start": 0.05,
+        "end": 0.247
+      },
+      {
+        "text": "my",
+        "start": 0.247,
+        "end": 0.444
+      },
+      {
+        "text": "disk",
+        "start": 0.444,
+        "end": 0.641
+      },
+      {
+        "text": "full?",
+        "start": 0.641,
+        "end": 0.838
+      }
+    ],
+    "clipDuration": 0.787574
+  },
+  {
+    "second": 23,
+    "speaker": "stewie",
+    "line": "Go to System, Storage.",
+    "words": [
+      "Go",
+      "to",
+      "System,",
+      "Storage."
+    ],
+    "graphic": "step4_settings_storage",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "Settings \u203a System \u203a Storage",
+    "captionWords": [
+      {
+        "text": "Go",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "to",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "System,",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "Storage.",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 24,
+    "speaker": "peter",
+    "line": "Toggle it On now?",
+    "words": [
+      "Toggle",
+      "it",
+      "On",
+      "now?"
+    ],
+    "graphic": "step4_toggle_storage",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "Toggle Switch: On",
+    "captionWords": [
+      {
+        "text": "Toggle",
+        "start": 0.05,
+        "end": 0.227
+      },
+      {
+        "text": "it",
+        "start": 0.227,
+        "end": 0.404
+      },
+      {
+        "text": "On",
+        "start": 0.404,
+        "end": 0.58
+      },
+      {
+        "text": "now?",
+        "start": 0.58,
+        "end": 0.757
+      }
+    ],
+    "clipDuration": 0.707166
+  },
+  {
+    "second": 25,
+    "speaker": "stewie",
+    "line": "It purges temp junk!",
+    "words": [
+      "It",
+      "purges",
+      "temp",
+      "junk!"
+    ],
+    "graphic": "step4_cleaning_counter",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "Auto-Cleaner Activated",
+    "captionWords": [
+      {
+        "text": "It",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "purges",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "temp",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "junk!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 26,
+    "speaker": "peter",
+    "line": "Thirty gigabytes back!",
+    "words": [
+      "Thirty",
+      "gigabytes",
+      "back!"
+    ],
+    "graphic": "step4_drive_green",
+    "stepNumber": 4,
+    "title": "Enable Storage Sense",
+    "breadcrumb": "30 GB Reclaimed \u2713",
+    "captionWords": [
+      {
+        "text": "Thirty",
+        "start": 0.05,
+        "end": 0.35
+      },
+      {
+        "text": "gigabytes",
+        "start": 0.35,
+        "end": 0.65
+      },
+      {
+        "text": "back!",
+        "start": 0.65,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 27,
+    "speaker": "peter",
+    "line": "Did I pass, teacher?",
+    "words": [
+      "Did",
+      "I",
+      "pass,",
+      "teacher?"
+    ],
+    "graphic": "outro_speedometer",
+    "stepNumber": 0,
+    "title": "Final Grade: A+",
+    "breadcrumb": "Class Dismissed",
+    "captionWords": [
+      {
+        "text": "Did",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "I",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "pass,",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "teacher?",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 28,
+    "speaker": "stewie",
+    "line": "You earned an A-plus!",
+    "words": [
+      "You",
+      "earned",
+      "an",
+      "A-plus!"
+    ],
+    "graphic": "outro_summary_cards",
+    "stepNumber": 0,
+    "title": "PC Masterclass",
+    "breadcrumb": "All 4 Lessons Passed",
+    "captionWords": [
+      {
+        "text": "You",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "earned",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "an",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "A-plus!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  },
+  {
+    "second": 29,
+    "speaker": "stewie",
+    "line": "Follow for daily lessons!",
+    "words": [
+      "Follow",
+      "for",
+      "daily",
+      "lessons!"
+    ],
+    "graphic": "outro_follow_card",
+    "stepNumber": 0,
+    "title": "Follow For More!",
+    "breadcrumb": "@DailyPCTips",
+    "captionWords": [
+      {
+        "text": "Follow",
+        "start": 0.05,
+        "end": 0.275
+      },
+      {
+        "text": "for",
+        "start": 0.275,
+        "end": 0.5
+      },
+      {
+        "text": "daily",
+        "start": 0.5,
+        "end": 0.725
+      },
+      {
+        "text": "lessons!",
+        "start": 0.725,
+        "end": 0.95
+      }
+    ],
+    "clipDuration": 0.95
+  }
+]

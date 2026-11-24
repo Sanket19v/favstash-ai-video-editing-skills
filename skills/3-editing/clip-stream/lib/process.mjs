@@ -7,6 +7,7 @@ export function run(command, args, options = {}) {
       cwd: options.cwd,
       env: options.env ?? process.env,
       stdio: options.stdio ?? "inherit",
+      shell: options.shell ?? (process.platform === "win32"),
     });
     child.once("error", reject);
     child.once("exit", (code, signal) => {
@@ -22,6 +23,7 @@ export function runCapture(command, args, options = {}) {
       cwd: options.cwd,
       env: options.env ?? process.env,
       stdio: ["ignore", "pipe", "pipe"],
+      shell: options.shell ?? (process.platform === "win32"),
     });
     let stdout = "";
     let stderr = "";

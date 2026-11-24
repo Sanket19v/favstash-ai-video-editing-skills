@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "skills": {
+    "3d-character": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "62cb61d5a51acb3c74d9c045301d2cab3dca4c457e41d1a80e18cc0160d3daf5",
+      "installMode": "copy"
+    },
+    "adaptive-glass": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "50261f3fb91394571ff49ff90c26820a68b6df7325f1fd62f330d174d8173e6f",
+      "installMode": "copy"
+    },
+    "animated-explainer": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "1070474025f8133b572abb9b9270ad48ce26758bc39141ef48cbbc10825b0384",
+      "installMode": "copy"
+    },
+    "blender-director": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "7bbb901cf8c67e5f1581a709fdec67498016ffca9c8904be1fd366796f85726f",
+      "installMode": "copy"
+    },
+    "breakout-card": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "f3c20645709e038cb3d52533dacce24b1ed7b37d0e9433fdfcab447cd3717f2a",
+      "installMode": "copy"
+    },
+    "cartoon-character": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "04366cb890bd24ba68220e9bf226210c2baa8bd03d0bf9b09650e1319f4c0104",
+      "installMode": "copy"
+    },
+    "clip-stream": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "d3829a854497344252a45495f530b0b4f783c1d6bab8241c308ddd39b1444208",
+      "installMode": "copy"
+    },
+    "edit-video": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "71e17bb00f2e218a631024646d47312b47245bde6b105db4a8f98f5a101b4232",
+      "installMode": "copy"
+    },
+    "film-styles": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "bf877cafce03ada87bfd86e4cba2b55a9d3747603d95b7ab9ac5c3799080278f",
+      "installMode": "copy"
+    },
+    "find-ideas": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "c386a96a50a3b8b2f294ed5bec576b560fd41775756165182ebf4a4b0f12fcdf",
+      "installMode": "copy"
+    },
+    "motion-effects": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "35e1be2510fb71b0bc7043c9397ff0aa4094086d6435f8daa8af4bf4eb5a56bd",
+      "installMode": "copy"
+    },
+    "paper-grid": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "761892ac6fde99a296293fc272456805d8430b4a8011d09632b7afbadb95c535",
+      "installMode": "copy"
+    },
+    "product-motion-ads": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "d08e820ebd2c96316f5ab53b57cce9ed6040c1a642beabf603a361b2cf524271",
+      "installMode": "copy"
+    },
+    "publish-and-analyze": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "6a7bc08ff12a76ce4ae2bf279a55f84bec223c9f2d0b3169b0a62e1292162c86",
+      "installMode": "copy"
+    },
+    "text-over-footage": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "b190a5f28a12a34dbbbec2e99941ef95e37ff5ff34333ca8e044606d26e8ea6e",
+      "installMode": "copy"
+    },
+    "write-script": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "f7b2006cfc5e9a0bac8ff063d48f87cf3ecbe8c164fc4e0d77f4e1e0d2515f57",
+      "installMode": "copy"
+    }
+  }
+}

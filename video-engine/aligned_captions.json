@@ -1,0 +1,3028 @@
+{
+  "total_duration": 77.83,
+  "turn_ranges": [
+    {
+      "line_index": 0,
+      "speaker": "peter",
+      "start": 0.0,
+      "speech_end": 7.54,
+      "end": 7.54
+    },
+    {
+      "line_index": 1,
+      "speaker": "stewie",
+      "start": 7.54,
+      "speech_end": 12.28,
+      "end": 12.28
+    },
+    {
+      "line_index": 2,
+      "speaker": "peter",
+      "start": 12.28,
+      "speech_end": 13.9,
+      "end": 13.9
+    },
+    {
+      "line_index": 3,
+      "speaker": "stewie",
+      "start": 13.9,
+      "speech_end": 16.32,
+      "end": 16.32
+    },
+    {
+      "line_index": 4,
+      "speaker": "peter",
+      "start": 16.32,
+      "speech_end": 19.86,
+      "end": 19.86
+    },
+    {
+      "line_index": 5,
+      "speaker": "stewie",
+      "start": 19.86,
+      "speech_end": 21.88,
+      "end": 21.88
+    },
+    {
+      "line_index": 6,
+      "speaker": "peter",
+      "start": 21.88,
+      "speech_end": 23.26,
+      "end": 23.26
+    },
+    {
+      "line_index": 7,
+      "speaker": "stewie",
+      "start": 23.26,
+      "speech_end": 25.92,
+      "end": 25.92
+    },
+    {
+      "line_index": 8,
+      "speaker": "peter",
+      "start": 25.92,
+      "speech_end": 28.18,
+      "end": 28.18
+    },
+    {
+      "line_index": 9,
+      "speaker": "stewie",
+      "start": 28.18,
+      "speech_end": 33.24,
+      "end": 33.24
+    },
+    {
+      "line_index": 10,
+      "speaker": "peter",
+      "start": 33.24,
+      "speech_end": 35.74,
+      "end": 35.74
+    },
+    {
+      "line_index": 11,
+      "speaker": "stewie",
+      "start": 35.74,
+      "speech_end": 42.64,
+      "end": 42.64
+    },
+    {
+      "line_index": 12,
+      "speaker": "peter",
+      "start": 42.64,
+      "speech_end": 44.02,
+      "end": 44.02
+    },
+    {
+      "line_index": 13,
+      "speaker": "stewie",
+      "start": 44.02,
+      "speech_end": 47.72,
+      "end": 47.72
+    },
+    {
+      "line_index": 14,
+      "speaker": "peter",
+      "start": 47.72,
+      "speech_end": 48.94,
+      "end": 48.94
+    },
+    {
+      "line_index": 15,
+      "speaker": "stewie",
+      "start": 48.94,
+      "speech_end": 51.92,
+      "end": 51.92
+    },
+    {
+      "line_index": 16,
+      "speaker": "peter",
+      "start": 51.92,
+      "speech_end": 53.3,
+      "end": 53.3
+    },
+    {
+      "line_index": 17,
+      "speaker": "stewie",
+      "start": 53.3,
+      "speech_end": 56.84,
+      "end": 56.84
+    },
+    {
+      "line_index": 18,
+      "speaker": "peter",
+      "start": 56.84,
+      "speech_end": 58.22,
+      "end": 58.22
+    },
+    {
+      "line_index": 19,
+      "speaker": "stewie",
+      "start": 58.22,
+      "speech_end": 61.6,
+      "end": 61.6
+    },
+    {
+      "line_index": 20,
+      "speaker": "peter",
+      "start": 61.6,
+      "speech_end": 64.34,
+      "end": 64.34
+    },
+    {
+      "line_index": 21,
+      "speaker": "stewie",
+      "start": 64.34,
+      "speech_end": 70.76,
+      "end": 70.76
+    },
+    {
+      "line_index": 22,
+      "speaker": "peter",
+      "start": 70.76,
+      "speech_end": 73.18,
+      "end": 73.18
+    },
+    {
+      "line_index": 23,
+      "speaker": "stewie",
+      "start": 73.18,
+      "speech_end": 77.83,
+      "end": 77.83
+    }
+  ],
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 0.0,
+      "end": 1.04,
+      "words": [
+        {
+          "text": "Stewie,",
+          "local_start": 0.0,
+          "local_end": 0.48,
+          "global_start": 0.0,
+          "global_end": 0.48
+        },
+        {
+          "text": "my",
+          "local_start": 0.48,
+          "local_end": 0.64,
+          "global_start": 0.48,
+          "global_end": 0.64
+        },
+        {
+          "text": "PC",
+          "local_start": 0.64,
+          "local_end": 1.04,
+          "global_start": 0.64,
+          "global_end": 1.04
+        }
+      ],
+      "display_end": 1.04
+    },
+    {
+      "chunk_index": 1,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 1.04,
+      "end": 1.92,
+      "words": [
+        {
+          "text": "is",
+          "local_start": 1.04,
+          "local_end": 1.2,
+          "global_start": 1.04,
+          "global_end": 1.2
+        },
+        {
+          "text": "running",
+          "local_start": 1.2,
+          "local_end": 1.44,
+          "global_start": 1.2,
+          "global_end": 1.44
+        },
+        {
+          "text": "slow,",
+          "local_start": 1.44,
+          "local_end": 1.92,
+          "global_start": 1.44,
+          "global_end": 1.92
+        }
+      ],
+      "display_end": 2.24
+    },
+    {
+      "chunk_index": 2,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 2.24,
+      "end": 3.2,
+      "words": [
+        {
+          "text": "my",
+          "local_start": 2.24,
+          "local_end": 2.48,
+          "global_start": 2.24,
+          "global_end": 2.48
+        },
+        {
+          "text": "FPS",
+          "local_start": 2.48,
+          "local_end": 2.96,
+          "global_start": 2.48,
+          "global_end": 2.96
+        },
+        {
+          "text": "isn't",
+          "local_start": 2.96,
+          "local_end": 3.2,
+          "global_start": 2.96,
+          "global_end": 3.2
+        }
+      ],
+      "display_end": 3.2
+    },
+    {
+      "chunk_index": 3,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 3.2,
+      "end": 3.94,
+      "words": [
+        {
+          "text": "great,",
+          "local_start": 3.2,
+          "local_end": 3.6,
+          "global_start": 3.2,
+          "global_end": 3.6
+        },
+        {
+          "text": "and",
+          "local_start": 3.68,
+          "local_end": 3.84,
+          "global_start": 3.68,
+          "global_end": 3.84
+        },
+        {
+          "text": "my",
+          "local_start": 3.84,
+          "local_end": 3.94,
+          "global_start": 3.84,
+          "global_end": 3.94
+        }
+      ],
+      "display_end": 3.92
+    },
+    {
+      "chunk_index": 4,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 3.92,
+      "end": 4.82,
+      "words": [
+        {
+          "text": "RAM",
+          "local_start": 3.92,
+          "local_end": 4.32,
+          "global_start": 3.92,
+          "global_end": 4.32
+        },
+        {
+          "text": "usage",
+          "local_start": 4.32,
+          "local_end": 4.72,
+          "global_start": 4.32,
+          "global_end": 4.72
+        },
+        {
+          "text": "is",
+          "local_start": 4.72,
+          "local_end": 4.82,
+          "global_start": 4.72,
+          "global_end": 4.82
+        }
+      ],
+      "display_end": 4.8
+    },
+    {
+      "chunk_index": 5,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 4.8,
+      "end": 6.0,
+      "words": [
+        {
+          "text": "insanely",
+          "local_start": 4.8,
+          "local_end": 5.36,
+          "global_start": 4.8,
+          "global_end": 5.36
+        },
+        {
+          "text": "high",
+          "local_start": 5.36,
+          "local_end": 5.68,
+          "global_start": 5.36,
+          "global_end": 5.68
+        },
+        {
+          "text": "even",
+          "local_start": 5.76,
+          "local_end": 6.0,
+          "global_start": 5.76,
+          "global_end": 6.0
+        }
+      ],
+      "display_end": 6.0
+    },
+    {
+      "chunk_index": 6,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 6.0,
+      "end": 6.56,
+      "words": [
+        {
+          "text": "when",
+          "local_start": 6.0,
+          "local_end": 6.1,
+          "global_start": 6.0,
+          "global_end": 6.1
+        },
+        {
+          "text": "I",
+          "local_start": 6.08,
+          "local_end": 6.18,
+          "global_start": 6.08,
+          "global_end": 6.18
+        },
+        {
+          "text": "barely",
+          "local_start": 6.16,
+          "local_end": 6.56,
+          "global_start": 6.16,
+          "global_end": 6.56
+        }
+      ],
+      "display_end": 6.56
+    },
+    {
+      "chunk_index": 7,
+      "turn_index": 0,
+      "speaker": "peter",
+      "start": 6.56,
+      "end": 7.44,
+      "words": [
+        {
+          "text": "have",
+          "local_start": 6.56,
+          "local_end": 6.72,
+          "global_start": 6.56,
+          "global_end": 6.72
+        },
+        {
+          "text": "anything",
+          "local_start": 6.72,
+          "local_end": 7.04,
+          "global_start": 6.72,
+          "global_end": 7.04
+        },
+        {
+          "text": "open.",
+          "local_start": 7.04,
+          "local_end": 7.44,
+          "global_start": 7.04,
+          "global_end": 7.44
+        }
+      ],
+      "display_end": 7.54
+    },
+    {
+      "chunk_index": 8,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 7.54,
+      "end": 8.12,
+      "words": [
+        {
+          "text": "And",
+          "local_start": 0.0,
+          "local_end": 0.16,
+          "global_start": 7.54,
+          "global_end": 7.7
+        },
+        {
+          "text": "RAM",
+          "local_start": 0.16,
+          "local_end": 0.48,
+          "global_start": 7.7,
+          "global_end": 8.02
+        },
+        {
+          "text": "isn't",
+          "local_start": 0.48,
+          "local_end": 0.58,
+          "global_start": 8.02,
+          "global_end": 8.12
+        }
+      ],
+      "display_end": 8.1
+    },
+    {
+      "chunk_index": 9,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 8.1,
+      "end": 9.06,
+      "words": [
+        {
+          "text": "exactly",
+          "local_start": 0.56,
+          "local_end": 1.12,
+          "global_start": 8.1,
+          "global_end": 8.66
+        },
+        {
+          "text": "cheap,",
+          "local_start": 1.12,
+          "local_end": 1.52,
+          "global_start": 8.66,
+          "global_end": 9.06
+        }
+      ],
+      "display_end": 9.22
+    },
+    {
+      "chunk_index": 10,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 9.22,
+      "end": 10.12,
+      "words": [
+        {
+          "text": "right?",
+          "local_start": 1.68,
+          "local_end": 1.92,
+          "global_start": 9.22,
+          "global_end": 9.46
+        },
+        {
+          "text": "This",
+          "local_start": 2.24,
+          "local_end": 2.48,
+          "global_start": 9.78,
+          "global_end": 10.02
+        },
+        {
+          "text": "can",
+          "local_start": 2.48,
+          "local_end": 2.58,
+          "global_start": 10.02,
+          "global_end": 10.12
+        }
+      ],
+      "display_end": 10.1
+    },
+    {
+      "chunk_index": 11,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 10.1,
+      "end": 10.74,
+      "words": [
+        {
+          "text": "help",
+          "local_start": 2.56,
+          "local_end": 2.8,
+          "global_start": 10.1,
+          "global_end": 10.34
+        },
+        {
+          "text": "you",
+          "local_start": 2.8,
+          "local_end": 2.9,
+          "global_start": 10.34,
+          "global_end": 10.44
+        },
+        {
+          "text": "find",
+          "local_start": 2.88,
+          "local_end": 3.2,
+          "global_start": 10.42,
+          "global_end": 10.74
+        }
+      ],
+      "display_end": 10.74
+    },
+    {
+      "chunk_index": 12,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 10.74,
+      "end": 11.38,
+      "words": [
+        {
+          "text": "out",
+          "local_start": 3.2,
+          "local_end": 3.36,
+          "global_start": 10.74,
+          "global_end": 10.9
+        },
+        {
+          "text": "what's",
+          "local_start": 3.36,
+          "local_end": 3.52,
+          "global_start": 10.9,
+          "global_end": 11.06
+        },
+        {
+          "text": "eating",
+          "local_start": 3.52,
+          "local_end": 3.84,
+          "global_start": 11.06,
+          "global_end": 11.38
+        }
+      ],
+      "display_end": 11.38
+    },
+    {
+      "chunk_index": 13,
+      "turn_index": 1,
+      "speaker": "stewie",
+      "start": 11.38,
+      "end": 12.18,
+      "words": [
+        {
+          "text": "all",
+          "local_start": 3.84,
+          "local_end": 4.0,
+          "global_start": 11.38,
+          "global_end": 11.54
+        },
+        {
+          "text": "that",
+          "local_start": 4.0,
+          "local_end": 4.16,
+          "global_start": 11.54,
+          "global_end": 11.7
+        },
+        {
+          "text": "memory.",
+          "local_start": 4.16,
+          "local_end": 4.64,
+          "global_start": 11.7,
+          "global_end": 12.18
+        }
+      ],
+      "display_end": 12.28
+    },
+    {
+      "chunk_index": 14,
+      "turn_index": 2,
+      "speaker": "peter",
+      "start": 12.28,
+      "end": 13.34,
+      "words": [
+        {
+          "text": "Okay,",
+          "local_start": 0.0,
+          "local_end": 0.4,
+          "global_start": 12.28,
+          "global_end": 12.68
+        },
+        {
+          "text": "what",
+          "local_start": 0.8,
+          "local_end": 0.96,
+          "global_start": 13.08,
+          "global_end": 13.24
+        },
+        {
+          "text": "do",
+          "local_start": 0.96,
+          "local_end": 1.06,
+          "global_start": 13.24,
+          "global_end": 13.34
+        }
+      ],
+      "display_end": 13.32
+    },
+    {
+      "chunk_index": 15,
+      "turn_index": 2,
+      "speaker": "peter",
+      "start": 13.32,
+      "end": 13.8,
+      "words": [
+        {
+          "text": "I",
+          "local_start": 1.04,
+          "local_end": 1.2,
+          "global_start": 13.32,
+          "global_end": 13.48
+        },
+        {
+          "text": "need?",
+          "local_start": 1.2,
+          "local_end": 1.52,
+          "global_start": 13.48,
+          "global_end": 13.8
+        }
+      ],
+      "display_end": 13.9
+    },
+    {
+      "chunk_index": 16,
+      "turn_index": 3,
+      "speaker": "stewie",
+      "start": 13.9,
+      "end": 15.02,
+      "words": [
+        {
+          "text": "Just",
+          "local_start": 0.0,
+          "local_end": 0.32,
+          "global_start": 13.9,
+          "global_end": 14.22
+        },
+        {
+          "text": "type",
+          "local_start": 0.32,
+          "local_end": 0.48,
+          "global_start": 14.22,
+          "global_end": 14.38
+        },
+        {
+          "text": "RAMMap",
+          "local_start": 0.56,
+          "local_end": 1.12,
+          "global_start": 14.46,
+          "global_end": 15.02
+        }
+      ],
+      "display_end": 15.02
+    },
+    {
+      "chunk_index": 17,
+      "turn_index": 3,
+      "speaker": "stewie",
+      "start": 15.02,
+      "end": 15.36,
+      "words": [
+        {
+          "text": "and",
+          "local_start": 1.12,
+          "local_end": 1.22,
+          "global_start": 15.02,
+          "global_end": 15.12
+        },
+        {
+          "text": "go",
+          "local_start": 1.2,
+          "local_end": 1.36,
+          "global_start": 15.1,
+          "global_end": 15.26
+        },
+        {
+          "text": "to",
+          "local_start": 1.36,
+          "local_end": 1.46,
+          "global_start": 15.26,
+          "global_end": 15.36
+        }
+      ],
+      "display_end": 15.34
+    },
+    {
+      "chunk_index": 18,
+      "turn_index": 3,
+      "speaker": "stewie",
+      "start": 15.34,
+      "end": 16.22,
+      "words": [
+        {
+          "text": "the",
+          "local_start": 1.44,
+          "local_end": 1.54,
+          "global_start": 15.34,
+          "global_end": 15.44
+        },
+        {
+          "text": "first",
+          "local_start": 1.52,
+          "local_end": 1.92,
+          "global_start": 15.42,
+          "global_end": 15.82
+        },
+        {
+          "text": "site.",
+          "local_start": 1.92,
+          "local_end": 2.32,
+          "global_start": 15.82,
+          "global_end": 16.22
+        }
+      ],
+      "display_end": 16.32
+    },
+    {
+      "chunk_index": 19,
+      "turn_index": 4,
+      "speaker": "peter",
+      "start": 16.32,
+      "end": 17.04,
+      "words": [
+        {
+          "text": "But",
+          "local_start": 0.0,
+          "local_end": 0.1,
+          "global_start": 16.32,
+          "global_end": 16.42
+        },
+        {
+          "text": "before",
+          "local_start": 0.08,
+          "local_end": 0.4,
+          "global_start": 16.4,
+          "global_end": 16.72
+        },
+        {
+          "text": "someone",
+          "local_start": 0.4,
+          "local_end": 0.72,
+          "global_start": 16.72,
+          "global_end": 17.04
+        }
+      ],
+      "display_end": 17.04
+    },
+    {
+      "chunk_index": 20,
+      "turn_index": 4,
+      "speaker": "peter",
+      "start": 17.04,
+      "end": 17.6,
+      "words": [
+        {
+          "text": "in",
+          "local_start": 0.72,
+          "local_end": 0.82,
+          "global_start": 17.04,
+          "global_end": 17.14
+        },
+        {
+          "text": "the",
+          "local_start": 0.8,
+          "local_end": 0.9,
+          "global_start": 17.12,
+          "global_end": 17.22
+        },
+        {
+          "text": "comments",
+          "local_start": 0.8,
+          "local_end": 1.28,
+          "global_start": 17.12,
+          "global_end": 17.6
+        }
+      ],
+      "display_end": 17.6
+    },
+    {
+      "chunk_index": 21,
+      "turn_index": 4,
+      "speaker": "peter",
+      "start": 17.6,
+      "end": 18.02,
+      "words": [
+        {
+          "text": "says",
+          "local_start": 1.28,
+          "local_end": 1.44,
+          "global_start": 17.6,
+          "global_end": 17.76
+        },
+        {
+          "text": "it's",
+          "local_start": 1.44,
+          "local_end": 1.6,
+          "global_start": 17.76,
+          "global_end": 17.92
+        },
+        {
+          "text": "a",
+          "local_start": 1.6,
+          "local_end": 1.7,
+          "global_start": 17.92,
+          "global_end": 18.02
+        }
+      ],
+      "display_end": 18.0
+    },
+    {
+      "chunk_index": 22,
+      "turn_index": 4,
+      "speaker": "peter",
+      "start": 18.0,
+      "end": 18.96,
+      "words": [
+        {
+          "text": "virus,",
+          "local_start": 1.68,
+          "local_end": 2.24,
+          "global_start": 18.0,
+          "global_end": 18.56
+        },
+        {
+          "text": "is",
+          "local_start": 2.24,
+          "local_end": 2.4,
+          "global_start": 18.56,
+          "global_end": 18.72
+        },
+        {
+          "text": "this",
+          "local_start": 2.4,
+          "local_end": 2.64,
+          "global_start": 18.72,
+          "global_end": 18.96
+        }
+      ],
+      "display_end": 18.96
+    },
+    {
+      "chunk_index": 23,
+      "turn_index": 4,
+      "speaker": "peter",
+      "start": 18.96,
+      "end": 19.76,
+      "words": [
+        {
+          "text": "actually",
+          "local_start": 2.64,
+          "local_end": 3.04,
+          "global_start": 18.96,
+          "global_end": 19.36
+        },
+        {
+          "text": "safe?",
+          "local_start": 3.04,
+          "local_end": 3.44,
+          "global_start": 19.36,
+          "global_end": 19.76
+        }
+      ],
+      "display_end": 19.86
+    },
+    {
+      "chunk_index": 24,
+      "turn_index": 5,
+      "speaker": "stewie",
+      "start": 20.02,
+      "end": 20.82,
+      "words": [
+        {
+          "text": "It's",
+          "local_start": 0.16,
+          "local_end": 0.32,
+          "global_start": 20.02,
+          "global_end": 20.18
+        },
+        {
+          "text": "a",
+          "local_start": 0.32,
+          "local_end": 0.42,
+          "global_start": 20.18,
+          "global_end": 20.28
+        },
+        {
+          "text": "Microsoft",
+          "local_start": 0.4,
+          "local_end": 0.96,
+          "global_start": 20.26,
+          "global_end": 20.82
+        }
+      ],
+      "display_end": 20.82
+    },
+    {
+      "chunk_index": 25,
+      "turn_index": 5,
+      "speaker": "stewie",
+      "start": 20.82,
+      "end": 21.78,
+      "words": [
+        {
+          "text": "site,",
+          "local_start": 0.96,
+          "local_end": 1.28,
+          "global_start": 20.82,
+          "global_end": 21.14
+        },
+        {
+          "text": "okay?",
+          "local_start": 1.44,
+          "local_end": 1.92,
+          "global_start": 21.3,
+          "global_end": 21.78
+        }
+      ],
+      "display_end": 21.88
+    },
+    {
+      "chunk_index": 26,
+      "turn_index": 6,
+      "speaker": "peter",
+      "start": 21.88,
+      "end": 22.54,
+      "words": [
+        {
+          "text": "Alright,",
+          "local_start": 0.0,
+          "local_end": 0.32,
+          "global_start": 21.88,
+          "global_end": 22.2
+        },
+        {
+          "text": "what",
+          "local_start": 0.48,
+          "local_end": 0.58,
+          "global_start": 22.36,
+          "global_end": 22.46
+        },
+        {
+          "text": "do",
+          "local_start": 0.56,
+          "local_end": 0.66,
+          "global_start": 22.44,
+          "global_end": 22.54
+        }
+      ],
+      "display_end": 22.52
+    },
+    {
+      "chunk_index": 27,
+      "turn_index": 6,
+      "speaker": "peter",
+      "start": 22.52,
+      "end": 23.16,
+      "words": [
+        {
+          "text": "I",
+          "local_start": 0.64,
+          "local_end": 0.8,
+          "global_start": 22.52,
+          "global_end": 22.68
+        },
+        {
+          "text": "click?",
+          "local_start": 0.8,
+          "local_end": 1.28,
+          "global_start": 22.68,
+          "global_end": 23.16
+        }
+      ],
+      "display_end": 23.26
+    },
+    {
+      "chunk_index": 28,
+      "turn_index": 7,
+      "speaker": "stewie",
+      "start": 23.26,
+      "end": 24.06,
+      "words": [
+        {
+          "text": "Click",
+          "local_start": 0.0,
+          "local_end": 0.16,
+          "global_start": 23.26,
+          "global_end": 23.42
+        },
+        {
+          "text": "this",
+          "local_start": 0.24,
+          "local_end": 0.4,
+          "global_start": 23.5,
+          "global_end": 23.66
+        },
+        {
+          "text": "option,",
+          "local_start": 0.4,
+          "local_end": 0.8,
+          "global_start": 23.66,
+          "global_end": 24.06
+        }
+      ],
+      "display_end": 24.3
+    },
+    {
+      "chunk_index": 29,
+      "turn_index": 7,
+      "speaker": "stewie",
+      "start": 24.3,
+      "end": 24.94,
+      "words": [
+        {
+          "text": "then",
+          "local_start": 1.04,
+          "local_end": 1.2,
+          "global_start": 24.3,
+          "global_end": 24.46
+        },
+        {
+          "text": "choose",
+          "local_start": 1.2,
+          "local_end": 1.52,
+          "global_start": 24.46,
+          "global_end": 24.78
+        },
+        {
+          "text": "where",
+          "local_start": 1.52,
+          "local_end": 1.68,
+          "global_start": 24.78,
+          "global_end": 24.94
+        }
+      ],
+      "display_end": 24.94
+    },
+    {
+      "chunk_index": 30,
+      "turn_index": 7,
+      "speaker": "stewie",
+      "start": 24.94,
+      "end": 25.36,
+      "words": [
+        {
+          "text": "you",
+          "local_start": 1.68,
+          "local_end": 1.78,
+          "global_start": 24.94,
+          "global_end": 25.04
+        },
+        {
+          "text": "want",
+          "local_start": 1.76,
+          "local_end": 2.0,
+          "global_start": 25.02,
+          "global_end": 25.26
+        },
+        {
+          "text": "to",
+          "local_start": 2.0,
+          "local_end": 2.1,
+          "global_start": 25.26,
+          "global_end": 25.36
+        }
+      ],
+      "display_end": 25.34
+    },
+    {
+      "chunk_index": 31,
+      "turn_index": 7,
+      "speaker": "stewie",
+      "start": 25.34,
+      "end": 25.84,
+      "words": [
+        {
+          "text": "download",
+          "local_start": 2.08,
+          "local_end": 2.48,
+          "global_start": 25.34,
+          "global_end": 25.74
+        },
+        {
+          "text": "it.",
+          "local_start": 2.48,
+          "local_end": 2.58,
+          "global_start": 25.74,
+          "global_end": 25.84
+        }
+      ],
+      "display_end": 25.92
+    },
+    {
+      "chunk_index": 32,
+      "turn_index": 8,
+      "speaker": "peter",
+      "start": 25.92,
+      "end": 26.42,
+      "words": [
+        {
+          "text": "And",
+          "local_start": 0.0,
+          "local_end": 0.1,
+          "global_start": 25.92,
+          "global_end": 26.02
+        },
+        {
+          "text": "here's",
+          "local_start": 0.08,
+          "local_end": 0.4,
+          "global_start": 26.0,
+          "global_end": 26.32
+        },
+        {
+          "text": "the",
+          "local_start": 0.4,
+          "local_end": 0.5,
+          "global_start": 26.32,
+          "global_end": 26.42
+        }
+      ],
+      "display_end": 26.4
+    },
+    {
+      "chunk_index": 33,
+      "turn_index": 8,
+      "speaker": "peter",
+      "start": 26.4,
+      "end": 28.08,
+      "words": [
+        {
+          "text": "file.",
+          "local_start": 0.48,
+          "local_end": 0.96,
+          "global_start": 26.4,
+          "global_end": 26.88
+        },
+        {
+          "text": "Now",
+          "local_start": 1.6,
+          "local_end": 1.84,
+          "global_start": 27.52,
+          "global_end": 27.76
+        },
+        {
+          "text": "what?",
+          "local_start": 1.84,
+          "local_end": 2.16,
+          "global_start": 27.76,
+          "global_end": 28.08
+        }
+      ],
+      "display_end": 28.18
+    },
+    {
+      "chunk_index": 34,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 28.18,
+      "end": 28.6,
+      "words": [
+        {
+          "text": "Click",
+          "local_start": 0.0,
+          "local_end": 0.24,
+          "global_start": 28.18,
+          "global_end": 28.42
+        },
+        {
+          "text": "it",
+          "local_start": 0.24,
+          "local_end": 0.34,
+          "global_start": 28.42,
+          "global_end": 28.52
+        },
+        {
+          "text": "and",
+          "local_start": 0.32,
+          "local_end": 0.42,
+          "global_start": 28.5,
+          "global_end": 28.6
+        }
+      ],
+      "display_end": 28.58
+    },
+    {
+      "chunk_index": 35,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 28.58,
+      "end": 29.08,
+      "words": [
+        {
+          "text": "run",
+          "local_start": 0.4,
+          "local_end": 0.64,
+          "global_start": 28.58,
+          "global_end": 28.82
+        },
+        {
+          "text": "it",
+          "local_start": 0.64,
+          "local_end": 0.8,
+          "global_start": 28.82,
+          "global_end": 28.98
+        },
+        {
+          "text": "as",
+          "local_start": 0.8,
+          "local_end": 0.9,
+          "global_start": 28.98,
+          "global_end": 29.08
+        }
+      ],
+      "display_end": 29.06
+    },
+    {
+      "chunk_index": 36,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 29.06,
+      "end": 30.5,
+      "words": [
+        {
+          "text": "administrator.",
+          "local_start": 0.88,
+          "local_end": 1.52,
+          "global_start": 29.06,
+          "global_end": 29.7
+        },
+        {
+          "text": "Then",
+          "local_start": 1.92,
+          "local_end": 2.16,
+          "global_start": 30.1,
+          "global_end": 30.34
+        },
+        {
+          "text": "just",
+          "local_start": 2.16,
+          "local_end": 2.32,
+          "global_start": 30.34,
+          "global_end": 30.5
+        }
+      ],
+      "display_end": 30.5
+    },
+    {
+      "chunk_index": 37,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 30.5,
+      "end": 30.98,
+      "words": [
+        {
+          "text": "wait",
+          "local_start": 2.32,
+          "local_end": 2.56,
+          "global_start": 30.5,
+          "global_end": 30.74
+        },
+        {
+          "text": "a",
+          "local_start": 2.56,
+          "local_end": 2.66,
+          "global_start": 30.74,
+          "global_end": 30.84
+        },
+        {
+          "text": "few",
+          "local_start": 2.64,
+          "local_end": 2.8,
+          "global_start": 30.82,
+          "global_end": 30.98
+        }
+      ],
+      "display_end": 30.98
+    },
+    {
+      "chunk_index": 38,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 30.98,
+      "end": 31.64,
+      "words": [
+        {
+          "text": "seconds",
+          "local_start": 2.8,
+          "local_end": 3.2,
+          "global_start": 30.98,
+          "global_end": 31.38
+        },
+        {
+          "text": "for",
+          "local_start": 3.2,
+          "local_end": 3.36,
+          "global_start": 31.38,
+          "global_end": 31.54
+        },
+        {
+          "text": "it",
+          "local_start": 3.36,
+          "local_end": 3.46,
+          "global_start": 31.54,
+          "global_end": 31.64
+        }
+      ],
+      "display_end": 31.62
+    },
+    {
+      "chunk_index": 39,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 31.62,
+      "end": 32.1,
+      "words": [
+        {
+          "text": "to",
+          "local_start": 3.44,
+          "local_end": 3.54,
+          "global_start": 31.62,
+          "global_end": 31.72
+        },
+        {
+          "text": "load",
+          "local_start": 3.44,
+          "local_end": 3.68,
+          "global_start": 31.62,
+          "global_end": 31.86
+        },
+        {
+          "text": "all",
+          "local_start": 3.68,
+          "local_end": 3.92,
+          "global_start": 31.86,
+          "global_end": 32.1
+        }
+      ],
+      "display_end": 32.1
+    },
+    {
+      "chunk_index": 40,
+      "turn_index": 9,
+      "speaker": "stewie",
+      "start": 32.1,
+      "end": 33.14,
+      "words": [
+        {
+          "text": "the",
+          "local_start": 3.92,
+          "local_end": 4.02,
+          "global_start": 32.1,
+          "global_end": 32.2
+        },
+        {
+          "text": "memory",
+          "local_start": 4.0,
+          "local_end": 4.32,
+          "global_start": 32.18,
+          "global_end": 32.5
+        },
+        {
+          "text": "processes.",
+          "local_start": 4.32,
+          "local_end": 4.96,
+          "global_start": 32.5,
+          "global_end": 33.14
+        }
+      ],
+      "display_end": 33.24
+    },
+    {
+      "chunk_index": 41,
+      "turn_index": 10,
+      "speaker": "peter",
+      "start": 33.24,
+      "end": 33.56,
+      "words": [
+        {
+          "text": "So",
+          "local_start": 0.0,
+          "local_end": 0.1,
+          "global_start": 33.24,
+          "global_end": 33.34
+        },
+        {
+          "text": "I",
+          "local_start": 0.08,
+          "local_end": 0.18,
+          "global_start": 33.32,
+          "global_end": 33.42
+        },
+        {
+          "text": "can",
+          "local_start": 0.16,
+          "local_end": 0.32,
+          "global_start": 33.4,
+          "global_end": 33.56
+        }
+      ],
+      "display_end": 33.56
+    },
+    {
+      "chunk_index": 42,
+      "turn_index": 10,
+      "speaker": "peter",
+      "start": 33.56,
+      "end": 34.36,
+      "words": [
+        {
+          "text": "actually",
+          "local_start": 0.32,
+          "local_end": 0.64,
+          "global_start": 33.56,
+          "global_end": 33.88
+        },
+        {
+          "text": "see",
+          "local_start": 0.64,
+          "local_end": 0.96,
+          "global_start": 33.88,
+          "global_end": 34.2
+        },
+        {
+          "text": "what's",
+          "local_start": 0.96,
+          "local_end": 1.12,
+          "global_start": 34.2,
+          "global_end": 34.36
+        }
+      ],
+      "display_end": 34.36
+    },
+    {
+      "chunk_index": 43,
+      "turn_index": 10,
+      "speaker": "peter",
+      "start": 34.36,
+      "end": 35.24,
+      "words": [
+        {
+          "text": "happening",
+          "local_start": 1.12,
+          "local_end": 1.6,
+          "global_start": 34.36,
+          "global_end": 34.84
+        },
+        {
+          "text": "in",
+          "local_start": 1.6,
+          "local_end": 1.76,
+          "global_start": 34.84,
+          "global_end": 35.0
+        },
+        {
+          "text": "real",
+          "local_start": 1.76,
+          "local_end": 2.0,
+          "global_start": 35.0,
+          "global_end": 35.24
+        }
+      ],
+      "display_end": 35.24
+    },
+    {
+      "chunk_index": 44,
+      "turn_index": 10,
+      "speaker": "peter",
+      "start": 35.24,
+      "end": 35.64,
+      "words": [
+        {
+          "text": "time?",
+          "local_start": 2.0,
+          "local_end": 2.4,
+          "global_start": 35.24,
+          "global_end": 35.64
+        }
+      ],
+      "display_end": 35.74
+    },
+    {
+      "chunk_index": 45,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 35.74,
+      "end": 36.94,
+      "words": [
+        {
+          "text": "Exactly.",
+          "local_start": 0.0,
+          "local_end": 0.8,
+          "global_start": 35.74,
+          "global_end": 36.54
+        },
+        {
+          "text": "You",
+          "local_start": 0.96,
+          "local_end": 1.06,
+          "global_start": 36.7,
+          "global_end": 36.8
+        },
+        {
+          "text": "can",
+          "local_start": 1.04,
+          "local_end": 1.2,
+          "global_start": 36.78,
+          "global_end": 36.94
+        }
+      ],
+      "display_end": 36.94
+    },
+    {
+      "chunk_index": 46,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 36.94,
+      "end": 37.42,
+      "words": [
+        {
+          "text": "see",
+          "local_start": 1.2,
+          "local_end": 1.44,
+          "global_start": 36.94,
+          "global_end": 37.18
+        },
+        {
+          "text": "how",
+          "local_start": 1.44,
+          "local_end": 1.54,
+          "global_start": 37.18,
+          "global_end": 37.28
+        },
+        {
+          "text": "your",
+          "local_start": 1.52,
+          "local_end": 1.68,
+          "global_start": 37.26,
+          "global_end": 37.42
+        }
+      ],
+      "display_end": 37.42
+    },
+    {
+      "chunk_index": 47,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 37.42,
+      "end": 38.22,
+      "words": [
+        {
+          "text": "memory",
+          "local_start": 1.68,
+          "local_end": 2.08,
+          "global_start": 37.42,
+          "global_end": 37.82
+        },
+        {
+          "text": "is",
+          "local_start": 2.08,
+          "local_end": 2.24,
+          "global_start": 37.82,
+          "global_end": 37.98
+        },
+        {
+          "text": "being",
+          "local_start": 2.24,
+          "local_end": 2.48,
+          "global_start": 37.98,
+          "global_end": 38.22
+        }
+      ],
+      "display_end": 38.22
+    },
+    {
+      "chunk_index": 48,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 38.22,
+      "end": 38.86,
+      "words": [
+        {
+          "text": "used",
+          "local_start": 2.48,
+          "local_end": 2.8,
+          "global_start": 38.22,
+          "global_end": 38.54
+        },
+        {
+          "text": "in",
+          "local_start": 2.8,
+          "local_end": 2.9,
+          "global_start": 38.54,
+          "global_end": 38.64
+        },
+        {
+          "text": "real",
+          "local_start": 2.88,
+          "local_end": 3.12,
+          "global_start": 38.62,
+          "global_end": 38.86
+        }
+      ],
+      "display_end": 38.86
+    },
+    {
+      "chunk_index": 49,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 38.86,
+      "end": 40.14,
+      "words": [
+        {
+          "text": "time.",
+          "local_start": 3.12,
+          "local_end": 3.6,
+          "global_start": 38.86,
+          "global_end": 39.34
+        },
+        {
+          "text": "Here,",
+          "local_start": 3.92,
+          "local_end": 4.4,
+          "global_start": 39.66,
+          "global_end": 40.14
+        }
+      ],
+      "display_end": 40.38
+    },
+    {
+      "chunk_index": 50,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 40.38,
+      "end": 41.44,
+      "words": [
+        {
+          "text": "45%",
+          "local_start": 4.64,
+          "local_end": 5.2,
+          "global_start": 40.38,
+          "global_end": 40.94
+        },
+        {
+          "text": "of",
+          "local_start": 5.52,
+          "local_end": 5.62,
+          "global_start": 41.26,
+          "global_end": 41.36
+        },
+        {
+          "text": "the",
+          "local_start": 5.6,
+          "local_end": 5.7,
+          "global_start": 41.34,
+          "global_end": 41.44
+        }
+      ],
+      "display_end": 41.42
+    },
+    {
+      "chunk_index": 51,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 41.42,
+      "end": 42.14,
+      "words": [
+        {
+          "text": "memory",
+          "local_start": 5.68,
+          "local_end": 6.0,
+          "global_start": 41.42,
+          "global_end": 41.74
+        },
+        {
+          "text": "is",
+          "local_start": 6.0,
+          "local_end": 6.16,
+          "global_start": 41.74,
+          "global_end": 41.9
+        },
+        {
+          "text": "being",
+          "local_start": 6.16,
+          "local_end": 6.4,
+          "global_start": 41.9,
+          "global_end": 42.14
+        }
+      ],
+      "display_end": 42.14
+    },
+    {
+      "chunk_index": 52,
+      "turn_index": 11,
+      "speaker": "stewie",
+      "start": 42.14,
+      "end": 42.54,
+      "words": [
+        {
+          "text": "used.",
+          "local_start": 6.4,
+          "local_end": 6.8,
+          "global_start": 42.14,
+          "global_end": 42.54
+        }
+      ],
+      "display_end": 42.64
+    },
+    {
+      "chunk_index": 53,
+      "turn_index": 12,
+      "speaker": "peter",
+      "start": 42.64,
+      "end": 43.38,
+      "words": [
+        {
+          "text": "Okay,",
+          "local_start": 0.0,
+          "local_end": 0.32,
+          "global_start": 42.64,
+          "global_end": 42.96
+        },
+        {
+          "text": "where",
+          "local_start": 0.48,
+          "local_end": 0.64,
+          "global_start": 43.12,
+          "global_end": 43.28
+        },
+        {
+          "text": "do",
+          "local_start": 0.64,
+          "local_end": 0.74,
+          "global_start": 43.28,
+          "global_end": 43.38
+        }
+      ],
+      "display_end": 43.36
+    },
+    {
+      "chunk_index": 54,
+      "turn_index": 12,
+      "speaker": "peter",
+      "start": 43.36,
+      "end": 43.92,
+      "words": [
+        {
+          "text": "I",
+          "local_start": 0.72,
+          "local_end": 0.82,
+          "global_start": 43.36,
+          "global_end": 43.46
+        },
+        {
+          "text": "go",
+          "local_start": 0.8,
+          "local_end": 0.9,
+          "global_start": 43.44,
+          "global_end": 43.54
+        },
+        {
+          "text": "next?",
+          "local_start": 0.88,
+          "local_end": 1.28,
+          "global_start": 43.52,
+          "global_end": 43.92
+        }
+      ],
+      "display_end": 44.02
+    },
+    {
+      "chunk_index": 55,
+      "turn_index": 13,
+      "speaker": "stewie",
+      "start": 44.02,
+      "end": 44.5,
+      "words": [
+        {
+          "text": "Come",
+          "local_start": 0.0,
+          "local_end": 0.24,
+          "global_start": 44.02,
+          "global_end": 44.26
+        },
+        {
+          "text": "to",
+          "local_start": 0.32,
+          "local_end": 0.42,
+          "global_start": 44.34,
+          "global_end": 44.44
+        },
+        {
+          "text": "this",
+          "local_start": 0.32,
+          "local_end": 0.48,
+          "global_start": 44.34,
+          "global_end": 44.5
+        }
+      ],
+      "display_end": 44.5
+    },
+    {
+      "chunk_index": 56,
+      "turn_index": 13,
+      "speaker": "stewie",
+      "start": 44.5,
+      "end": 45.3,
+      "words": [
+        {
+          "text": "second",
+          "local_start": 0.48,
+          "local_end": 0.88,
+          "global_start": 44.5,
+          "global_end": 44.9
+        },
+        {
+          "text": "option,",
+          "local_start": 0.88,
+          "local_end": 1.28,
+          "global_start": 44.9,
+          "global_end": 45.3
+        }
+      ],
+      "display_end": 45.54
+    },
+    {
+      "chunk_index": 57,
+      "turn_index": 13,
+      "speaker": "stewie",
+      "start": 45.54,
+      "end": 46.18,
+      "words": [
+        {
+          "text": "click",
+          "local_start": 1.52,
+          "local_end": 1.76,
+          "global_start": 45.54,
+          "global_end": 45.78
+        },
+        {
+          "text": "the",
+          "local_start": 1.76,
+          "local_end": 1.86,
+          "global_start": 45.78,
+          "global_end": 45.88
+        },
+        {
+          "text": "first",
+          "local_start": 1.84,
+          "local_end": 2.16,
+          "global_start": 45.86,
+          "global_end": 46.18
+        }
+      ],
+      "display_end": 46.18
+    },
+    {
+      "chunk_index": 58,
+      "turn_index": 13,
+      "speaker": "stewie",
+      "start": 46.18,
+      "end": 47.62,
+      "words": [
+        {
+          "text": "one,",
+          "local_start": 2.16,
+          "local_end": 2.48,
+          "global_start": 46.18,
+          "global_end": 46.5
+        },
+        {
+          "text": "Working",
+          "local_start": 2.72,
+          "local_end": 3.12,
+          "global_start": 46.74,
+          "global_end": 47.14
+        },
+        {
+          "text": "Sets.",
+          "local_start": 3.12,
+          "local_end": 3.6,
+          "global_start": 47.14,
+          "global_end": 47.62
+        }
+      ],
+      "display_end": 47.72
+    },
+    {
+      "chunk_index": 59,
+      "turn_index": 14,
+      "speaker": "peter",
+      "start": 47.72,
+      "end": 48.28,
+      "words": [
+        {
+          "text": "And",
+          "local_start": 0.0,
+          "local_end": 0.1,
+          "global_start": 47.72,
+          "global_end": 47.82
+        },
+        {
+          "text": "it's",
+          "local_start": 0.08,
+          "local_end": 0.24,
+          "global_start": 47.8,
+          "global_end": 47.96
+        },
+        {
+          "text": "already",
+          "local_start": 0.24,
+          "local_end": 0.56,
+          "global_start": 47.96,
+          "global_end": 48.28
+        }
+      ],
+      "display_end": 48.28
+    },
+    {
+      "chunk_index": 60,
+      "turn_index": 14,
+      "speaker": "peter",
+      "start": 48.28,
+      "end": 48.84,
+      "words": [
+        {
+          "text": "going",
+          "local_start": 0.56,
+          "local_end": 0.8,
+          "global_start": 48.28,
+          "global_end": 48.52
+        },
+        {
+          "text": "down.",
+          "local_start": 0.8,
+          "local_end": 1.12,
+          "global_start": 48.52,
+          "global_end": 48.84
+        }
+      ],
+      "display_end": 48.94
+    },
+    {
+      "chunk_index": 61,
+      "turn_index": 15,
+      "speaker": "stewie",
+      "start": 48.94,
+      "end": 49.82,
+      "words": [
+        {
+          "text": "Yep.",
+          "local_start": 0.0,
+          "local_end": 0.32,
+          "global_start": 48.94,
+          "global_end": 49.26
+        },
+        {
+          "text": "You",
+          "local_start": 0.64,
+          "local_end": 0.74,
+          "global_start": 49.58,
+          "global_end": 49.68
+        },
+        {
+          "text": "can",
+          "local_start": 0.72,
+          "local_end": 0.88,
+          "global_start": 49.66,
+          "global_end": 49.82
+        }
+      ],
+      "display_end": 49.82
+    },
+    {
+      "chunk_index": 62,
+      "turn_index": 15,
+      "speaker": "stewie",
+      "start": 49.82,
+      "end": 50.56,
+      "words": [
+        {
+          "text": "already",
+          "local_start": 0.88,
+          "local_end": 1.28,
+          "global_start": 49.82,
+          "global_end": 50.22
+        },
+        {
+          "text": "see",
+          "local_start": 1.28,
+          "local_end": 1.52,
+          "global_start": 50.22,
+          "global_end": 50.46
+        },
+        {
+          "text": "the",
+          "local_start": 1.52,
+          "local_end": 1.62,
+          "global_start": 50.46,
+          "global_end": 50.56
+        }
+      ],
+      "display_end": 50.54
+    },
+    {
+      "chunk_index": 63,
+      "turn_index": 15,
+      "speaker": "stewie",
+      "start": 50.54,
+      "end": 51.82,
+      "words": [
+        {
+          "text": "memory",
+          "local_start": 1.6,
+          "local_end": 1.92,
+          "global_start": 50.54,
+          "global_end": 50.86
+        },
+        {
+          "text": "usage",
+          "local_start": 1.92,
+          "local_end": 2.32,
+          "global_start": 50.86,
+          "global_end": 51.26
+        },
+        {
+          "text": "lowering.",
+          "local_start": 2.32,
+          "local_end": 2.88,
+          "global_start": 51.26,
+          "global_end": 51.82
+        }
+      ],
+      "display_end": 51.92
+    },
+    {
+      "chunk_index": 64,
+      "turn_index": 16,
+      "speaker": "peter",
+      "start": 51.92,
+      "end": 52.48,
+      "words": [
+        {
+          "text": "Can",
+          "local_start": 0.0,
+          "local_end": 0.16,
+          "global_start": 51.92,
+          "global_end": 52.08
+        },
+        {
+          "text": "we",
+          "local_start": 0.16,
+          "local_end": 0.26,
+          "global_start": 52.08,
+          "global_end": 52.18
+        },
+        {
+          "text": "free",
+          "local_start": 0.24,
+          "local_end": 0.56,
+          "global_start": 52.16,
+          "global_end": 52.48
+        }
+      ],
+      "display_end": 52.48
+    },
+    {
+      "chunk_index": 65,
+      "turn_index": 16,
+      "speaker": "peter",
+      "start": 52.48,
+      "end": 53.2,
+      "words": [
+        {
+          "text": "up",
+          "local_start": 0.56,
+          "local_end": 0.72,
+          "global_start": 52.48,
+          "global_end": 52.64
+        },
+        {
+          "text": "even",
+          "local_start": 0.72,
+          "local_end": 0.96,
+          "global_start": 52.64,
+          "global_end": 52.88
+        },
+        {
+          "text": "more?",
+          "local_start": 0.96,
+          "local_end": 1.28,
+          "global_start": 52.88,
+          "global_end": 53.2
+        }
+      ],
+      "display_end": 53.3
+    },
+    {
+      "chunk_index": 66,
+      "turn_index": 17,
+      "speaker": "stewie",
+      "start": 53.3,
+      "end": 53.96,
+      "words": [
+        {
+          "text": "Go",
+          "local_start": 0.0,
+          "local_end": 0.24,
+          "global_start": 53.3,
+          "global_end": 53.54
+        },
+        {
+          "text": "back",
+          "local_start": 0.24,
+          "local_end": 0.56,
+          "global_start": 53.54,
+          "global_end": 53.86
+        },
+        {
+          "text": "to",
+          "local_start": 0.56,
+          "local_end": 0.66,
+          "global_start": 53.86,
+          "global_end": 53.96
+        }
+      ],
+      "display_end": 53.86
+    },
+    {
+      "chunk_index": 67,
+      "turn_index": 17,
+      "speaker": "stewie",
+      "start": 53.86,
+      "end": 54.74,
+      "words": [
+        {
+          "text": "the",
+          "local_start": 0.56,
+          "local_end": 0.72,
+          "global_start": 53.86,
+          "global_end": 54.02
+        },
+        {
+          "text": "second",
+          "local_start": 0.72,
+          "local_end": 1.04,
+          "global_start": 54.02,
+          "global_end": 54.34
+        },
+        {
+          "text": "option",
+          "local_start": 1.04,
+          "local_end": 1.44,
+          "global_start": 54.34,
+          "global_end": 54.74
+        }
+      ],
+      "display_end": 54.9
+    },
+    {
+      "chunk_index": 68,
+      "turn_index": 17,
+      "speaker": "stewie",
+      "start": 54.9,
+      "end": 55.54,
+      "words": [
+        {
+          "text": "and",
+          "local_start": 1.6,
+          "local_end": 1.7,
+          "global_start": 54.9,
+          "global_end": 55.0
+        },
+        {
+          "text": "then",
+          "local_start": 1.68,
+          "local_end": 1.84,
+          "global_start": 54.98,
+          "global_end": 55.14
+        },
+        {
+          "text": "select",
+          "local_start": 1.84,
+          "local_end": 2.24,
+          "global_start": 55.14,
+          "global_end": 55.54
+        }
+      ],
+      "display_end": 55.54
+    },
+    {
+      "chunk_index": 69,
+      "turn_index": 17,
+      "speaker": "stewie",
+      "start": 55.54,
+      "end": 56.26,
+      "words": [
+        {
+          "text": "the",
+          "local_start": 2.24,
+          "local_end": 2.34,
+          "global_start": 55.54,
+          "global_end": 55.64
+        },
+        {
+          "text": "Standby",
+          "local_start": 2.24,
+          "local_end": 2.8,
+          "global_start": 55.54,
+          "global_end": 56.1
+        },
+        {
+          "text": "List",
+          "local_start": 2.8,
+          "local_end": 2.96,
+          "global_start": 56.1,
+          "global_end": 56.26
+        }
+      ],
+      "display_end": 56.26
+    },
+    {
+      "chunk_index": 70,
+      "turn_index": 17,
+      "speaker": "stewie",
+      "start": 56.26,
+      "end": 56.74,
+      "words": [
+        {
+          "text": "option.",
+          "local_start": 2.96,
+          "local_end": 3.44,
+          "global_start": 56.26,
+          "global_end": 56.74
+        }
+      ],
+      "display_end": 56.84
+    },
+    {
+      "chunk_index": 71,
+      "turn_index": 18,
+      "speaker": "peter",
+      "start": 56.84,
+      "end": 57.26,
+      "words": [
+        {
+          "text": "What's",
+          "local_start": 0.0,
+          "local_end": 0.24,
+          "global_start": 56.84,
+          "global_end": 57.08
+        },
+        {
+          "text": "on",
+          "local_start": 0.24,
+          "local_end": 0.34,
+          "global_start": 57.08,
+          "global_end": 57.18
+        },
+        {
+          "text": "the",
+          "local_start": 0.32,
+          "local_end": 0.42,
+          "global_start": 57.16,
+          "global_end": 57.26
+        }
+      ],
+      "display_end": 57.24
+    },
+    {
+      "chunk_index": 72,
+      "turn_index": 18,
+      "speaker": "peter",
+      "start": 57.24,
+      "end": 58.12,
+      "words": [
+        {
+          "text": "Standby",
+          "local_start": 0.4,
+          "local_end": 0.96,
+          "global_start": 57.24,
+          "global_end": 57.8
+        },
+        {
+          "text": "List?",
+          "local_start": 0.96,
+          "local_end": 1.28,
+          "global_start": 57.8,
+          "global_end": 58.12
+        }
+      ],
+      "display_end": 58.22
+    },
+    {
+      "chunk_index": 73,
+      "turn_index": 19,
+      "speaker": "stewie",
+      "start": 58.22,
+      "end": 59.02,
+      "words": [
+        {
+          "text": "Those",
+          "local_start": 0.0,
+          "local_end": 0.24,
+          "global_start": 58.22,
+          "global_end": 58.46
+        },
+        {
+          "text": "are",
+          "local_start": 0.24,
+          "local_end": 0.34,
+          "global_start": 58.46,
+          "global_end": 58.56
+        },
+        {
+          "text": "programs",
+          "local_start": 0.32,
+          "local_end": 0.8,
+          "global_start": 58.54,
+          "global_end": 59.02
+        }
+      ],
+      "display_end": 59.02
+    },
+    {
+      "chunk_index": 74,
+      "turn_index": 19,
+      "speaker": "stewie",
+      "start": 59.02,
+      "end": 59.98,
+      "words": [
+        {
+          "text": "you've",
+          "local_start": 0.8,
+          "local_end": 0.96,
+          "global_start": 59.02,
+          "global_end": 59.18
+        },
+        {
+          "text": "already",
+          "local_start": 0.96,
+          "local_end": 1.28,
+          "global_start": 59.18,
+          "global_end": 59.5
+        },
+        {
+          "text": "closed",
+          "local_start": 1.28,
+          "local_end": 1.76,
+          "global_start": 59.5,
+          "global_end": 59.98
+        }
+      ],
+      "display_end": 60.14
+    },
+    {
+      "chunk_index": 75,
+      "turn_index": 19,
+      "speaker": "stewie",
+      "start": 60.14,
+      "end": 60.62,
+      "words": [
+        {
+          "text": "but",
+          "local_start": 1.92,
+          "local_end": 2.02,
+          "global_start": 60.14,
+          "global_end": 60.24
+        },
+        {
+          "text": "are",
+          "local_start": 2.0,
+          "local_end": 2.16,
+          "global_start": 60.22,
+          "global_end": 60.38
+        },
+        {
+          "text": "still",
+          "local_start": 2.16,
+          "local_end": 2.4,
+          "global_start": 60.38,
+          "global_end": 60.62
+        }
+      ],
+      "display_end": 60.62
+    },
+    {
+      "chunk_index": 76,
+      "turn_index": 19,
+      "speaker": "stewie",
+      "start": 60.62,
+      "end": 61.5,
+      "words": [
+        {
+          "text": "eating",
+          "local_start": 2.4,
+          "local_end": 2.64,
+          "global_start": 60.62,
+          "global_end": 60.86
+        },
+        {
+          "text": "up",
+          "local_start": 2.64,
+          "local_end": 2.74,
+          "global_start": 60.86,
+          "global_end": 60.96
+        },
+        {
+          "text": "memory.",
+          "local_start": 2.72,
+          "local_end": 3.28,
+          "global_start": 60.94,
+          "global_end": 61.5
+        }
+      ],
+      "display_end": 61.6
+    },
+    {
+      "chunk_index": 77,
+      "turn_index": 20,
+      "speaker": "peter",
+      "start": 61.6,
+      "end": 61.94,
+      "words": [
+        {
+          "text": "And",
+          "local_start": 0.0,
+          "local_end": 0.16,
+          "global_start": 61.6,
+          "global_end": 61.76
+        },
+        {
+          "text": "look",
+          "local_start": 0.16,
+          "local_end": 0.26,
+          "global_start": 61.76,
+          "global_end": 61.86
+        },
+        {
+          "text": "at",
+          "local_start": 0.24,
+          "local_end": 0.34,
+          "global_start": 61.84,
+          "global_end": 61.94
+        }
+      ],
+      "display_end": 61.92
+    },
+    {
+      "chunk_index": 78,
+      "turn_index": 20,
+      "speaker": "peter",
+      "start": 61.92,
+      "end": 63.2,
+      "words": [
+        {
+          "text": "that.",
+          "local_start": 0.32,
+          "local_end": 0.56,
+          "global_start": 61.92,
+          "global_end": 62.16
+        },
+        {
+          "text": "Over",
+          "local_start": 0.96,
+          "local_end": 1.2,
+          "global_start": 62.56,
+          "global_end": 62.8
+        },
+        {
+          "text": "10",
+          "local_start": 1.2,
+          "local_end": 1.6,
+          "global_start": 62.8,
+          "global_end": 63.2
+        }
+      ],
+      "display_end": 63.2
+    },
+    {
+      "chunk_index": 79,
+      "turn_index": 20,
+      "speaker": "peter",
+      "start": 63.2,
+      "end": 64.0,
+      "words": [
+        {
+          "text": "gigs",
+          "local_start": 1.6,
+          "local_end": 1.84,
+          "global_start": 63.2,
+          "global_end": 63.44
+        },
+        {
+          "text": "are",
+          "local_start": 1.84,
+          "local_end": 1.94,
+          "global_start": 63.44,
+          "global_end": 63.54
+        },
+        {
+          "text": "available",
+          "local_start": 1.92,
+          "local_end": 2.4,
+          "global_start": 63.52,
+          "global_end": 64.0
+        }
+      ],
+      "display_end": 64.0
+    },
+    {
+      "chunk_index": 80,
+      "turn_index": 20,
+      "speaker": "peter",
+      "start": 64.0,
+      "end": 64.24,
+      "words": [
+        {
+          "text": "now.",
+          "local_start": 2.4,
+          "local_end": 2.64,
+          "global_start": 64.0,
+          "global_end": 64.24
+        }
+      ],
+      "display_end": 64.34
+    },
+    {
+      "chunk_index": 81,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 64.34,
+      "end": 65.62,
+      "words": [
+        {
+          "text": "Exactly.",
+          "local_start": 0.0,
+          "local_end": 0.64,
+          "global_start": 64.34,
+          "global_end": 64.98
+        },
+        {
+          "text": "That's",
+          "local_start": 0.8,
+          "local_end": 1.04,
+          "global_start": 65.14,
+          "global_end": 65.38
+        },
+        {
+          "text": "over",
+          "local_start": 1.04,
+          "local_end": 1.28,
+          "global_start": 65.38,
+          "global_end": 65.62
+        }
+      ],
+      "display_end": 65.62
+    },
+    {
+      "chunk_index": 82,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 65.62,
+      "end": 66.34,
+      "words": [
+        {
+          "text": "10",
+          "local_start": 1.28,
+          "local_end": 1.6,
+          "global_start": 65.62,
+          "global_end": 65.94
+        },
+        {
+          "text": "gigs",
+          "local_start": 1.6,
+          "local_end": 1.84,
+          "global_start": 65.94,
+          "global_end": 66.18
+        },
+        {
+          "text": "you",
+          "local_start": 1.84,
+          "local_end": 2.0,
+          "global_start": 66.18,
+          "global_end": 66.34
+        }
+      ],
+      "display_end": 66.34
+    },
+    {
+      "chunk_index": 83,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 66.34,
+      "end": 66.76,
+      "words": [
+        {
+          "text": "can",
+          "local_start": 2.0,
+          "local_end": 2.1,
+          "global_start": 66.34,
+          "global_end": 66.44
+        },
+        {
+          "text": "now",
+          "local_start": 2.08,
+          "local_end": 2.32,
+          "global_start": 66.42,
+          "global_end": 66.66
+        },
+        {
+          "text": "have",
+          "local_start": 2.32,
+          "local_end": 2.42,
+          "global_start": 66.66,
+          "global_end": 66.76
+        }
+      ],
+      "display_end": 66.74
+    },
+    {
+      "chunk_index": 84,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 66.74,
+      "end": 67.46,
+      "words": [
+        {
+          "text": "available",
+          "local_start": 2.4,
+          "local_end": 2.88,
+          "global_start": 66.74,
+          "global_end": 67.22
+        },
+        {
+          "text": "to",
+          "local_start": 2.88,
+          "local_end": 2.98,
+          "global_start": 67.22,
+          "global_end": 67.32
+        },
+        {
+          "text": "play",
+          "local_start": 2.96,
+          "local_end": 3.12,
+          "global_start": 67.3,
+          "global_end": 67.46
+        }
+      ],
+      "display_end": 67.46
+    },
+    {
+      "chunk_index": 85,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 67.46,
+      "end": 68.42,
+      "words": [
+        {
+          "text": "your",
+          "local_start": 3.12,
+          "local_end": 3.28,
+          "global_start": 67.46,
+          "global_end": 67.62
+        },
+        {
+          "text": "games",
+          "local_start": 3.28,
+          "local_end": 3.52,
+          "global_start": 67.62,
+          "global_end": 67.86
+        },
+        {
+          "text": "smoothly",
+          "local_start": 3.52,
+          "local_end": 4.08,
+          "global_start": 67.86,
+          "global_end": 68.42
+        }
+      ],
+      "display_end": 68.5
+    },
+    {
+      "chunk_index": 86,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 68.5,
+      "end": 69.06,
+      "words": [
+        {
+          "text": "or",
+          "local_start": 4.16,
+          "local_end": 4.32,
+          "global_start": 68.5,
+          "global_end": 68.66
+        },
+        {
+          "text": "run",
+          "local_start": 4.32,
+          "local_end": 4.48,
+          "global_start": 68.66,
+          "global_end": 68.82
+        },
+        {
+          "text": "any",
+          "local_start": 4.48,
+          "local_end": 4.72,
+          "global_start": 68.82,
+          "global_end": 69.06
+        }
+      ],
+      "display_end": 69.06
+    },
+    {
+      "chunk_index": 87,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 69.06,
+      "end": 69.86,
+      "words": [
+        {
+          "text": "other",
+          "local_start": 4.72,
+          "local_end": 4.88,
+          "global_start": 69.06,
+          "global_end": 69.22
+        },
+        {
+          "text": "heavy",
+          "local_start": 4.88,
+          "local_end": 5.12,
+          "global_start": 69.22,
+          "global_end": 69.46
+        },
+        {
+          "text": "task",
+          "local_start": 5.12,
+          "local_end": 5.52,
+          "global_start": 69.46,
+          "global_end": 69.86
+        }
+      ],
+      "display_end": 69.86
+    },
+    {
+      "chunk_index": 88,
+      "turn_index": 21,
+      "speaker": "stewie",
+      "start": 69.86,
+      "end": 70.66,
+      "words": [
+        {
+          "text": "on",
+          "local_start": 5.52,
+          "local_end": 5.62,
+          "global_start": 69.86,
+          "global_end": 69.96
+        },
+        {
+          "text": "your",
+          "local_start": 5.6,
+          "local_end": 5.76,
+          "global_start": 69.94,
+          "global_end": 70.1
+        },
+        {
+          "text": "PC.",
+          "local_start": 5.76,
+          "local_end": 6.32,
+          "global_start": 70.1,
+          "global_end": 70.66
+        }
+      ],
+      "display_end": 70.76
+    },
+    {
+      "chunk_index": 89,
+      "turn_index": 22,
+      "speaker": "peter",
+      "start": 70.84,
+      "end": 71.34,
+      "words": [
+        {
+          "text": "Okay,",
+          "local_start": 0.08,
+          "local_end": 0.24,
+          "global_start": 70.84,
+          "global_end": 71.0
+        },
+        {
+          "text": "now",
+          "local_start": 0.24,
+          "local_end": 0.48,
+          "global_start": 71.0,
+          "global_end": 71.24
+        },
+        {
+          "text": "I",
+          "local_start": 0.48,
+          "local_end": 0.58,
+          "global_start": 71.24,
+          "global_end": 71.34
+        }
+      ],
+      "display_end": 71.32
+    },
+    {
+      "chunk_index": 90,
+      "turn_index": 22,
+      "speaker": "peter",
+      "start": 71.32,
+      "end": 71.88,
+      "words": [
+        {
+          "text": "want",
+          "local_start": 0.56,
+          "local_end": 0.8,
+          "global_start": 71.32,
+          "global_end": 71.56
+        },
+        {
+          "text": "the",
+          "local_start": 0.8,
+          "local_end": 0.9,
+          "global_start": 71.56,
+          "global_end": 71.66
+        },
+        {
+          "text": "whole",
+          "local_start": 0.88,
+          "local_end": 1.12,
+          "global_start": 71.64,
+          "global_end": 71.88
+        }
+      ],
+      "display_end": 71.88
+    },
+    {
+      "chunk_index": 91,
+      "turn_index": 22,
+      "speaker": "peter",
+      "start": 71.88,
+      "end": 73.08,
+      "words": [
+        {
+          "text": "PC",
+          "local_start": 1.12,
+          "local_end": 1.6,
+          "global_start": 71.88,
+          "global_end": 72.36
+        },
+        {
+          "text": "optimized.",
+          "local_start": 1.6,
+          "local_end": 2.32,
+          "global_start": 72.36,
+          "global_end": 73.08
+        }
+      ],
+      "display_end": 73.18
+    },
+    {
+      "chunk_index": 92,
+      "turn_index": 23,
+      "speaker": "stewie",
+      "start": 73.34,
+      "end": 73.82,
+      "words": [
+        {
+          "text": "I",
+          "local_start": 0.16,
+          "local_end": 0.26,
+          "global_start": 73.34,
+          "global_end": 73.44
+        },
+        {
+          "text": "should",
+          "local_start": 0.24,
+          "local_end": 0.4,
+          "global_start": 73.42,
+          "global_end": 73.58
+        },
+        {
+          "text": "fully",
+          "local_start": 0.4,
+          "local_end": 0.64,
+          "global_start": 73.58,
+          "global_end": 73.82
+        }
+      ],
+      "display_end": 73.82
+    },
+    {
+      "chunk_index": 93,
+      "turn_index": 23,
+      "speaker": "stewie",
+      "start": 73.82,
+      "end": 75.02,
+      "words": [
+        {
+          "text": "optimize",
+          "local_start": 0.64,
+          "local_end": 1.12,
+          "global_start": 73.82,
+          "global_end": 74.3
+        },
+        {
+          "text": "your",
+          "local_start": 1.12,
+          "local_end": 1.28,
+          "global_start": 74.3,
+          "global_end": 74.46
+        },
+        {
+          "text": "PC,",
+          "local_start": 1.28,
+          "local_end": 1.84,
+          "global_start": 74.46,
+          "global_end": 75.02
+        }
+      ],
+      "display_end": 75.18
+    },
+    {
+      "chunk_index": 94,
+      "turn_index": 23,
+      "speaker": "stewie",
+      "start": 75.18,
+      "end": 76.3,
+      "words": [
+        {
+          "text": "Windows,",
+          "local_start": 2.0,
+          "local_end": 2.56,
+          "global_start": 75.18,
+          "global_end": 75.74
+        },
+        {
+          "text": "BIOS,",
+          "local_start": 2.64,
+          "local_end": 3.12,
+          "global_start": 75.82,
+          "global_end": 76.3
+        }
+      ],
+      "display_end": 76.3
+    },
+    {
+      "chunk_index": 95,
+      "turn_index": 23,
+      "speaker": "stewie",
+      "start": 76.3,
+      "end": 76.94,
+      "words": [
+        {
+          "text": "and",
+          "local_start": 3.12,
+          "local_end": 3.28,
+          "global_start": 76.3,
+          "global_end": 76.46
+        },
+        {
+          "text": "games.",
+          "local_start": 3.28,
+          "local_end": 3.76,
+          "global_start": 76.46,
+          "global_end": 76.94
+        }
+      ],
+      "display_end": 77.1
+    },
+    {
+      "chunk_index": 96,
+      "turn_index": 23,
+      "speaker": "stewie",
+      "start": 77.1,
+      "end": 77.74,
+      "words": [
+        {
+          "text": "Do",
+          "local_start": 3.92,
+          "local_end": 4.08,
+          "global_start": 77.1,
+          "global_end": 77.26
+        },
+        {
+          "text": "follow.",
+          "local_start": 4.08,
+          "local_end": 4.56,
+          "global_start": 77.26,
+          "global_end": 77.74
+        }
+      ],
+      "display_end": 77.83
+    }
+  ]
+}

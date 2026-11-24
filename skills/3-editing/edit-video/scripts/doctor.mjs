@@ -9,7 +9,7 @@ import { commandStatus } from "../lib/process.mjs";
 const args = parseArgs(process.argv.slice(2));
 const workspace = path.resolve(typeof args.workspace === "string" ? args.workspace : process.cwd());
 const runtime = path.join(studioPath(workspace), "runtime");
-const hyperframesBinary = path.join(runtime, "node_modules", ".bin", "hyperframes");
+const hyperframesBinary = path.join(runtime, "node_modules", ".bin", process.platform === "win32" ? "hyperframes.cmd" : "hyperframes");
 const hyperframesInstalled = await pathExists(hyperframesBinary);
 const hyperframesStatus = hyperframesInstalled ? commandStatus(hyperframesBinary, ["--version"], { timeout: 20_000 }) : null;
 const gsapFile = path.join(runtime, "node_modules", "gsap", "dist", "gsap.min.js");
@@ -19,8 +19,9 @@ const [favstashMajor = 0, favstashMinor = 0] = (favstashVersion ?? "").split("."
 
 const nodeMajor = Number(process.versions.node.split(".")[0]);
 // Optional: the paper-grid and breakout-card builders and the duplicate check run on Python.
-const python = commandStatus("python3", ["--version"]);
-const pythonModule = (module) => python.available && commandStatus("python3", ["-c", `import ${module}`]).available;
+const pythonCmd = commandStatus("python3", ["--version"]).available ? "python3" : (commandStatus("python", ["--version"]).available ? "python" : "python3");
+const python = commandStatus(pythonCmd, ["--version"]);
+const pythonModule = (module) => python.available && commandStatus(pythonCmd, ["-c", `import ${module}`]).available;
 const checks = {
   node: {
     available: nodeMajor >= 22,

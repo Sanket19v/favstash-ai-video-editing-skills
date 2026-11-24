@@ -1,0 +1,704 @@
+[
+  {
+    "second": 0,
+    "speaker": "peter",
+    "line": "Stewie, my PC is running slow, my FPS isn't great...",
+    "graphic": "sec00_pc_slow_alert",
+    "stepNumber": 0,
+    "title": "PC Running Extremely Slow",
+    "breadcrumb": "System Stuttering & Lag Detected"
+  },
+  {
+    "second": 1,
+    "speaker": "peter",
+    "line": "Stewie, my PC is running slow, my FPS isn't great...",
+    "graphic": "sec01_low_fps_counter",
+    "stepNumber": 0,
+    "title": "Game FPS Dropping to 22 FPS",
+    "breadcrumb": "Massive Frame Drops & Stutters"
+  },
+  {
+    "second": 2,
+    "speaker": "peter",
+    "line": "Stewie, my PC is running slow, my FPS isn't great...",
+    "graphic": "sec02_ram_usage_94_percent",
+    "stepNumber": 0,
+    "title": "RAM Usage: 94% CRITICAL",
+    "breadcrumb": "15.1 GB of 16 GB Consumed"
+  },
+  {
+    "second": 3,
+    "speaker": "peter",
+    "line": "...and my RAM usage is insanely high even when I barely have anything open.",
+    "graphic": "sec03_task_mgr_memory_red",
+    "stepNumber": 0,
+    "title": "Task Manager: Memory Redlined",
+    "breadcrumb": "Mystery Cache Eating RAM"
+  },
+  {
+    "second": 4,
+    "speaker": "peter",
+    "line": "...and my RAM usage is insanely high even when I barely have anything open.",
+    "graphic": "sec04_idle_desktop_leak",
+    "stepNumber": 0,
+    "title": "Desktop Completely Idle",
+    "breadcrumb": "No Heavy Apps Open!"
+  },
+  {
+    "second": 5,
+    "speaker": "peter",
+    "line": "...and my RAM usage is insanely high even when I barely have anything open.",
+    "graphic": "sec05_barely_anything_open",
+    "stepNumber": 0,
+    "title": "Where Did The RAM Go?",
+    "breadcrumb": "Standby Cache Leak Suspected"
+  },
+  {
+    "second": 6,
+    "speaker": "peter",
+    "line": "...and my RAM usage is insanely high even when I barely have anything open.",
+    "graphic": "sec06_system_bottleneck",
+    "stepNumber": 0,
+    "title": "System Memory Bottleneck",
+    "breadcrumb": "Windows Caching Everything"
+  },
+  {
+    "second": 7,
+    "speaker": "peter",
+    "line": "...and my RAM usage is insanely high even when I barely have anything open.",
+    "graphic": "sec07_peter_seeking_solution",
+    "stepNumber": 0,
+    "title": "How Do We Fix This?",
+    "breadcrumb": "Asking Stewie For Solution"
+  },
+  {
+    "second": 8,
+    "speaker": "stewie",
+    "line": "And RAM isn't exactly cheap, right?",
+    "graphic": "sec08_ram_expensive_price",
+    "stepNumber": 0,
+    "title": "RAM Isn't Cheap To Upgrade",
+    "breadcrumb": "Don't Waste Money Buying More"
+  },
+  {
+    "second": 9,
+    "speaker": "stewie",
+    "line": "And RAM isn't exactly cheap, right? This can help you find out...",
+    "graphic": "sec09_memory_detective_radar",
+    "stepNumber": 0,
+    "title": "Find What's Eating Your RAM",
+    "breadcrumb": "Unmasking Hidden System Cache"
+  },
+  {
+    "second": 10,
+    "speaker": "stewie",
+    "line": "This can help you find out what's eating all that memory.",
+    "graphic": "sec10_sysinternals_tool_teaser",
+    "stepNumber": 0,
+    "title": "The Official Memory Tool",
+    "breadcrumb": "Advanced RAM Diagnostic"
+  },
+  {
+    "second": 11,
+    "speaker": "stewie",
+    "line": "This can help you find out what's eating all that memory.",
+    "graphic": "sec11_free_solution_reveal",
+    "stepNumber": 0,
+    "title": "Free Microsoft Utility",
+    "breadcrumb": "Zero Cost \u2022 Instant Results"
+  },
+  {
+    "second": 12,
+    "speaker": "stewie",
+    "line": "This can help you find out what's eating all that memory.",
+    "graphic": "sec12_transition_to_steps",
+    "stepNumber": 0,
+    "title": "Ready To Free Up Gigs?",
+    "breadcrumb": "Let's Get The Tool"
+  },
+  {
+    "second": 13,
+    "speaker": "peter",
+    "line": "Okay, what do I need?",
+    "graphic": "sec13_what_do_i_need",
+    "stepNumber": 0,
+    "title": "What Do I Need?",
+    "breadcrumb": "Simple 1-Minute Walkthrough"
+  },
+  {
+    "second": 14,
+    "speaker": "stewie",
+    "line": "Just type RAMMap and go to the first site.",
+    "graphic": "sec14_google_search_rammap",
+    "stepNumber": 1,
+    "title": "Step 1: Search \"RAMMap\"",
+    "breadcrumb": "Type RAMMap in Google or Bing"
+  },
+  {
+    "second": 15,
+    "speaker": "stewie",
+    "line": "Just type RAMMap and go to the first site.",
+    "graphic": "sec15_first_search_result",
+    "stepNumber": 1,
+    "title": "Top Result: Microsoft Learn",
+    "breadcrumb": "learn.microsoft.com \u203a sysinternals"
+  },
+  {
+    "second": 16,
+    "speaker": "stewie",
+    "line": "Just type RAMMap and go to the first site.",
+    "graphic": "sec16_click_first_link",
+    "stepNumber": 1,
+    "title": "Click The First Official Link",
+    "breadcrumb": "Official Microsoft Sysinternals"
+  },
+  {
+    "second": 17,
+    "speaker": "peter",
+    "line": "But before someone in the comments says it's a virus...",
+    "graphic": "sec17_comments_virus_concern",
+    "stepNumber": 0,
+    "title": "\"Is This A Virus?!\"",
+    "breadcrumb": "Addressing Common Comments"
+  },
+  {
+    "second": 18,
+    "speaker": "peter",
+    "line": "...is this actually safe?",
+    "graphic": "sec18_safety_security_check",
+    "stepNumber": 0,
+    "title": "Is This Actually Safe?",
+    "breadcrumb": "Zero Malware \u2022 100% Safe"
+  },
+  {
+    "second": 19,
+    "speaker": "peter",
+    "line": "...is this actually safe?",
+    "graphic": "sec19_virus_scanner_shield",
+    "stepNumber": 0,
+    "title": "Legitimate System Utility?",
+    "breadcrumb": "Verifying The Publisher"
+  },
+  {
+    "second": 20,
+    "speaker": "stewie",
+    "line": "It's a Microsoft site, okay?",
+    "graphic": "sec20_microsoft_official_shield",
+    "stepNumber": 0,
+    "title": "100% Official Microsoft Site",
+    "breadcrumb": "Published by Microsoft Sysinternals"
+  },
+  {
+    "second": 21,
+    "speaker": "stewie",
+    "line": "It's a Microsoft site, okay?",
+    "graphic": "sec21_microsoft_learn_verified",
+    "stepNumber": 0,
+    "title": "learn.microsoft.com Verified",
+    "breadcrumb": "Mark Russinovich (Microsoft CTO)"
+  },
+  {
+    "second": 22,
+    "speaker": "peter",
+    "line": "Alright, what do I click?",
+    "graphic": "sec22_page_download_section",
+    "stepNumber": 2,
+    "title": "Step 2: Download Option",
+    "breadcrumb": "Scroll To Download Button"
+  },
+  {
+    "second": 23,
+    "speaker": "peter",
+    "line": "Alright, what do I click?",
+    "graphic": "sec23_cursor_hover_download",
+    "stepNumber": 2,
+    "title": "Target: Download RAMMap",
+    "breadcrumb": "Compact 671 KB Utility"
+  },
+  {
+    "second": 24,
+    "speaker": "stewie",
+    "line": "Click this option, then choose where you want to download it.",
+    "graphic": "sec24_click_download_button",
+    "stepNumber": 2,
+    "title": "Click \"Download RAMMap\"",
+    "breadcrumb": "Instant Zip Download"
+  },
+  {
+    "second": 25,
+    "speaker": "stewie",
+    "line": "then choose where you want to download it.",
+    "graphic": "sec25_choose_download_location",
+    "stepNumber": 2,
+    "title": "Choose Download Folder",
+    "breadcrumb": "Saved To Downloads or Desktop"
+  },
+  {
+    "second": 26,
+    "speaker": "peter",
+    "line": "And here's the file. Now what?",
+    "graphic": "sec26_rammap_zip_downloaded",
+    "stepNumber": 3,
+    "title": "Step 3: Download Complete",
+    "breadcrumb": "File: RAMMap.zip (671 KB)"
+  },
+  {
+    "second": 27,
+    "speaker": "peter",
+    "line": "And here's the file. Now what?",
+    "graphic": "sec27_unzip_rammap64",
+    "stepNumber": 3,
+    "title": "Extracting RAMMap64.exe",
+    "breadcrumb": "Ready To Run"
+  },
+  {
+    "second": 28,
+    "speaker": "stewie",
+    "line": "Click it and run it as administrator.",
+    "graphic": "sec28_right_click_context_menu",
+    "stepNumber": 3,
+    "title": "Right Click \u203a Run as Admin",
+    "breadcrumb": "Administrator Privileges Required"
+  },
+  {
+    "second": 29,
+    "speaker": "stewie",
+    "line": "Click it and run it as administrator.",
+    "graphic": "sec29_click_run_as_admin",
+    "stepNumber": 3,
+    "title": "Run as Administrator",
+    "breadcrumb": "Allows Direct Memory Management"
+  },
+  {
+    "second": 30,
+    "speaker": "stewie",
+    "line": "Then just wait a few seconds...",
+    "graphic": "sec30_uac_approved_loading",
+    "stepNumber": 3,
+    "title": "UAC Prompt Approved",
+    "breadcrumb": "Windows Security Approved"
+  },
+  {
+    "second": 31,
+    "speaker": "stewie",
+    "line": "...for it to load all the memory processes.",
+    "graphic": "sec31_loading_memory_processes",
+    "stepNumber": 3,
+    "title": "Loading Memory Processes...",
+    "breadcrumb": "Analyzing Physical RAM Allocation"
+  },
+  {
+    "second": 32,
+    "speaker": "stewie",
+    "line": "...load all the memory processes.",
+    "graphic": "sec32_rammap_window_opened",
+    "stepNumber": 3,
+    "title": "RAMMap Successfully Opened",
+    "breadcrumb": "Deep Memory Telemetry Active"
+  },
+  {
+    "second": 33,
+    "speaker": "peter",
+    "line": "So I can actually see what's happening in real time?",
+    "graphic": "sec33_real_time_dashboard",
+    "stepNumber": 0,
+    "title": "Real-Time Memory Telemetry",
+    "breadcrumb": "Live Physical Memory Visualizer"
+  },
+  {
+    "second": 34,
+    "speaker": "peter",
+    "line": "So I can actually see what's happening in real time?",
+    "graphic": "sec34_use_counts_table",
+    "stepNumber": 0,
+    "title": "\"Use Counts\" Live Table",
+    "breadcrumb": "Process Private, Standby, Modified"
+  },
+  {
+    "second": 35,
+    "speaker": "peter",
+    "line": "So I can actually see what's happening in real time?",
+    "graphic": "sec35_live_tracking_active",
+    "stepNumber": 0,
+    "title": "Instant Live Updates",
+    "breadcrumb": "Every Single Kilobyte Accounted For"
+  },
+  {
+    "second": 36,
+    "speaker": "stewie",
+    "line": "Exactly. You can see how your memory is being used in real time.",
+    "graphic": "sec36_physical_memory_breakdown",
+    "stepNumber": 0,
+    "title": "Total Physical Memory: 16 GB",
+    "breadcrumb": "Active vs Standby vs Free"
+  },
+  {
+    "second": 37,
+    "speaker": "stewie",
+    "line": "You can see how your memory is being used in real time.",
+    "graphic": "sec37_active_memory_highlight",
+    "stepNumber": 0,
+    "title": "Active Working Sets",
+    "breadcrumb": "Current Programs in RAM"
+  },
+  {
+    "second": 38,
+    "speaker": "stewie",
+    "line": "Here, 45% of the memory is being used.",
+    "graphic": "sec38_memory_meter_45_percent",
+    "stepNumber": 0,
+    "title": "Current Usage: 45% / 7.2 GB",
+    "breadcrumb": "Remainder Locked in Standby Cache"
+  },
+  {
+    "second": 39,
+    "speaker": "stewie",
+    "line": "Here, 45% of the memory is being used.",
+    "graphic": "sec39_standby_cache_leak_meter",
+    "stepNumber": 0,
+    "title": "Standby Cache: 8.8 GB Locked!",
+    "breadcrumb": "Windows Refuses To Release It"
+  },
+  {
+    "second": 40,
+    "speaker": "stewie",
+    "line": "Here, 45% of the memory is being used.",
+    "graphic": "sec40_why_pc_slow_explained",
+    "stepNumber": 0,
+    "title": "Why Games Lag & Stutter",
+    "breadcrumb": "No Free Memory Left For New Frames"
+  },
+  {
+    "second": 41,
+    "speaker": "stewie",
+    "line": "Here, 45% of the memory is being used.",
+    "graphic": "sec41_ready_to_empty",
+    "stepNumber": 0,
+    "title": "Time To Flush The Waste",
+    "breadcrumb": "Two Quick Clicks To Fix"
+  },
+  {
+    "second": 42,
+    "speaker": "stewie",
+    "line": "Here, 45% of the memory is being used.",
+    "graphic": "sec42_transition_to_empty_menu",
+    "stepNumber": 0,
+    "title": "Look At The Top Menu Bar",
+    "breadcrumb": "Find The \"Empty\" Dropdown"
+  },
+  {
+    "second": 43,
+    "speaker": "peter",
+    "line": "Okay, where do I go next?",
+    "graphic": "sec43_where_do_i_go_next",
+    "stepNumber": 4,
+    "title": "Step 4: Locate \"Empty\" Menu",
+    "breadcrumb": "File \u2022 Empty \u2022 Configure \u2022 Help"
+  },
+  {
+    "second": 44,
+    "speaker": "peter",
+    "line": "Okay, where do I go next?",
+    "graphic": "sec44_focus_empty_menu",
+    "stepNumber": 4,
+    "title": "Focus On Second Option: \"Empty\"",
+    "breadcrumb": "Top Navigation Menu"
+  },
+  {
+    "second": 45,
+    "speaker": "stewie",
+    "line": "Come to this second option...",
+    "graphic": "sec45_click_empty_menu_open",
+    "stepNumber": 4,
+    "title": "Click The \"Empty\" Menu",
+    "breadcrumb": "Dropdown List Opens"
+  },
+  {
+    "second": 46,
+    "speaker": "stewie",
+    "line": "...click the first one, Working Sets.",
+    "graphic": "sec46_highlight_empty_working_sets",
+    "stepNumber": 4,
+    "title": "Select \"Empty Working Sets\"",
+    "breadcrumb": "First Option In The List"
+  },
+  {
+    "second": 47,
+    "speaker": "stewie",
+    "line": "...click the first one, Working Sets.",
+    "graphic": "sec47_click_empty_working_sets",
+    "stepNumber": 4,
+    "title": "Click \"Empty Working Sets\" Now",
+    "breadcrumb": "Flushing Bloated Working Sets"
+  },
+  {
+    "second": 48,
+    "speaker": "peter",
+    "line": "And it's already going down.",
+    "graphic": "sec48_memory_meter_plunging",
+    "stepNumber": 4,
+    "title": "Memory Usage Plunging!",
+    "breadcrumb": "Instant Drop Detected"
+  },
+  {
+    "second": 49,
+    "speaker": "stewie",
+    "line": "Yep. You can already see the memory usage lowering.",
+    "graphic": "sec49_usage_down_to_32_percent",
+    "stepNumber": 4,
+    "title": "RAM Usage Drops to 32%",
+    "breadcrumb": "Working Sets Flushed To Disk/Clean"
+  },
+  {
+    "second": 50,
+    "speaker": "stewie",
+    "line": "You can already see the memory usage lowering.",
+    "graphic": "sec50_instant_responsiveness",
+    "stepNumber": 4,
+    "title": "PC Immediately Feels Snappier",
+    "breadcrumb": "Free RAM Buffer Restored"
+  },
+  {
+    "second": 51,
+    "speaker": "stewie",
+    "line": "You can already see the memory usage lowering.",
+    "graphic": "sec51_but_wait_theres_more",
+    "stepNumber": 4,
+    "title": "Wait... We Aren't Done Yet!",
+    "breadcrumb": "The Biggest Culprit Remains"
+  },
+  {
+    "second": 52,
+    "speaker": "peter",
+    "line": "Can we free up even more?",
+    "graphic": "sec52_can_we_free_even_more",
+    "stepNumber": 5,
+    "title": "Can We Free Up Even More?",
+    "breadcrumb": "Peter Wants Maximum FPS"
+  },
+  {
+    "second": 53,
+    "speaker": "peter",
+    "line": "Can we free up even more?",
+    "graphic": "sec53_turbo_optimization_icon",
+    "stepNumber": 5,
+    "title": "Target: 10+ GB Free Memory",
+    "breadcrumb": "Clearing The Standby Cache"
+  },
+  {
+    "second": 54,
+    "speaker": "stewie",
+    "line": "Go back to the second option...",
+    "graphic": "sec54_reopen_empty_menu",
+    "stepNumber": 5,
+    "title": "Step 5: Re-Open \"Empty\" Menu",
+    "breadcrumb": "Click \"Empty\" At The Top"
+  },
+  {
+    "second": 55,
+    "speaker": "stewie",
+    "line": "...and then select the Standby List option.",
+    "graphic": "sec55_highlight_empty_standby_list",
+    "stepNumber": 5,
+    "title": "Highlight \"Empty Standby List\"",
+    "breadcrumb": "Clears Ghost Standby Cache"
+  },
+  {
+    "second": 56,
+    "speaker": "stewie",
+    "line": "...select the Standby List option.",
+    "graphic": "sec56_click_empty_standby_list",
+    "stepNumber": 5,
+    "title": "Click \"Empty Standby List\"",
+    "breadcrumb": "Purging Zombie Application Memory"
+  },
+  {
+    "second": 57,
+    "speaker": "peter",
+    "line": "What's on the Standby List?",
+    "graphic": "sec57_what_is_standby_list",
+    "stepNumber": 0,
+    "title": "What's On The Standby List?",
+    "breadcrumb": "Understanding Windows Caching"
+  },
+  {
+    "second": 58,
+    "speaker": "peter",
+    "line": "What's on the Standby List?",
+    "graphic": "sec58_questioning_the_cache",
+    "stepNumber": 0,
+    "title": "Why Was It Eating So Much RAM?",
+    "breadcrumb": "Windows Never Releases It Automatically"
+  },
+  {
+    "second": 59,
+    "speaker": "stewie",
+    "line": "Those are programs you've already closed...",
+    "graphic": "sec59_closed_apps_ghost_icons",
+    "stepNumber": 0,
+    "title": "Closed Apps Still Trapped In RAM",
+    "breadcrumb": "Chrome, Discord, Games You Closed"
+  },
+  {
+    "second": 60,
+    "speaker": "stewie",
+    "line": "...but are still eating up memory.",
+    "graphic": "sec60_ghost_memory_leak_graphic",
+    "stepNumber": 0,
+    "title": "Zombie Cache Trapped In RAM",
+    "breadcrumb": "Stealing Memory From Active Games"
+  },
+  {
+    "second": 61,
+    "speaker": "stewie",
+    "line": "...still eating up memory.",
+    "graphic": "sec61_standby_flushed_to_zero",
+    "stepNumber": 0,
+    "title": "Standby Cache Emptied To Zero!",
+    "breadcrumb": "Instantly Reclaimed By OS"
+  },
+  {
+    "second": 62,
+    "speaker": "peter",
+    "line": "And look at that.",
+    "graphic": "sec62_peter_eyes_wide_shock",
+    "stepNumber": 0,
+    "title": "Look At That Meter!",
+    "breadcrumb": "Gigabytes Instantly Restored"
+  },
+  {
+    "second": 63,
+    "speaker": "peter",
+    "line": "Over 10 gigs are available now.",
+    "graphic": "sec63_ten_gigs_available_counter",
+    "stepNumber": 0,
+    "title": "+10.4 GB AVAILABLE NOW! \u2705",
+    "breadcrumb": "Massive Free Memory Unlocked"
+  },
+  {
+    "second": 64,
+    "speaker": "peter",
+    "line": "Over 10 gigs are available now.",
+    "graphic": "sec64_total_memory_restored",
+    "stepNumber": 0,
+    "title": "Available: 13.2 GB / 16 GB",
+    "breadcrumb": "Cleanest Memory State Possible"
+  },
+  {
+    "second": 65,
+    "speaker": "stewie",
+    "line": "Exactly. That's over 10 gigs you can now have available...",
+    "graphic": "sec65_smooth_gaming_readiness",
+    "stepNumber": 0,
+    "title": "10+ GB Ready For Your Games",
+    "breadcrumb": "Zero Background Stutter"
+  },
+  {
+    "second": 66,
+    "speaker": "stewie",
+    "line": "...to play your games smoothly...",
+    "graphic": "sec66_fps_boost_144_counter",
+    "stepNumber": 0,
+    "title": "FPS Boost: Solid 144 FPS \ud83c\udfae",
+    "breadcrumb": "No Micro-Stutters \u2022 Smooth 1% Lows"
+  },
+  {
+    "second": 67,
+    "speaker": "stewie",
+    "line": "...or run any other heavy task on your PC.",
+    "graphic": "sec67_heavy_task_smooth_graphic",
+    "stepNumber": 0,
+    "title": "Heavy Tasks Run Silky Smooth",
+    "breadcrumb": "Premiere, Blender, Streaming, Coding"
+  },
+  {
+    "second": 68,
+    "speaker": "stewie",
+    "line": "...heavy task on your PC.",
+    "graphic": "sec68_pc_running_like_brand_new",
+    "stepNumber": 0,
+    "title": "PC Running Like Brand New",
+    "breadcrumb": "Free Without Spending A Dime"
+  },
+  {
+    "second": 69,
+    "speaker": "stewie",
+    "line": "...heavy task on your PC.",
+    "graphic": "sec69_rammap_master_success",
+    "stepNumber": 0,
+    "title": "RAMMap Optimization Complete!",
+    "breadcrumb": "Saved Over $100 In RAM Upgrades"
+  },
+  {
+    "second": 70,
+    "speaker": "stewie",
+    "line": "...heavy task on your PC.",
+    "graphic": "sec70_peter_wants_more",
+    "stepNumber": 0,
+    "title": "Ready For Total PC Tuning?",
+    "breadcrumb": "Full System Optimization"
+  },
+  {
+    "second": 71,
+    "speaker": "peter",
+    "line": "Okay, now I want the whole PC optimized.",
+    "graphic": "sec71_optimize_whole_pc_prompt",
+    "stepNumber": 0,
+    "title": "\"Now I Want The Whole PC Optimized!\"",
+    "breadcrumb": "Peter Wants Maximum Speed"
+  },
+  {
+    "second": 72,
+    "speaker": "peter",
+    "line": "Okay, now I want the whole PC optimized.",
+    "graphic": "sec72_four_pillars_optimization",
+    "stepNumber": 0,
+    "title": "Windows \u2022 BIOS \u2022 GPU \u2022 Games",
+    "breadcrumb": "The Complete Performance Stack"
+  },
+  {
+    "second": 73,
+    "speaker": "peter",
+    "line": "Okay, now I want the whole PC optimized.",
+    "graphic": "sec73_transition_to_outro",
+    "stepNumber": 0,
+    "title": "Stewie's Master PC Tuning Guide",
+    "breadcrumb": "Unlocking The Secrets"
+  },
+  {
+    "second": 74,
+    "speaker": "stewie",
+    "line": "I should fully optimize your PC, Windows, BIOS, and games.",
+    "graphic": "sec74_full_optimization_roadmap",
+    "stepNumber": 0,
+    "title": "PC \u2022 Windows \u2022 BIOS \u2022 Games",
+    "breadcrumb": "Full Optimization Roadmap"
+  },
+  {
+    "second": 75,
+    "speaker": "stewie",
+    "line": "I should fully optimize your PC, Windows, BIOS, and games.",
+    "graphic": "sec75_master_pc_tips_card",
+    "stepNumber": 0,
+    "title": "PC Tips by Ez_peter",
+    "breadcrumb": "Take Back Control Of Your PC"
+  },
+  {
+    "second": 76,
+    "speaker": "stewie",
+    "line": "Do follow.",
+    "graphic": "sec76_follow_ez_peter_cta",
+    "stepNumber": 0,
+    "title": "Follow @Ez_peter \ud83d\ude80",
+    "breadcrumb": "For Daily Windows & PC Hacks"
+  },
+  {
+    "second": 77,
+    "speaker": "stewie",
+    "line": "Do follow.",
+    "graphic": "sec77_save_and_share_outro",
+    "stepNumber": 0,
+    "title": "Save & Share This PC Tip! \ud83d\udcbb\u2728",
+    "breadcrumb": "Follow @Ez_peter"
+  }
+]

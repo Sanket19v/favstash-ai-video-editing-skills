@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PC Tips by Ez_peter - RAMMap Memory Optimization</title>
+  <style>
+    :root {
+      --bg: #f8f4ee;
+      --text: #0d0d0d;
+      --accent: #1a6cf0;
+      --grey-light: #f0ede6;
+      --grey-mid: #6b7280;
+      --grey-border: #d1d5db;
+      --red: #e53935;
+      --green: #10b981;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Segoe UI Variable Display', 'Segoe UI', Inter, system-ui, sans-serif;
+      overflow: hidden;
+    }
+    #stage {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    /* TOP BAR & PROGRESS */
+    #topArea {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      width: 960px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 20;
+    }
+    #progressBar {
+      width: 100%;
+      height: 8px;
+      display: flex;
+      gap: 3px;
+      margin-bottom: 24px;
+    }
+    .prog-seg {
+      flex: 1;
+      height: 100%;
+      background: rgba(13, 13, 13, 0.12);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    #pillTag {
+      background: #0d0d0d;
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 6px 20px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    #stepLabel {
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      height: 32px;
+    }
+    #sceneTitle {
+      font-size: 52px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      height: 64px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    #breadcrumb {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--grey-mid);
+      text-align: center;
+      height: 34px;
+    }
+
+    /* LAPTOP FRAME */
+    #laptopContainer {
+      position: absolute;
+      top: 300px;
+      left: 60px;
+      width: 960px;
+      height: 590px;
+      z-index: 10;
+    }
+    #laptopScreenBezel {
+      width: 960px;
+      height: 550px;
+      background: #18191c;
+      border-radius: 20px 20px 4px 4px;
+      padding: 14px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.22);
+      position: relative;
+    }
+    #laptopWebcam {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: #2d3035;
+      border-radius: 50%;
+    }
+    #screen {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    #laptopBase {
+      width: 1040px;
+      height: 24px;
+      background: linear-gradient(to bottom, #d6d9de 0%, #b4b8bf 60%, #9ca0a8 100%);
+      border-radius: 4px 4px 28px 28px;
+      margin-left: -40px;
+      margin-top: 2px;
+      position: relative;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.18);
+    }
+    #laptopNotch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 8px;
+      background: #8b8e96;
+      border-radius: 0 0 10px 10px;
+    }
+
+    /* WINDOWS 11 DESKTOP / TASKBAR */
+    .win-desktop {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 120%, #dbeafe 0%, #eff6ff 45%, #f8fafc 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .win-taskbar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      z-index: 50;
+    }
+    .taskbar-center {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tb-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+    .tb-win-logo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      width: 20px;
+      height: 20px;
+    }
+    .tb-win-logo div {
+      background: #0078d4;
+      border-radius: 1px;
+    }
+    .tb-search {
+      height: 30px;
+      width: 140px;
+      background: #f1f3f9;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 10px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    .tb-clock {
+      position: absolute;
+      right: 14px;
+      font-size: 13px;
+      color: #334155;
+      font-weight: 500;
+      text-align: right;
+      line-height: 1.1;
+    }
+
+    /* REUSABLE WINDOW CONTAINER */
+    .win-window {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .win-titlebar {
+      height: 38px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #edebe9;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #323130;
+      user-select: none;
+    }
+    .win-controls {
+      margin-left: auto;
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      color: #605e5c;
+    }
+
+    /* CURSOR & CLICK RIPPLE */
+    .win-cursor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 100;
+      filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    }
+    .click-ripple {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      animation: ripple 0.4s ease-out forwards;
+      pointer-events: none;
+      z-index: 99;
+    }
+
+    /* CAPTIONS */
+    #captions {
+      position: absolute;
+      top: 925px;
+      left: 40px;
+      width: 1000px;
+      height: 155px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      text-align: center;
+      z-index: 30;
+    }
+    .caption-word {
+      font-size: 64px;
+      font-weight: 900;
+      color: #0d0d0d;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      padding: 6px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+      transition: transform 0.08s ease;
+    }
+    .caption-word.word-active {
+      background: #1a6cf0;
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(26, 108, 240, 0.4) !important;
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(26, 108, 240, 0.35);
+    }
+
+    /* CHARACTERS */
+    .char-layer {
+      position: absolute;
+      bottom: -150px;
+      left: 0;
+      width: 1080px;
+      height: 1920px;
+      pointer-events: none;
+      z-index: 15;
+      will-change: transform;
+    }
+    #peterImg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1080px;
+      height: 1920px;
+      object-fit: contain;
+      transform: translateX(-1200px);
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+      image-rendering: -webkit-optimize-contrast;
+      transform-origin: bottom center;
+    }
+    #stewieImg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1080px;
+      height: 1920px;
+      object-fit: contain;
+      transform: translateX(1200px);
+      filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+      image-rendering: -webkit-optimize-contrast;
+      transform-origin: bottom center;
+    }
+
+    /* RAMMap Desktop Window Styles */
+    .rammap-app {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .rm-menubar {
+      height: 30px;
+      background: #f3f3f3;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 18px;
+      font-size: 13px;
+      color: #333;
+      position: relative;
+    }
+    .rm-menu-item {
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: default;
+    }
+    .rm-menu-item.active {
+      background: #1a6cf0;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .rm-dropdown {
+      position: absolute;
+      top: 28px;
+      left: 45px;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      width: 250px;
+      z-index: 80;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 0;
+    }
+    .rm-drop-item {
+      padding: 7px 14px;
+      font-size: 13px;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .rm-drop-item.highlight {
+      background: #e0edfe;
+      color: #1a6cf0;
+      font-weight: 700;
+      border-left: 3px solid #1a6cf0;
+    }
+    .rm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .rm-table th {
+      background: #f8fafc;
+      padding: 6px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .rm-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <!-- TOP AREA -->
+    <div id="topArea">
+      <div id="progressBar"></div>
+      <div id="pillTag">PC TIPS BY EZ_PETER</div>
+      <div id="stepLabel"></div>
+      <div id="sceneTitle">PC Running Extremely Slow</div>
+      <div id="breadcrumb">System Stuttering & Lag Detected</div>
+    </div>
+
+    <!-- LAPTOP FRAME -->
+    <div id="laptopContainer">
+      <div id="laptopScreenBezel">
+        <div id="laptopWebcam"></div>
+        <div id="screen"></div>
+      </div>
+      <div id="laptopBase">
+        <div id="laptopNotch"></div>
+      </div>
+    </div>
+
+    <!-- CAPTIONS -->
+    <div id="captions"></div>
+
+    <!-- CHARACTERS -->
+    <div class="char-layer">
+      <img id="peterImg" src="assets/peter.png" alt="Peter">
+      <img id="stewieImg" src="assets/stewie.png" alt="Stewie">
+    </div>
+  </div>
+
+  <script>
+    // Global deterministic state
+    window.hideCaptions = false;
+    window.ALIGNED_CAPTIONS = {"total_duration": 77.83, "turn_ranges": [{"line_index": 0, "speaker": "peter", "start": 0.0, "speech_end": 7.54, "end": 7.54}, {"line_index": 1, "speaker": "stewie", "start": 7.54, "speech_end": 12.28, "end": 12.28}, {"line_index": 2, "speaker": "peter", "start": 12.28, "speech_end": 13.9, "end": 13.9}, {"line_index": 3, "speaker": "stewie", "start": 13.9, "speech_end": 16.32, "end": 16.32}, {"line_index": 4, "speaker": "peter", "start": 16.32, "speech_end": 19.86, "end": 19.86}, {"line_index": 5, "speaker": "stewie", "start": 19.86, "speech_end": 21.88, "end": 21.88}, {"line_index": 6, "speaker": "peter", "start": 21.88, "speech_end": 23.26, "end": 23.26}, {"line_index": 7, "speaker": "stewie", "start": 23.26, "speech_end": 25.92, "end": 25.92}, {"line_index": 8, "speaker": "peter", "start": 25.92, "speech_end": 28.18, "end": 28.18}, {"line_index": 9, "speaker": "stewie", "start": 28.18, "speech_end": 33.24, "end": 33.24}, {"line_index": 10, "speaker": "peter", "start": 33.24, "speech_end": 35.74, "end": 35.74}, {"line_index": 11, "speaker": "stewie", "start": 35.74, "speech_end": 42.64, "end": 42.64}, {"line_index": 12, "speaker": "peter", "start": 42.64, "speech_end": 44.02, "end": 44.02}, {"line_index": 13, "speaker": "stewie", "start": 44.02, "speech_end": 47.72, "end": 47.72}, {"line_index": 14, "speaker": "peter", "start": 47.72, "speech_end": 48.94, "end": 48.94}, {"line_index": 15, "speaker": "stewie", "start": 48.94, "speech_end": 51.92, "end": 51.92}, {"line_index": 16, "speaker": "peter", "start": 51.92, "speech_end": 53.3, "end": 53.3}, {"line_index": 17, "speaker": "stewie", "start": 53.3, "speech_end": 56.84, "end": 56.84}, {"line_index": 18, "speaker": "peter", "start": 56.84, "speech_end": 58.22, "end": 58.22}, {"line_index": 19, "speaker": "stewie", "start": 58.22, "speech_end": 61.6, "end": 61.6}, {"line_index": 20, "speaker": "peter", "start": 61.6, "speech_end": 64.34, "end": 64.34}, {"line_index": 21, "speaker": "stewie", "start": 64.34, "speech_end": 70.76, "end": 70.76}, {"line_index": 22, "speaker": "peter", "start": 70.76, "speech_end": 73.18, "end": 73.18}, {"line_index": 23, "speaker": "stewie", "start": 73.18, "speech_end": 77.83, "end": 77.83}], "chunks": [{"chunk_index": 0, "turn_index": 0, "speaker": "peter", "start": 0.0, "end": 1.04, "words": [{"text": "Stewie,", "local_start": 0.0, "local_end": 0.48, "global_start": 0.0, "global_end": 0.48}, {"text": "my", "local_start": 0.48, "local_end": 0.64, "global_start": 0.48, "global_end": 0.64}, {"text": "PC", "local_start": 0.64, "local_end": 1.04, "global_start": 0.64, "global_end": 1.04}], "display_end": 1.04}, {"chunk_index": 1, "turn_index": 0, "speaker": "peter", "start": 1.04, "end": 1.92, "words": [{"text": "is", "local_start": 1.04, "local_end": 1.2, "global_start": 1.04, "global_end": 1.2}, {"text": "running", "local_start": 1.2, "local_end": 1.44, "global_start": 1.2, "global_end": 1.44}, {"text": "slow,", "local_start": 1.44, "local_end": 1.92, "global_start": 1.44, "global_end": 1.92}], "display_end": 2.24}, {"chunk_index": 2, "turn_index": 0, "speaker": "peter", "start": 2.24, "end": 3.2, "words": [{"text": "my", "local_start": 2.24, "local_end": 2.48, "global_start": 2.24, "global_end": 2.48}, {"text": "FPS", "local_start": 2.48, "local_end": 2.96, "global_start": 2.48, "global_end": 2.96}, {"text": "isn't", "local_start": 2.96, "local_end": 3.2, "global_start": 2.96, "global_end": 3.2}], "display_end": 3.2}, {"chunk_index": 3, "turn_index": 0, "speaker": "peter", "start": 3.2, "end": 3.94, "words": [{"text": "great,", "local_start": 3.2, "local_end": 3.6, "global_start": 3.2, "global_end": 3.6}, {"text": "and", "local_start": 3.68, "local_end": 3.84, "global_start": 3.68, "global_end": 3.84}, {"text": "my", "local_start": 3.84, "local_end": 3.94, "global_start": 3.84, "global_end": 3.94}], "display_end": 3.92}, {"chunk_index": 4, "turn_index": 0, "speaker": "peter", "start": 3.92, "end": 4.82, "words": [{"text": "RAM", "local_start": 3.92, "local_end": 4.32, "global_start": 3.92, "global_end": 4.32}, {"text": "usage", "local_start": 4.32, "local_end": 4.72, "global_start": 4.32, "global_end": 4.72}, {"text": "is", "local_start": 4.72, "local_end": 4.82, "global_start": 4.72, "global_end": 4.82}], "display_end": 4.8}, {"chunk_index": 5, "turn_index": 0, "speaker": "peter", "start": 4.8, "end": 6.0, "words": [{"text": "insanely", "local_start": 4.8, "local_end": 5.36, "global_start": 4.8, "global_end": 5.36}, {"text": "high", "local_start": 5.36, "local_end": 5.68, "global_start": 5.36, "global_end": 5.68}, {"text": "even", "local_start": 5.76, "local_end": 6.0, "global_start": 5.76, "global_end": 6.0}], "display_end": 6.0}, {"chunk_index": 6, "turn_index": 0, "speaker": "peter", "start": 6.0, "end": 6.56, "words": [{"text": "when", "local_start": 6.0, "local_end": 6.1, "global_start": 6.0, "global_end": 6.1}, {"text": "I", "local_start": 6.08, "local_end": 6.18, "global_start": 6.08, "global_end": 6.18}, {"text": "barely", "local_start": 6.16, "local_end": 6.56, "global_start": 6.16, "global_end": 6.56}], "display_end": 6.56}, {"chunk_index": 7, "turn_index": 0, "speaker": "peter", "start": 6.56, "end": 7.44, "words": [{"text": "have", "local_start": 6.56, "local_end": 6.72, "global_start": 6.56, "global_end": 6.72}, {"text": "anything", "local_start": 6.72, "local_end": 7.04, "global_start": 6.72, "global_end": 7.04}, {"text": "open.", "local_start": 7.04, "local_end": 7.44, "global_start": 7.04, "global_end": 7.44}], "display_end": 7.54}, {"chunk_index": 8, "turn_index": 1, "speaker": "stewie", "start": 7.54, "end": 8.12, "words": [{"text": "And", "local_start": 0.0, "local_end": 0.16, "global_start": 7.54, "global_end": 7.7}, {"text": "RAM", "local_start": 0.16, "local_end": 0.48, "global_start": 7.7, "global_end": 8.02}, {"text": "isn't", "local_start": 0.48, "local_end": 0.58, "global_start": 8.02, "global_end": 8.12}], "display_end": 8.1}, {"chunk_index": 9, "turn_index": 1, "speaker": "stewie", "start": 8.1, "end": 9.06, "words": [{"text": "exactly", "local_start": 0.56, "local_end": 1.12, "global_start": 8.1, "global_end": 8.66}, {"text": "cheap,", "local_start": 1.12, "local_end": 1.52, "global_start": 8.66, "global_end": 9.06}], "display_end": 9.22}, {"chunk_index": 10, "turn_index": 1, "speaker": "stewie", "start": 9.22, "end": 10.12, "words": [{"text": "right?", "local_start": 1.68, "local_end": 1.92, "global_start": 9.22, "global_end": 9.46}, {"text": "This", "local_start": 2.24, "local_end": 2.48, "global_start": 9.78, "global_end": 10.02}, {"text": "can", "local_start": 2.48, "local_end": 2.58, "global_start": 10.02, "global_end": 10.12}], "display_end": 10.1}, {"chunk_index": 11, "turn_index": 1, "speaker": "stewie", "start": 10.1, "end": 10.74, "words": [{"text": "help", "local_start": 2.56, "local_end": 2.8, "global_start": 10.1, "global_end": 10.34}, {"text": "you", "local_start": 2.8, "local_end": 2.9, "global_start": 10.34, "global_end": 10.44}, {"text": "find", "local_start": 2.88, "local_end": 3.2, "global_start": 10.42, "global_end": 10.74}], "display_end": 10.74}, {"chunk_index": 12, "turn_index": 1, "speaker": "stewie", "start": 10.74, "end": 11.38, "words": [{"text": "out", "local_start": 3.2, "local_end": 3.36, "global_start": 10.74, "global_end": 10.9}, {"text": "what's", "local_start": 3.36, "local_end": 3.52, "global_start": 10.9, "global_end": 11.06}, {"text": "eating", "local_start": 3.52, "local_end": 3.84, "global_start": 11.06, "global_end": 11.38}], "display_end": 11.38}, {"chunk_index": 13, "turn_index": 1, "speaker": "stewie", "start": 11.38, "end": 12.18, "words": [{"text": "all", "local_start": 3.84, "local_end": 4.0, "global_start": 11.38, "global_end": 11.54}, {"text": "that", "local_start": 4.0, "local_end": 4.16, "global_start": 11.54, "global_end": 11.7}, {"text": "memory.", "local_start": 4.16, "local_end": 4.64, "global_start": 11.7, "global_end": 12.18}], "display_end": 12.28}, {"chunk_index": 14, "turn_index": 2, "speaker": "peter", "start": 12.28, "end": 13.34, "words": [{"text": "Okay,", "local_start": 0.0, "local_end": 0.4, "global_start": 12.28, "global_end": 12.68}, {"text": "what", "local_start": 0.8, "local_end": 0.96, "global_start": 13.08, "global_end": 13.24}, {"text": "do", "local_start": 0.96, "local_end": 1.06, "global_start": 13.24, "global_end": 13.34}], "display_end": 13.32}, {"chunk_index": 15, "turn_index": 2, "speaker": "peter", "start": 13.32, "end": 13.8, "words": [{"text": "I", "local_start": 1.04, "local_end": 1.2, "global_start": 13.32, "global_end": 13.48}, {"text": "need?", "local_start": 1.2, "local_end": 1.52, "global_start": 13.48, "global_end": 13.8}], "display_end": 13.9}, {"chunk_index": 16, "turn_index": 3, "speaker": "stewie", "start": 13.9, "end": 15.02, "words": [{"text": "Just", "local_start": 0.0, "local_end": 0.32, "global_start": 13.9, "global_end": 14.22}, {"text": "type", "local_start": 0.32, "local_end": 0.48, "global_start": 14.22, "global_end": 14.38}, {"text": "RAMMap", "local_start": 0.56, "local_end": 1.12, "global_start": 14.46, "global_end": 15.02}], "display_end": 15.02}, {"chunk_index": 17, "turn_index": 3, "speaker": "stewie", "start": 15.02, "end": 15.36, "words": [{"text": "and", "local_start": 1.12, "local_end": 1.22, "global_start": 15.02, "global_end": 15.12}, {"text": "go", "local_start": 1.2, "local_end": 1.36, "global_start": 15.1, "global_end": 15.26}, {"text": "to", "local_start": 1.36, "local_end": 1.46, "global_start": 15.26, "global_end": 15.36}], "display_end": 15.34}, {"chunk_index": 18, "turn_index": 3, "speaker": "stewie", "start": 15.34, "end": 16.22, "words": [{"text": "the", "local_start": 1.44, "local_end": 1.54, "global_start": 15.34, "global_end": 15.44}, {"text": "first", "local_start": 1.52, "local_end": 1.92, "global_start": 15.42, "global_end": 15.82}, {"text": "site.", "local_start": 1.92, "local_end": 2.32, "global_start": 15.82, "global_end": 16.22}], "display_end": 16.32}, {"chunk_index": 19, "turn_index": 4, "speaker": "peter", "start": 16.32, "end": 17.04, "words": [{"text": "But", "local_start": 0.0, "local_end": 0.1, "global_start": 16.32, "global_end": 16.42}, {"text": "before", "local_start": 0.08, "local_end": 0.4, "global_start": 16.4, "global_end": 16.72}, {"text": "someone", "local_start": 0.4, "local_end": 0.72, "global_start": 16.72, "global_end": 17.04}], "display_end": 17.04}, {"chunk_index": 20, "turn_index": 4, "speaker": "peter", "start": 17.04, "end": 17.6, "words": [{"text": "in", "local_start": 0.72, "local_end": 0.82, "global_start": 17.04, "global_end": 17.14}, {"text": "the", "local_start": 0.8, "local_end": 0.9, "global_start": 17.12, "global_end": 17.22}, {"text": "comments", "local_start": 0.8, "local_end": 1.28, "global_start": 17.12, "global_end": 17.6}], "display_end": 17.6}, {"chunk_index": 21, "turn_index": 4, "speaker": "peter", "start": 17.6, "end": 18.02, "words": [{"text": "says", "local_start": 1.28, "local_end": 1.44, "global_start": 17.6, "global_end": 17.76}, {"text": "it's", "local_start": 1.44, "local_end": 1.6, "global_start": 17.76, "global_end": 17.92}, {"text": "a", "local_start": 1.6, "local_end": 1.7, "global_start": 17.92, "global_end": 18.02}], "display_end": 18.0}, {"chunk_index": 22, "turn_index": 4, "speaker": "peter", "start": 18.0, "end": 18.96, "words": [{"text": "virus,", "local_start": 1.68, "local_end": 2.24, "global_start": 18.0, "global_end": 18.56}, {"text": "is", "local_start": 2.24, "local_end": 2.4, "global_start": 18.56, "global_end": 18.72}, {"text": "this", "local_start": 2.4, "local_end": 2.64, "global_start": 18.72, "global_end": 18.96}], "display_end": 18.96}, {"chunk_index": 23, "turn_index": 4, "speaker": "peter", "start": 18.96, "end": 19.76, "words": [{"text": "actually", "local_start": 2.64, "local_end": 3.04, "global_start": 18.96, "global_end": 19.36}, {"text": "safe?", "local_start": 3.04, "local_end": 3.44, "global_start": 19.36, "global_end": 19.76}], "display_end": 19.86}, {"chunk_index": 24, "turn_index": 5, "speaker": "stewie", "start": 20.02, "end": 20.82, "words": [{"text": "It's", "local_start": 0.16, "local_end": 0.32, "global_start": 20.02, "global_end": 20.18}, {"text": "a", "local_start": 0.32, "local_end": 0.42, "global_start": 20.18, "global_end": 20.28}, {"text": "Microsoft", "local_start": 0.4, "local_end": 0.96, "global_start": 20.26, "global_end": 20.82}], "display_end": 20.82}, {"chunk_index": 25, "turn_index": 5, "speaker": "stewie", "start": 20.82, "end": 21.78, "words": [{"text": "site,", "local_start": 0.96, "local_end": 1.28, "global_start": 20.82, "global_end": 21.14}, {"text": "okay?", "local_start": 1.44, "local_end": 1.92, "global_start": 21.3, "global_end": 21.78}], "display_end": 21.88}, {"chunk_index": 26, "turn_index": 6, "speaker": "peter", "start": 21.88, "end": 22.54, "words": [{"text": "Alright,", "local_start": 0.0, "local_end": 0.32, "global_start": 21.88, "global_end": 22.2}, {"text": "what", "local_start": 0.48, "local_end": 0.58, "global_start": 22.36, "global_end": 22.46}, {"text": "do", "local_start": 0.56, "local_end": 0.66, "global_start": 22.44, "global_end": 22.54}], "display_end": 22.52}, {"chunk_index": 27, "turn_index": 6, "speaker": "peter", "start": 22.52, "end": 23.16, "words": [{"text": "I", "local_start": 0.64, "local_end": 0.8, "global_start": 22.52, "global_end": 22.68}, {"text": "click?", "local_start": 0.8, "local_end": 1.28, "global_start": 22.68, "global_end": 23.16}], "display_end": 23.26}, {"chunk_index": 28, "turn_index": 7, "speaker": "stewie", "start": 23.26, "end": 24.06, "words": [{"text": "Click", "local_start": 0.0, "local_end": 0.16, "global_start": 23.26, "global_end": 23.42}, {"text": "this", "local_start": 0.24, "local_end": 0.4, "global_start": 23.5, "global_end": 23.66}, {"text": "option,", "local_start": 0.4, "local_end": 0.8, "global_start": 23.66, "global_end": 24.06}], "display_end": 24.3}, {"chunk_index": 29, "turn_index": 7, "speaker": "stewie", "start": 24.3, "end": 24.94, "words": [{"text": "then", "local_start": 1.04, "local_end": 1.2, "global_start": 24.3, "global_end": 24.46}, {"text": "choose", "local_start": 1.2, "local_end": 1.52, "global_start": 24.46, "global_end": 24.78}, {"text": "where", "local_start": 1.52, "local_end": 1.68, "global_start": 24.78, "global_end": 24.94}], "display_end": 24.94}, {"chunk_index": 30, "turn_index": 7, "speaker": "stewie", "start": 24.94, "end": 25.36, "words": [{"text": "you", "local_start": 1.68, "local_end": 1.78, "global_start": 24.94, "global_end": 25.04}, {"text": "want", "local_start": 1.76, "local_end": 2.0, "global_start": 25.02, "global_end": 25.26}, {"text": "to", "local_start": 2.0, "local_end": 2.1, "global_start": 25.26, "global_end": 25.36}], "display_end": 25.34}, {"chunk_index": 31, "turn_index": 7, "speaker": "stewie", "start": 25.34, "end": 25.84, "words": [{"text": "download", "local_start": 2.08, "local_end": 2.48, "global_start": 25.34, "global_end": 25.74}, {"text": "it.", "local_start": 2.48, "local_end": 2.58, "global_start": 25.74, "global_end": 25.84}], "display_end": 25.92}, {"chunk_index": 32, "turn_index": 8, "speaker": "peter", "start": 25.92, "end": 26.42, "words": [{"text": "And", "local_start": 0.0, "local_end": 0.1, "global_start": 25.92, "global_end": 26.02}, {"text": "here's", "local_start": 0.08, "local_end": 0.4, "global_start": 26.0, "global_end": 26.32}, {"text": "the", "local_start": 0.4, "local_end": 0.5, "global_start": 26.32, "global_end": 26.42}], "display_end": 26.4}, {"chunk_index": 33, "turn_index": 8, "speaker": "peter", "start": 26.4, "end": 28.08, "words": [{"text": "file.", "local_start": 0.48, "local_end": 0.96, "global_start": 26.4, "global_end": 26.88}, {"text": "Now", "local_start": 1.6, "local_end": 1.84, "global_start": 27.52, "global_end": 27.76}, {"text": "what?", "local_start": 1.84, "local_end": 2.16, "global_start": 27.76, "global_end": 28.08}], "display_end": 28.18}, {"chunk_index": 34, "turn_index": 9, "speaker": "stewie", "start": 28.18, "end": 28.6, "words": [{"text": "Click", "local_start": 0.0, "local_end": 0.24, "global_start": 28.18, "global_end": 28.42}, {"text": "it", "local_start": 0.24, "local_end": 0.34, "global_start": 28.42, "global_end": 28.52}, {"text": "and", "local_start": 0.32, "local_end": 0.42, "global_start": 28.5, "global_end": 28.6}], "display_end": 28.58}, {"chunk_index": 35, "turn_index": 9, "speaker": "stewie", "start": 28.58, "end": 29.08, "words": [{"text": "run", "local_start": 0.4, "local_end": 0.64, "global_start": 28.58, "global_end": 28.82}, {"text": "it", "local_start": 0.64, "local_end": 0.8, "global_start": 28.82, "global_end": 28.98}, {"text": "as", "local_start": 0.8, "local_end": 0.9, "global_start": 28.98, "global_end": 29.08}], "display_end": 29.06}, {"chunk_index": 36, "turn_index": 9, "speaker": "stewie", "start": 29.06, "end": 30.5, "words": [{"text": "administrator.", "local_start": 0.88, "local_end": 1.52, "global_start": 29.06, "global_end": 29.7}, {"text": "Then", "local_start": 1.92, "local_end": 2.16, "global_start": 30.1, "global_end": 30.34}, {"text": "just", "local_start": 2.16, "local_end": 2.32, "global_start": 30.34, "global_end": 30.5}], "display_end": 30.5}, {"chunk_index": 37, "turn_index": 9, "speaker": "stewie", "start": 30.5, "end": 30.98, "words": [{"text": "wait", "local_start": 2.32, "local_end": 2.56, "global_start": 30.5, "global_end": 30.74}, {"text": "a", "local_start": 2.56, "local_end": 2.66, "global_start": 30.74, "global_end": 30.84}, {"text": "few", "local_start": 2.64, "local_end": 2.8, "global_start": 30.82, "global_end": 30.98}], "display_end": 30.98}, {"chunk_index": 38, "turn_index": 9, "speaker": "stewie", "start": 30.98, "end": 31.64, "words": [{"text": "seconds", "local_start": 2.8, "local_end": 3.2, "global_start": 30.98, "global_end": 31.38}, {"text": "for", "local_start": 3.2, "local_end": 3.36, "global_start": 31.38, "global_end": 31.54}, {"text": "it", "local_start": 3.36, "local_end": 3.46, "global_start": 31.54, "global_end": 31.64}], "display_end": 31.62}, {"chunk_index": 39, "turn_index": 9, "speaker": "stewie", "start": 31.62, "end": 32.1, "words": [{"text": "to", "local_start": 3.44, "local_end": 3.54, "global_start": 31.62, "global_end": 31.72}, {"text": "load", "local_start": 3.44, "local_end": 3.68, "global_start": 31.62, "global_end": 31.86}, {"text": "all", "local_start": 3.68, "local_end": 3.92, "global_start": 31.86, "global_end": 32.1}], "display_end": 32.1}, {"chunk_index": 40, "turn_index": 9, "speaker": "stewie", "start": 32.1, "end": 33.14, "words": [{"text": "the", "local_start": 3.92, "local_end": 4.02, "global_start": 32.1, "global_end": 32.2}, {"text": "memory", "local_start": 4.0, "local_end": 4.32, "global_start": 32.18, "global_end": 32.5}, {"text": "processes.", "local_start": 4.32, "local_end": 4.96, "global_start": 32.5, "global_end": 33.14}], "display_end": 33.24}, {"chunk_index": 41, "turn_index": 10, "speaker": "peter", "start": 33.24, "end": 33.56, "words": [{"text": "So", "local_start": 0.0, "local_end": 0.1, "global_start": 33.24, "global_end": 33.34}, {"text": "I", "local_start": 0.08, "local_end": 0.18, "global_start": 33.32, "global_end": 33.42}, {"text": "can", "local_start": 0.16, "local_end": 0.32, "global_start": 33.4, "global_end": 33.56}], "display_end": 33.56}, {"chunk_index": 42, "turn_index": 10, "speaker": "peter", "start": 33.56, "end": 34.36, "words": [{"text": "actually", "local_start": 0.32, "local_end": 0.64, "global_start": 33.56, "global_end": 33.88}, {"text": "see", "local_start": 0.64, "local_end": 0.96, "global_start": 33.88, "global_end": 34.2}, {"text": "what's", "local_start": 0.96, "local_end": 1.12, "global_start": 34.2, "global_end": 34.36}], "display_end": 34.36}, {"chunk_index": 43, "turn_index": 10, "speaker": "peter", "start": 34.36, "end": 35.24, "words": [{"text": "happening", "local_start": 1.12, "local_end": 1.6, "global_start": 34.36, "global_end": 34.84}, {"text": "in", "local_start": 1.6, "local_end": 1.76, "global_start": 34.84, "global_end": 35.0}, {"text": "real", "local_start": 1.76, "local_end": 2.0, "global_start": 35.0, "global_end": 35.24}], "display_end": 35.24}, {"chunk_index": 44, "turn_index": 10, "speaker": "peter", "start": 35.24, "end": 35.64, "words": [{"text": "time?", "local_start": 2.0, "local_end": 2.4, "global_start": 35.24, "global_end": 35.64}], "display_end": 35.74}, {"chunk_index": 45, "turn_index": 11, "speaker": "stewie", "start": 35.74, "end": 36.94, "words": [{"text": "Exactly.", "local_start": 0.0, "local_end": 0.8, "global_start": 35.74, "global_end": 36.54}, {"text": "You", "local_start": 0.96, "local_end": 1.06, "global_start": 36.7, "global_end": 36.8}, {"text": "can", "local_start": 1.04, "local_end": 1.2, "global_start": 36.78, "global_end": 36.94}], "display_end": 36.94}, {"chunk_index": 46, "turn_index": 11, "speaker": "stewie", "start": 36.94, "end": 37.42, "words": [{"text": "see", "local_start": 1.2, "local_end": 1.44, "global_start": 36.94, "global_end": 37.18}, {"text": "how", "local_start": 1.44, "local_end": 1.54, "global_start": 37.18, "global_end": 37.28}, {"text": "your", "local_start": 1.52, "local_end": 1.68, "global_start": 37.26, "global_end": 37.42}], "display_end": 37.42}, {"chunk_index": 47, "turn_index": 11, "speaker": "stewie", "start": 37.42, "end": 38.22, "words": [{"text": "memory", "local_start": 1.68, "local_end": 2.08, "global_start": 37.42, "global_end": 37.82}, {"text": "is", "local_start": 2.08, "local_end": 2.24, "global_start": 37.82, "global_end": 37.98}, {"text": "being", "local_start": 2.24, "local_end": 2.48, "global_start": 37.98, "global_end": 38.22}], "display_end": 38.22}, {"chunk_index": 48, "turn_index": 11, "speaker": "stewie", "start": 38.22, "end": 38.86, "words": [{"text": "used", "local_start": 2.48, "local_end": 2.8, "global_start": 38.22, "global_end": 38.54}, {"text": "in", "local_start": 2.8, "local_end": 2.9, "global_start": 38.54, "global_end": 38.64}, {"text": "real", "local_start": 2.88, "local_end": 3.12, "global_start": 38.62, "global_end": 38.86}], "display_end": 38.86}, {"chunk_index": 49, "turn_index": 11, "speaker": "stewie", "start": 38.86, "end": 40.14, "words": [{"text": "time.", "local_start": 3.12, "local_end": 3.6, "global_start": 38.86, "global_end": 39.34}, {"text": "Here,", "local_start": 3.92, "local_end": 4.4, "global_start": 39.66, "global_end": 40.14}], "display_end": 40.38}, {"chunk_index": 50, "turn_index": 11, "speaker": "stewie", "start": 40.38, "end": 41.44, "words": [{"text": "45%", "local_start": 4.64, "local_end": 5.2, "global_start": 40.38, "global_end": 40.94}, {"text": "of", "local_start": 5.52, "local_end": 5.62, "global_start": 41.26, "global_end": 41.36}, {"text": "the", "local_start": 5.6, "local_end": 5.7, "global_start": 41.34, "global_end": 41.44}], "display_end": 41.42}, {"chunk_index": 51, "turn_index": 11, "speaker": "stewie", "start": 41.42, "end": 42.14, "words": [{"text": "memory", "local_start": 5.68, "local_end": 6.0, "global_start": 41.42, "global_end": 41.74}, {"text": "is", "local_start": 6.0, "local_end": 6.16, "global_start": 41.74, "global_end": 41.9}, {"text": "being", "local_start": 6.16, "local_end": 6.4, "global_start": 41.9, "global_end": 42.14}], "display_end": 42.14}, {"chunk_index": 52, "turn_index": 11, "speaker": "stewie", "start": 42.14, "end": 42.54, "words": [{"text": "used.", "local_start": 6.4, "local_end": 6.8, "global_start": 42.14, "global_end": 42.54}], "display_end": 42.64}, {"chunk_index": 53, "turn_index": 12, "speaker": "peter", "start": 42.64, "end": 43.38, "words": [{"text": "Okay,", "local_start": 0.0, "local_end": 0.32, "global_start": 42.64, "global_end": 42.96}, {"text": "where", "local_start": 0.48, "local_end": 0.64, "global_start": 43.12, "global_end": 43.28}, {"text": "do", "local_start": 0.64, "local_end": 0.74, "global_start": 43.28, "global_end": 43.38}], "display_end": 43.36}, {"chunk_index": 54, "turn_index": 12, "speaker": "peter", "start": 43.36, "end": 43.92, "words": [{"text": "I", "local_start": 0.72, "local_end": 0.82, "global_start": 43.36, "global_end": 43.46}, {"text": "go", "local_start": 0.8, "local_end": 0.9, "global_start": 43.44, "global_end": 43.54}, {"text": "next?", "local_start": 0.88, "local_end": 1.28, "global_start": 43.52, "global_end": 43.92}], "display_end": 44.02}, {"chunk_index": 55, "turn_index": 13, "speaker": "stewie", "start": 44.02, "end": 44.5, "words": [{"text": "Come", "local_start": 0.0, "local_end": 0.24, "global_start": 44.02, "global_end": 44.26}, {"text": "to", "local_start": 0.32, "local_end": 0.42, "global_start": 44.34, "global_end": 44.44}, {"text": "this", "local_start": 0.32, "local_end": 0.48, "global_start": 44.34, "global_end": 44.5}], "display_end": 44.5}, {"chunk_index": 56, "turn_index": 13, "speaker": "stewie", "start": 44.5, "end": 45.3, "words": [{"text": "second", "local_start": 0.48, "local_end": 0.88, "global_start": 44.5, "global_end": 44.9}, {"text": "option,", "local_start": 0.88, "local_end": 1.28, "global_start": 44.9, "global_end": 45.3}], "display_end": 45.54}, {"chunk_index": 57, "turn_index": 13, "speaker": "stewie", "start": 45.54, "end": 46.18, "words": [{"text": "click", "local_start": 1.52, "local_end": 1.76, "global_start": 45.54, "global_end": 45.78}, {"text": "the", "local_start": 1.76, "local_end": 1.86, "global_start": 45.78, "global_end": 45.88}, {"text": "first", "local_start": 1.84, "local_end": 2.16, "global_start": 45.86, "global_end": 46.18}], "display_end": 46.18}, {"chunk_index": 58, "turn_index": 13, "speaker": "stewie", "start": 46.18, "end": 47.62, "words": [{"text": "one,", "local_start": 2.16, "local_end": 2.48, "global_start": 46.18, "global_end": 46.5}, {"text": "Working", "local_start": 2.72, "local_end": 3.12, "global_start": 46.74, "global_end": 47.14}, {"text": "Sets.", "local_start": 3.12, "local_end": 3.6, "global_start": 47.14, "global_end": 47.62}], "display_end": 47.72}, {"chunk_index": 59, "turn_index": 14, "speaker": "peter", "start": 47.72, "end": 48.28, "words": [{"text": "And", "local_start": 0.0, "local_end": 0.1, "global_start": 47.72, "global_end": 47.82}, {"text": "it's", "local_start": 0.08, "local_end": 0.24, "global_start": 47.8, "global_end": 47.96}, {"text": "already", "local_start": 0.24, "local_end": 0.56, "global_start": 47.96, "global_end": 48.28}], "display_end": 48.28}, {"chunk_index": 60, "turn_index": 14, "speaker": "peter", "start": 48.28, "end": 48.84, "words": [{"text": "going", "local_start": 0.56, "local_end": 0.8, "global_start": 48.28, "global_end": 48.52}, {"text": "down.", "local_start": 0.8, "local_end": 1.12, "global_start": 48.52, "global_end": 48.84}], "display_end": 48.94}, {"chunk_index": 61, "turn_index": 15, "speaker": "stewie", "start": 48.94, "end": 49.82, "words": [{"text": "Yep.", "local_start": 0.0, "local_end": 0.32, "global_start": 48.94, "global_end": 49.26}, {"text": "You", "local_start": 0.64, "local_end": 0.74, "global_start": 49.58, "global_end": 49.68}, {"text": "can", "local_start": 0.72, "local_end": 0.88, "global_start": 49.66, "global_end": 49.82}], "display_end": 49.82}, {"chunk_index": 62, "turn_index": 15, "speaker": "stewie", "start": 49.82, "end": 50.56, "words": [{"text": "already", "local_start": 0.88, "local_end": 1.28, "global_start": 49.82, "global_end": 50.22}, {"text": "see", "local_start": 1.28, "local_end": 1.52, "global_start": 50.22, "global_end": 50.46}, {"text": "the", "local_start": 1.52, "local_end": 1.62, "global_start": 50.46, "global_end": 50.56}], "display_end": 50.54}, {"chunk_index": 63, "turn_index": 15, "speaker": "stewie", "start": 50.54, "end": 51.82, "words": [{"text": "memory", "local_start": 1.6, "local_end": 1.92, "global_start": 50.54, "global_end": 50.86}, {"text": "usage", "local_start": 1.92, "local_end": 2.32, "global_start": 50.86, "global_end": 51.26}, {"text": "lowering.", "local_start": 2.32, "local_end": 2.88, "global_start": 51.26, "global_end": 51.82}], "display_end": 51.92}, {"chunk_index": 64, "turn_index": 16, "speaker": "peter", "start": 51.92, "end": 52.48, "words": [{"text": "Can", "local_start": 0.0, "local_end": 0.16, "global_start": 51.92, "global_end": 52.08}, {"text": "we", "local_start": 0.16, "local_end": 0.26, "global_start": 52.08, "global_end": 52.18}, {"text": "free", "local_start": 0.24, "local_end": 0.56, "global_start": 52.16, "global_end": 52.48}], "display_end": 52.48}, {"chunk_index": 65, "turn_index": 16, "speaker": "peter", "start": 52.48, "end": 53.2, "words": [{"text": "up", "local_start": 0.56, "local_end": 0.72, "global_start": 52.48, "global_end": 52.64}, {"text": "even", "local_start": 0.72, "local_end": 0.96, "global_start": 52.64, "global_end": 52.88}, {"text": "more?", "local_start": 0.96, "local_end": 1.28, "global_start": 52.88, "global_end": 53.2}], "display_end": 53.3}, {"chunk_index": 66, "turn_index": 17, "speaker": "stewie", "start": 53.3, "end": 53.96, "words": [{"text": "Go", "local_start": 0.0, "local_end": 0.24, "global_start": 53.3, "global_end": 53.54}, {"text": "back", "local_start": 0.24, "local_end": 0.56, "global_start": 53.54, "global_end": 53.86}, {"text": "to", "local_start": 0.56, "local_end": 0.66, "global_start": 53.86, "global_end": 53.96}], "display_end": 53.86}, {"chunk_index": 67, "turn_index": 17, "speaker": "stewie", "start": 53.86, "end": 54.74, "words": [{"text": "the", "local_start": 0.56, "local_end": 0.72, "global_start": 53.86, "global_end": 54.02}, {"text": "second", "local_start": 0.72, "local_end": 1.04, "global_start": 54.02, "global_end": 54.34}, {"text": "option", "local_start": 1.04, "local_end": 1.44, "global_start": 54.34, "global_end": 54.74}], "display_end": 54.9}, {"chunk_index": 68, "turn_index": 17, "speaker": "stewie", "start": 54.9, "end": 55.54, "words": [{"text": "and", "local_start": 1.6, "local_end": 1.7, "global_start": 54.9, "global_end": 55.0}, {"text": "then", "local_start": 1.68, "local_end": 1.84, "global_start": 54.98, "global_end": 55.14}, {"text": "select", "local_start": 1.84, "local_end": 2.24, "global_start": 55.14, "global_end": 55.54}], "display_end": 55.54}, {"chunk_index": 69, "turn_index": 17, "speaker": "stewie", "start": 55.54, "end": 56.26, "words": [{"text": "the", "local_start": 2.24, "local_end": 2.34, "global_start": 55.54, "global_end": 55.64}, {"text": "Standby", "local_start": 2.24, "local_end": 2.8, "global_start": 55.54, "global_end": 56.1}, {"text": "List", "local_start": 2.8, "local_end": 2.96, "global_start": 56.1, "global_end": 56.26}], "display_end": 56.26}, {"chunk_index": 70, "turn_index": 17, "speaker": "stewie", "start": 56.26, "end": 56.74, "words": [{"text": "option.", "local_start": 2.96, "local_end": 3.44, "global_start": 56.26, "global_end": 56.74}], "display_end": 56.84}, {"chunk_index": 71, "turn_index": 18, "speaker": "peter", "start": 56.84, "end": 57.26, "words": [{"text": "What's", "local_start": 0.0, "local_end": 0.24, "global_start": 56.84, "global_end": 57.08}, {"text": "on", "local_start": 0.24, "local_end": 0.34, "global_start": 57.08, "global_end": 57.18}, {"text": "the", "local_start": 0.32, "local_end": 0.42, "global_start": 57.16, "global_end": 57.26}], "display_end": 57.24}, {"chunk_index": 72, "turn_index": 18, "speaker": "peter", "start": 57.24, "end": 58.12, "words": [{"text": "Standby", "local_start": 0.4, "local_end": 0.96, "global_start": 57.24, "global_end": 57.8}, {"text": "List?", "local_start": 0.96, "local_end": 1.28, "global_start": 57.8, "global_end": 58.12}], "display_end": 58.22}, {"chunk_index": 73, "turn_index": 19, "speaker": "stewie", "start": 58.22, "end": 59.02, "words": [{"text": "Those", "local_start": 0.0, "local_end": 0.24, "global_start": 58.22, "global_end": 58.46}, {"text": "are", "local_start": 0.24, "local_end": 0.34, "global_start": 58.46, "global_end": 58.56}, {"text": "programs", "local_start": 0.32, "local_end": 0.8, "global_start": 58.54, "global_end": 59.02}], "display_end": 59.02}, {"chunk_index": 74, "turn_index": 19, "speaker": "stewie", "start": 59.02, "end": 59.98, "words": [{"text": "you've", "local_start": 0.8, "local_end": 0.96, "global_start": 59.02, "global_end": 59.18}, {"text": "already", "local_start": 0.96, "local_end": 1.28, "global_start": 59.18, "global_end": 59.5}, {"text": "closed", "local_start": 1.28, "local_end": 1.76, "global_start": 59.5, "global_end": 59.98}], "display_end": 60.14}, {"chunk_index": 75, "turn_index": 19, "speaker": "stewie", "start": 60.14, "end": 60.62, "words": [{"text": "but", "local_start": 1.92, "local_end": 2.02, "global_start": 60.14, "global_end": 60.24}, {"text": "are", "local_start": 2.0, "local_end": 2.16, "global_start": 60.22, "global_end": 60.38}, {"text": "still", "local_start": 2.16, "local_end": 2.4, "global_start": 60.38, "global_end": 60.62}], "display_end": 60.62}, {"chunk_index": 76, "turn_index": 19, "speaker": "stewie", "start": 60.62, "end": 61.5, "words": [{"text": "eating", "local_start": 2.4, "local_end": 2.64, "global_start": 60.62, "global_end": 60.86}, {"text": "up", "local_start": 2.64, "local_end": 2.74, "global_start": 60.86, "global_end": 60.96}, {"text": "memory.", "local_start": 2.72, "local_end": 3.28, "global_start": 60.94, "global_end": 61.5}], "display_end": 61.6}, {"chunk_index": 77, "turn_index": 20, "speaker": "peter", "start": 61.6, "end": 61.94, "words": [{"text": "And", "local_start": 0.0, "local_end": 0.16, "global_start": 61.6, "global_end": 61.76}, {"text": "look", "local_start": 0.16, "local_end": 0.26, "global_start": 61.76, "global_end": 61.86}, {"text": "at", "local_start": 0.24, "local_end": 0.34, "global_start": 61.84, "global_end": 61.94}], "display_end": 61.92}, {"chunk_index": 78, "turn_index": 20, "speaker": "peter", "start": 61.92, "end": 63.2, "words": [{"text": "that.", "local_start": 0.32, "local_end": 0.56, "global_start": 61.92, "global_end": 62.16}, {"text": "Over", "local_start": 0.96, "local_end": 1.2, "global_start": 62.56, "global_end": 62.8}, {"text": "10", "local_start": 1.2, "local_end": 1.6, "global_start": 62.8, "global_end": 63.2}], "display_end": 63.2}, {"chunk_index": 79, "turn_index": 20, "speaker": "peter", "start": 63.2, "end": 64.0, "words": [{"text": "gigs", "local_start": 1.6, "local_end": 1.84, "global_start": 63.2, "global_end": 63.44}, {"text": "are", "local_start": 1.84, "local_end": 1.94, "global_start": 63.44, "global_end": 63.54}, {"text": "available", "local_start": 1.92, "local_end": 2.4, "global_start": 63.52, "global_end": 64.0}], "display_end": 64.0}, {"chunk_index": 80, "turn_index": 20, "speaker": "peter", "start": 64.0, "end": 64.24, "words": [{"text": "now.", "local_start": 2.4, "local_end": 2.64, "global_start": 64.0, "global_end": 64.24}], "display_end": 64.34}, {"chunk_index": 81, "turn_index": 21, "speaker": "stewie", "start": 64.34, "end": 65.62, "words": [{"text": "Exactly.", "local_start": 0.0, "local_end": 0.64, "global_start": 64.34, "global_end": 64.98}, {"text": "That's", "local_start": 0.8, "local_end": 1.04, "global_start": 65.14, "global_end": 65.38}, {"text": "over", "local_start": 1.04, "local_end": 1.28, "global_start": 65.38, "global_end": 65.62}], "display_end": 65.62}, {"chunk_index": 82, "turn_index": 21, "speaker": "stewie", "start": 65.62, "end": 66.34, "words": [{"text": "10", "local_start": 1.28, "local_end": 1.6, "global_start": 65.62, "global_end": 65.94}, {"text": "gigs", "local_start": 1.6, "local_end": 1.84, "global_start": 65.94, "global_end": 66.18}, {"text": "you", "local_start": 1.84, "local_end": 2.0, "global_start": 66.18, "global_end": 66.34}], "display_end": 66.34}, {"chunk_index": 83, "turn_index": 21, "speaker": "stewie", "start": 66.34, "end": 66.76, "words": [{"text": "can", "local_start": 2.0, "local_end": 2.1, "global_start": 66.34, "global_end": 66.44}, {"text": "now", "local_start": 2.08, "local_end": 2.32, "global_start": 66.42, "global_end": 66.66}, {"text": "have", "local_start": 2.32, "local_end": 2.42, "global_start": 66.66, "global_end": 66.76}], "display_end": 66.74}, {"chunk_index": 84, "turn_index": 21, "speaker": "stewie", "start": 66.74, "end": 67.46, "words": [{"text": "available", "local_start": 2.4, "local_end": 2.88, "global_start": 66.74, "global_end": 67.22}, {"text": "to", "local_start": 2.88, "local_end": 2.98, "global_start": 67.22, "global_end": 67.32}, {"text": "play", "local_start": 2.96, "local_end": 3.12, "global_start": 67.3, "global_end": 67.46}], "display_end": 67.46}, {"chunk_index": 85, "turn_index": 21, "speaker": "stewie", "start": 67.46, "end": 68.42, "words": [{"text": "your", "local_start": 3.12, "local_end": 3.28, "global_start": 67.46, "global_end": 67.62}, {"text": "games", "local_start": 3.28, "local_end": 3.52, "global_start": 67.62, "global_end": 67.86}, {"text": "smoothly", "local_start": 3.52, "local_end": 4.08, "global_start": 67.86, "global_end": 68.42}], "display_end": 68.5}, {"chunk_index": 86, "turn_index": 21, "speaker": "stewie", "start": 68.5, "end": 69.06, "words": [{"text": "or", "local_start": 4.16, "local_end": 4.32, "global_start": 68.5, "global_end": 68.66}, {"text": "run", "local_start": 4.32, "local_end": 4.48, "global_start": 68.66, "global_end": 68.82}, {"text": "any", "local_start": 4.48, "local_end": 4.72, "global_start": 68.82, "global_end": 69.06}], "display_end": 69.06}, {"chunk_index": 87, "turn_index": 21, "speaker": "stewie", "start": 69.06, "end": 69.86, "words": [{"text": "other", "local_start": 4.72, "local_end": 4.88, "global_start": 69.06, "global_end": 69.22}, {"text": "heavy", "local_start": 4.88, "local_end": 5.12, "global_start": 69.22, "global_end": 69.46}, {"text": "task", "local_start": 5.12, "local_end": 5.52, "global_start": 69.46, "global_end": 69.86}], "display_end": 69.86}, {"chunk_index": 88, "turn_index": 21, "speaker": "stewie", "start": 69.86, "end": 70.66, "words": [{"text": "on", "local_start": 5.52, "local_end": 5.62, "global_start": 69.86, "global_end": 69.96}, {"text": "your", "local_start": 5.6, "local_end": 5.76, "global_start": 69.94, "global_end": 70.1}, {"text": "PC.", "local_start": 5.76, "local_end": 6.32, "global_start": 70.1, "global_end": 70.66}], "display_end": 70.76}, {"chunk_index": 89, "turn_index": 22, "speaker": "peter", "start": 70.84, "end": 71.34, "words": [{"text": "Okay,", "local_start": 0.08, "local_end": 0.24, "global_start": 70.84, "global_end": 71.0}, {"text": "now", "local_start": 0.24, "local_end": 0.48, "global_start": 71.0, "global_end": 71.24}, {"text": "I", "local_start": 0.48, "local_end": 0.58, "global_start": 71.24, "global_end": 71.34}], "display_end": 71.32}, {"chunk_index": 90, "turn_index": 22, "speaker": "peter", "start": 71.32, "end": 71.88, "words": [{"text": "want", "local_start": 0.56, "local_end": 0.8, "global_start": 71.32, "global_end": 71.56}, {"text": "the", "local_start": 0.8, "local_end": 0.9, "global_start": 71.56, "global_end": 71.66}, {"text": "whole", "local_start": 0.88, "local_end": 1.12, "global_start": 71.64, "global_end": 71.88}], "display_end": 71.88}, {"chunk_index": 91, "turn_index": 22, "speaker": "peter", "start": 71.88, "end": 73.08, "words": [{"text": "PC", "local_start": 1.12, "local_end": 1.6, "global_start": 71.88, "global_end": 72.36}, {"text": "optimized.", "local_start": 1.6, "local_end": 2.32, "global_start": 72.36, "global_end": 73.08}], "display_end": 73.18}, {"chunk_index": 92, "turn_index": 23, "speaker": "stewie", "start": 73.34, "end": 73.82, "words": [{"text": "I", "local_start": 0.16, "local_end": 0.26, "global_start": 73.34, "global_end": 73.44}, {"text": "should", "local_start": 0.24, "local_end": 0.4, "global_start": 73.42, "global_end": 73.58}, {"text": "fully", "local_start": 0.4, "local_end": 0.64, "global_start": 73.58, "global_end": 73.82}], "display_end": 73.82}, {"chunk_index": 93, "turn_index": 23, "speaker": "stewie", "start": 73.82, "end": 75.02, "words": [{"text": "optimize", "local_start": 0.64, "local_end": 1.12, "global_start": 73.82, "global_end": 74.3}, {"text": "your", "local_start": 1.12, "local_end": 1.28, "global_start": 74.3, "global_end": 74.46}, {"text": "PC,", "local_start": 1.28, "local_end": 1.84, "global_start": 74.46, "global_end": 75.02}], "display_end": 75.18}, {"chunk_index": 94, "turn_index": 23, "speaker": "stewie", "start": 75.18, "end": 76.3, "words": [{"text": "Windows,", "local_start": 2.0, "local_end": 2.56, "global_start": 75.18, "global_end": 75.74}, {"text": "BIOS,", "local_start": 2.64, "local_end": 3.12, "global_start": 75.82, "global_end": 76.3}], "display_end": 76.3}, {"chunk_index": 95, "turn_index": 23, "speaker": "stewie", "start": 76.3, "end": 76.94, "words": [{"text": "and", "local_start": 3.12, "local_end": 3.28, "global_start": 76.3, "global_end": 76.46}, {"text": "games.", "local_start": 3.28, "local_end": 3.76, "global_start": 76.46, "global_end": 76.94}], "display_end": 77.1}, {"chunk_index": 96, "turn_index": 23, "speaker": "stewie", "start": 77.1, "end": 77.74, "words": [{"text": "Do", "local_start": 3.92, "local_end": 4.08, "global_start": 77.1, "global_end": 77.26}, {"text": "follow.", "local_start": 4.08, "local_end": 4.56, "global_start": 77.26, "global_end": 77.74}], "display_end": 77.83}]};
+    let ALIGNED_CAPTIONS = window.ALIGNED_CAPTIONS;
+    let SCRIPT = [{"second": 0, "speaker": "peter", "line": "Stewie, my PC is running slow, my FPS isn't great...", "graphic": "sec00_pc_slow_alert", "stepNumber": 0, "title": "PC Running Extremely Slow", "breadcrumb": "System Stuttering & Lag Detected"}, {"second": 1, "speaker": "peter", "line": "Stewie, my PC is running slow, my FPS isn't great...", "graphic": "sec01_low_fps_counter", "stepNumber": 0, "title": "Game FPS Dropping to 22 FPS", "breadcrumb": "Massive Frame Drops & Stutters"}, {"second": 2, "speaker": "peter", "line": "Stewie, my PC is running slow, my FPS isn't great...", "graphic": "sec02_ram_usage_94_percent", "stepNumber": 0, "title": "RAM Usage: 94% CRITICAL", "breadcrumb": "15.1 GB of 16 GB Consumed"}, {"second": 3, "speaker": "peter", "line": "...and my RAM usage is insanely high even when I barely have anything open.", "graphic": "sec03_task_mgr_memory_red", "stepNumber": 0, "title": "Task Manager: Memory Redlined", "breadcrumb": "Mystery Cache Eating RAM"}, {"second": 4, "speaker": "peter", "line": "...and my RAM usage is insanely high even when I barely have anything open.", "graphic": "sec04_idle_desktop_leak", "stepNumber": 0, "title": "Desktop Completely Idle", "breadcrumb": "No Heavy Apps Open!"}, {"second": 5, "speaker": "peter", "line": "...and my RAM usage is insanely high even when I barely have anything open.", "graphic": "sec05_barely_anything_open", "stepNumber": 0, "title": "Where Did The RAM Go?", "breadcrumb": "Standby Cache Leak Suspected"}, {"second": 6, "speaker": "peter", "line": "...and my RAM usage is insanely high even when I barely have anything open.", "graphic": "sec06_system_bottleneck", "stepNumber": 0, "title": "System Memory Bottleneck", "breadcrumb": "Windows Caching Everything"}, {"second": 7, "speaker": "peter", "line": "...and my RAM usage is insanely high even when I barely have anything open.", "graphic": "sec07_peter_seeking_solution", "stepNumber": 0, "title": "How Do We Fix This?", "breadcrumb": "Asking Stewie For Solution"}, {"second": 8, "speaker": "stewie", "line": "And RAM isn't exactly cheap, right?", "graphic": "sec08_ram_expensive_price", "stepNumber": 0, "title": "RAM Isn't Cheap To Upgrade", "breadcrumb": "Don't Waste Money Buying More"}, {"second": 9, "speaker": "stewie", "line": "And RAM isn't exactly cheap, right? This can help you find out...", "graphic": "sec09_memory_detective_radar", "stepNumber": 0, "title": "Find What's Eating Your RAM", "breadcrumb": "Unmasking Hidden System Cache"}, {"second": 10, "speaker": "stewie", "line": "This can help you find out what's eating all that memory.", "graphic": "sec10_sysinternals_tool_teaser", "stepNumber": 0, "title": "The Official Memory Tool", "breadcrumb": "Advanced RAM Diagnostic"}, {"second": 11, "speaker": "stewie", "line": "This can help you find out what's eating all that memory.", "graphic": "sec11_free_solution_reveal", "stepNumber": 0, "title": "Free Microsoft Utility", "breadcrumb": "Zero Cost \u2022 Instant Results"}, {"second": 12, "speaker": "stewie", "line": "This can help you find out what's eating all that memory.", "graphic": "sec12_transition_to_steps", "stepNumber": 0, "title": "Ready To Free Up Gigs?", "breadcrumb": "Let's Get The Tool"}, {"second": 13, "speaker": "peter", "line": "Okay, what do I need?", "graphic": "sec13_what_do_i_need", "stepNumber": 0, "title": "What Do I Need?", "breadcrumb": "Simple 1-Minute Walkthrough"}, {"second": 14, "speaker": "stewie", "line": "Just type RAMMap and go to the first site.", "graphic": "sec14_google_search_rammap", "stepNumber": 1, "title": "Step 1: Search \"RAMMap\"", "breadcrumb": "Type RAMMap in Google or Bing"}, {"second": 15, "speaker": "stewie", "line": "Just type RAMMap and go to the first site.", "graphic": "sec15_first_search_result", "stepNumber": 1, "title": "Top Result: Microsoft Learn", "breadcrumb": "learn.microsoft.com \u203a sysinternals"}, {"second": 16, "speaker": "stewie", "line": "Just type RAMMap and go to the first site.", "graphic": "sec16_click_first_link", "stepNumber": 1, "title": "Click The First Official Link", "breadcrumb": "Official Microsoft Sysinternals"}, {"second": 17, "speaker": "peter", "line": "But before someone in the comments says it's a virus...", "graphic": "sec17_comments_virus_concern", "stepNumber": 0, "title": "\"Is This A Virus?!\"", "breadcrumb": "Addressing Common Comments"}, {"second": 18, "speaker": "peter", "line": "...is this actually safe?", "graphic": "sec18_safety_security_check", "stepNumber": 0, "title": "Is This Actually Safe?", "breadcrumb": "Zero Malware \u2022 100% Safe"}, {"second": 19, "speaker": "peter", "line": "...is this actually safe?", "graphic": "sec19_virus_scanner_shield", "stepNumber": 0, "title": "Legitimate System Utility?", "breadcrumb": "Verifying The Publisher"}, {"second": 20, "speaker": "stewie", "line": "It's a Microsoft site, okay?", "graphic": "sec20_microsoft_official_shield", "stepNumber": 0, "title": "100% Official Microsoft Site", "breadcrumb": "Published by Microsoft Sysinternals"}, {"second": 21, "speaker": "stewie", "line": "It's a Microsoft site, okay?", "graphic": "sec21_microsoft_learn_verified", "stepNumber": 0, "title": "learn.microsoft.com Verified", "breadcrumb": "Mark Russinovich (Microsoft CTO)"}, {"second": 22, "speaker": "peter", "line": "Alright, what do I click?", "graphic": "sec22_page_download_section", "stepNumber": 2, "title": "Step 2: Download Option", "breadcrumb": "Scroll To Download Button"}, {"second": 23, "speaker": "peter", "line": "Alright, what do I click?", "graphic": "sec23_cursor_hover_download", "stepNumber": 2, "title": "Target: Download RAMMap", "breadcrumb": "Compact 671 KB Utility"}, {"second": 24, "speaker": "stewie", "line": "Click this option, then choose where you want to download it.", "graphic": "sec24_click_download_button", "stepNumber": 2, "title": "Click \"Download RAMMap\"", "breadcrumb": "Instant Zip Download"}, {"second": 25, "speaker": "stewie", "line": "then choose where you want to download it.", "graphic": "sec25_choose_download_location", "stepNumber": 2, "title": "Choose Download Folder", "breadcrumb": "Saved To Downloads or Desktop"}, {"second": 26, "speaker": "peter", "line": "And here's the file. Now what?", "graphic": "sec26_rammap_zip_downloaded", "stepNumber": 3, "title": "Step 3: Download Complete", "breadcrumb": "File: RAMMap.zip (671 KB)"}, {"second": 27, "speaker": "peter", "line": "And here's the file. Now what?", "graphic": "sec27_unzip_rammap64", "stepNumber": 3, "title": "Extracting RAMMap64.exe", "breadcrumb": "Ready To Run"}, {"second": 28, "speaker": "stewie", "line": "Click it and run it as administrator.", "graphic": "sec28_right_click_context_menu", "stepNumber": 3, "title": "Right Click \u203a Run as Admin", "breadcrumb": "Administrator Privileges Required"}, {"second": 29, "speaker": "stewie", "line": "Click it and run it as administrator.", "graphic": "sec29_click_run_as_admin", "stepNumber": 3, "title": "Run as Administrator", "breadcrumb": "Allows Direct Memory Management"}, {"second": 30, "speaker": "stewie", "line": "Then just wait a few seconds...", "graphic": "sec30_uac_approved_loading", "stepNumber": 3, "title": "UAC Prompt Approved", "breadcrumb": "Windows Security Approved"}, {"second": 31, "speaker": "stewie", "line": "...for it to load all the memory processes.", "graphic": "sec31_loading_memory_processes", "stepNumber": 3, "title": "Loading Memory Processes...", "breadcrumb": "Analyzing Physical RAM Allocation"}, {"second": 32, "speaker": "stewie", "line": "...load all the memory processes.", "graphic": "sec32_rammap_window_opened", "stepNumber": 3, "title": "RAMMap Successfully Opened", "breadcrumb": "Deep Memory Telemetry Active"}, {"second": 33, "speaker": "peter", "line": "So I can actually see what's happening in real time?", "graphic": "sec33_real_time_dashboard", "stepNumber": 0, "title": "Real-Time Memory Telemetry", "breadcrumb": "Live Physical Memory Visualizer"}, {"second": 34, "speaker": "peter", "line": "So I can actually see what's happening in real time?", "graphic": "sec34_use_counts_table", "stepNumber": 0, "title": "\"Use Counts\" Live Table", "breadcrumb": "Process Private, Standby, Modified"}, {"second": 35, "speaker": "peter", "line": "So I can actually see what's happening in real time?", "graphic": "sec35_live_tracking_active", "stepNumber": 0, "title": "Instant Live Updates", "breadcrumb": "Every Single Kilobyte Accounted For"}, {"second": 36, "speaker": "stewie", "line": "Exactly. You can see how your memory is being used in real time.", "graphic": "sec36_physical_memory_breakdown", "stepNumber": 0, "title": "Total Physical Memory: 16 GB", "breadcrumb": "Active vs Standby vs Free"}, {"second": 37, "speaker": "stewie", "line": "You can see how your memory is being used in real time.", "graphic": "sec37_active_memory_highlight", "stepNumber": 0, "title": "Active Working Sets", "breadcrumb": "Current Programs in RAM"}, {"second": 38, "speaker": "stewie", "line": "Here, 45% of the memory is being used.", "graphic": "sec38_memory_meter_45_percent", "stepNumber": 0, "title": "Current Usage: 45% / 7.2 GB", "breadcrumb": "Remainder Locked in Standby Cache"}, {"second": 39, "speaker": "stewie", "line": "Here, 45% of the memory is being used.", "graphic": "sec39_standby_cache_leak_meter", "stepNumber": 0, "title": "Standby Cache: 8.8 GB Locked!", "breadcrumb": "Windows Refuses To Release It"}, {"second": 40, "speaker": "stewie", "line": "Here, 45% of the memory is being used.", "graphic": "sec40_why_pc_slow_explained", "stepNumber": 0, "title": "Why Games Lag & Stutter", "breadcrumb": "No Free Memory Left For New Frames"}, {"second": 41, "speaker": "stewie", "line": "Here, 45% of the memory is being used.", "graphic": "sec41_ready_to_empty", "stepNumber": 0, "title": "Time To Flush The Waste", "breadcrumb": "Two Quick Clicks To Fix"}, {"second": 42, "speaker": "stewie", "line": "Here, 45% of the memory is being used.", "graphic": "sec42_transition_to_empty_menu", "stepNumber": 0, "title": "Look At The Top Menu Bar", "breadcrumb": "Find The \"Empty\" Dropdown"}, {"second": 43, "speaker": "peter", "line": "Okay, where do I go next?", "graphic": "sec43_where_do_i_go_next", "stepNumber": 4, "title": "Step 4: Locate \"Empty\" Menu", "breadcrumb": "File \u2022 Empty \u2022 Configure \u2022 Help"}, {"second": 44, "speaker": "peter", "line": "Okay, where do I go next?", "graphic": "sec44_focus_empty_menu", "stepNumber": 4, "title": "Focus On Second Option: \"Empty\"", "breadcrumb": "Top Navigation Menu"}, {"second": 45, "speaker": "stewie", "line": "Come to this second option...", "graphic": "sec45_click_empty_menu_open", "stepNumber": 4, "title": "Click The \"Empty\" Menu", "breadcrumb": "Dropdown List Opens"}, {"second": 46, "speaker": "stewie", "line": "...click the first one, Working Sets.", "graphic": "sec46_highlight_empty_working_sets", "stepNumber": 4, "title": "Select \"Empty Working Sets\"", "breadcrumb": "First Option In The List"}, {"second": 47, "speaker": "stewie", "line": "...click the first one, Working Sets.", "graphic": "sec47_click_empty_working_sets", "stepNumber": 4, "title": "Click \"Empty Working Sets\" Now", "breadcrumb": "Flushing Bloated Working Sets"}, {"second": 48, "speaker": "peter", "line": "And it's already going down.", "graphic": "sec48_memory_meter_plunging", "stepNumber": 4, "title": "Memory Usage Plunging!", "breadcrumb": "Instant Drop Detected"}, {"second": 49, "speaker": "stewie", "line": "Yep. You can already see the memory usage lowering.", "graphic": "sec49_usage_down_to_32_percent", "stepNumber": 4, "title": "RAM Usage Drops to 32%", "breadcrumb": "Working Sets Flushed To Disk/Clean"}, {"second": 50, "speaker": "stewie", "line": "You can already see the memory usage lowering.", "graphic": "sec50_instant_responsiveness", "stepNumber": 4, "title": "PC Immediately Feels Snappier", "breadcrumb": "Free RAM Buffer Restored"}, {"second": 51, "speaker": "stewie", "line": "You can already see the memory usage lowering.", "graphic": "sec51_but_wait_theres_more", "stepNumber": 4, "title": "Wait... We Aren't Done Yet!", "breadcrumb": "The Biggest Culprit Remains"}, {"second": 52, "speaker": "peter", "line": "Can we free up even more?", "graphic": "sec52_can_we_free_even_more", "stepNumber": 5, "title": "Can We Free Up Even More?", "breadcrumb": "Peter Wants Maximum FPS"}, {"second": 53, "speaker": "peter", "line": "Can we free up even more?", "graphic": "sec53_turbo_optimization_icon", "stepNumber": 5, "title": "Target: 10+ GB Free Memory", "breadcrumb": "Clearing The Standby Cache"}, {"second": 54, "speaker": "stewie", "line": "Go back to the second option...", "graphic": "sec54_reopen_empty_menu", "stepNumber": 5, "title": "Step 5: Re-Open \"Empty\" Menu", "breadcrumb": "Click \"Empty\" At The Top"}, {"second": 55, "speaker": "stewie", "line": "...and then select the Standby List option.", "graphic": "sec55_highlight_empty_standby_list", "stepNumber": 5, "title": "Highlight \"Empty Standby List\"", "breadcrumb": "Clears Ghost Standby Cache"}, {"second": 56, "speaker": "stewie", "line": "...select the Standby List option.", "graphic": "sec56_click_empty_standby_list", "stepNumber": 5, "title": "Click \"Empty Standby List\"", "breadcrumb": "Purging Zombie Application Memory"}, {"second": 57, "speaker": "peter", "line": "What's on the Standby List?", "graphic": "sec57_what_is_standby_list", "stepNumber": 0, "title": "What's On The Standby List?", "breadcrumb": "Understanding Windows Caching"}, {"second": 58, "speaker": "peter", "line": "What's on the Standby List?", "graphic": "sec58_questioning_the_cache", "stepNumber": 0, "title": "Why Was It Eating So Much RAM?", "breadcrumb": "Windows Never Releases It Automatically"}, {"second": 59, "speaker": "stewie", "line": "Those are programs you've already closed...", "graphic": "sec59_closed_apps_ghost_icons", "stepNumber": 0, "title": "Closed Apps Still Trapped In RAM", "breadcrumb": "Chrome, Discord, Games You Closed"}, {"second": 60, "speaker": "stewie", "line": "...but are still eating up memory.", "graphic": "sec60_ghost_memory_leak_graphic", "stepNumber": 0, "title": "Zombie Cache Trapped In RAM", "breadcrumb": "Stealing Memory From Active Games"}, {"second": 61, "speaker": "stewie", "line": "...still eating up memory.", "graphic": "sec61_standby_flushed_to_zero", "stepNumber": 0, "title": "Standby Cache Emptied To Zero!", "breadcrumb": "Instantly Reclaimed By OS"}, {"second": 62, "speaker": "peter", "line": "And look at that.", "graphic": "sec62_peter_eyes_wide_shock", "stepNumber": 0, "title": "Look At That Meter!", "breadcrumb": "Gigabytes Instantly Restored"}, {"second": 63, "speaker": "peter", "line": "Over 10 gigs are available now.", "graphic": "sec63_ten_gigs_available_counter", "stepNumber": 0, "title": "+10.4 GB AVAILABLE NOW! \u2705", "breadcrumb": "Massive Free Memory Unlocked"}, {"second": 64, "speaker": "peter", "line": "Over 10 gigs are available now.", "graphic": "sec64_total_memory_restored", "stepNumber": 0, "title": "Available: 13.2 GB / 16 GB", "breadcrumb": "Cleanest Memory State Possible"}, {"second": 65, "speaker": "stewie", "line": "Exactly. That's over 10 gigs you can now have available...", "graphic": "sec65_smooth_gaming_readiness", "stepNumber": 0, "title": "10+ GB Ready For Your Games", "breadcrumb": "Zero Background Stutter"}, {"second": 66, "speaker": "stewie", "line": "...to play your games smoothly...", "graphic": "sec66_fps_boost_144_counter", "stepNumber": 0, "title": "FPS Boost: Solid 144 FPS \ud83c\udfae", "breadcrumb": "No Micro-Stutters \u2022 Smooth 1% Lows"}, {"second": 67, "speaker": "stewie", "line": "...or run any other heavy task on your PC.", "graphic": "sec67_heavy_task_smooth_graphic", "stepNumber": 0, "title": "Heavy Tasks Run Silky Smooth", "breadcrumb": "Premiere, Blender, Streaming, Coding"}, {"second": 68, "speaker": "stewie", "line": "...heavy task on your PC.", "graphic": "sec68_pc_running_like_brand_new", "stepNumber": 0, "title": "PC Running Like Brand New", "breadcrumb": "Free Without Spending A Dime"}, {"second": 69, "speaker": "stewie", "line": "...heavy task on your PC.", "graphic": "sec69_rammap_master_success", "stepNumber": 0, "title": "RAMMap Optimization Complete!", "breadcrumb": "Saved Over $100 In RAM Upgrades"}, {"second": 70, "speaker": "stewie", "line": "...heavy task on your PC.", "graphic": "sec70_peter_wants_more", "stepNumber": 0, "title": "Ready For Total PC Tuning?", "breadcrumb": "Full System Optimization"}, {"second": 71, "speaker": "peter", "line": "Okay, now I want the whole PC optimized.", "graphic": "sec71_optimize_whole_pc_prompt", "stepNumber": 0, "title": "\"Now I Want The Whole PC Optimized!\"", "breadcrumb": "Peter Wants Maximum Speed"}, {"second": 72, "speaker": "peter", "line": "Okay, now I want the whole PC optimized.", "graphic": "sec72_four_pillars_optimization", "stepNumber": 0, "title": "Windows \u2022 BIOS \u2022 GPU \u2022 Games", "breadcrumb": "The Complete Performance Stack"}, {"second": 73, "speaker": "peter", "line": "Okay, now I want the whole PC optimized.", "graphic": "sec73_transition_to_outro", "stepNumber": 0, "title": "Stewie's Master PC Tuning Guide", "breadcrumb": "Unlocking The Secrets"}, {"second": 74, "speaker": "stewie", "line": "I should fully optimize your PC, Windows, BIOS, and games.", "graphic": "sec74_full_optimization_roadmap", "stepNumber": 0, "title": "PC \u2022 Windows \u2022 BIOS \u2022 Games", "breadcrumb": "Full Optimization Roadmap"}, {"second": 75, "speaker": "stewie", "line": "I should fully optimize your PC, Windows, BIOS, and games.", "graphic": "sec75_master_pc_tips_card", "stepNumber": 0, "title": "PC Tips by Ez_peter", "breadcrumb": "Take Back Control Of Your PC"}, {"second": 76, "speaker": "stewie", "line": "Do follow.", "graphic": "sec76_follow_ez_peter_cta", "stepNumber": 0, "title": "Follow @Ez_peter \ud83d\ude80", "breadcrumb": "For Daily Windows & PC Hacks"}, {"second": 77, "speaker": "stewie", "line": "Do follow.", "graphic": "sec77_save_and_share_outro", "stepNumber": 0, "title": "Save & Share This PC Tip! \ud83d\udcbb\u2728", "breadcrumb": "Follow @Ez_peter"}];
+    window.SCRIPT = SCRIPT;
+
+    // Initialize progress bar segments based on script length
+    const progBar = document.getElementById('progressBar');
+    progBar.innerHTML = '';
+    for (let i = 0; i < SCRIPT.length; i++) {
+      const seg = document.createElement('div');
+      seg.className = 'prog-seg';
+      seg.innerHTML = '<div class="prog-fill"></div>';
+      progBar.appendChild(seg);
+    }
+
+    // Helper easing functions
+    function easeOutCubic(x) { return 1 - Math.pow(1 - x, 3); }
+    function easeInOutQuad(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+    function clamp(val, min, max) { return Math.max(min, Math.min(max, val)); }
+
+    // Windows 11 Taskbar markup
+    const winTaskbarHTML = `
+      <div class="win-taskbar">
+        <div class="taskbar-center">
+          <div class="tb-icon">
+            <div class="tb-win-logo"><div></div><div></div><div></div><div></div></div>
+          </div>
+          <div class="tb-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search</span>
+          </div>
+          <div class="tb-icon" style="background:#e0edfe;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0078d4"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+          </div>
+          <div class="tb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#d97706"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+          </div>
+          <div class="tb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0284c7"><circle cx="12" cy="12" r="10" stroke="#0284c7" stroke-width="2" fill="none"/></svg>
+          </div>
+          <div class="tb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#475569"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          </div>
+        </div>
+        <div class="tb-clock">10:24 AM<br><span style="font-size:11px;color:#64748b;">11/23/2026</span></div>
+      </div>
+    `;
+
+    // Cursor SVG markup
+    function cursorHTML(x, y, click = false) {
+      return `
+        <div class="win-cursor" style="left:${x}px; top:${y}px; transform:${click ? 'scale(0.85)' : 'scale(1)'};">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#000000" stroke="#ffffff" stroke-width="1.5">
+            <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+          </svg>
+        </div>
+        ${click ? `<div class="click-ripple" style="left:${x}px; top:${y}px;"></div>` : ''}
+      `;
+    }
+
+    // REUSABLE SCENE COMPONENT RENDERER (78 Dynamic RAMMap Scenes)
+    function renderScreenScene(graphic, tau, t) {
+      const eTau = easeOutCubic(tau);
+
+      // 1. PC SLOW & HIGH RAM
+      if (graphic.startsWith('sec00') || graphic.startsWith('sec01')) {
+        const fps = Math.round(22 + Math.sin(tau * Math.PI * 4) * 3);
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #fed7d7; width:680px;">
+              <div style="display:inline-block; background:#fee2e2; color:#dc2626; padding:6px 18px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:12px;">🚨 CRITICAL PERFORMANCE ALERT</div>
+              <div style="font-size:36px; font-weight:900; color:#991b1b; margin-bottom:6px;">PC Slow & Micro-Stuttering</div>
+              <div style="font-size:52px; font-weight:900; color:#dc2626; margin:8px 0;">${fps} FPS</div>
+              <div style="font-size:16px; color:#64748b; font-weight:600;">Severe Frame Drop Detected In Games</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec02') || graphic.startsWith('sec03')) {
+        const pct = (94.2 + tau * 0.4).toFixed(1);
+        return `
+          <div class="win-desktop" style="padding:24px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 60px);">
+              <div class="win-titlebar">
+                <span>Task Manager - Performance</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div style="padding:20px; display:flex; flex-direction:column; gap:14px;">
+                <div style="display:flex; justify-content:space-between; font-weight:800; font-size:18px;">
+                  <span>Memory (RAM)</span>
+                  <span style="color:#dc2626;">${pct}% Consumed</span>
+                </div>
+                <div style="width:100%; height:24px; background:#f1f5f9; border-radius:12px; overflow:hidden; border:1px solid #fca5a5;">
+                  <div style="width:${pct}%; height:100%; background:linear-gradient(90deg, #f87171, #dc2626);"></div>
+                </div>
+                <div style="font-size:16px; font-weight:700; color:#1e293b;">15.1 GB of 16.0 GB In Use (94%)</div>
+                <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:10px 14px; font-size:14px; color:#991b1b; font-weight:600;">
+                  ⚠️ Standby cache leak hoards 8.8 GB even when idle!
+                </div>
+              </div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec04') || graphic.startsWith('sec05') || graphic.startsWith('sec06') || graphic.startsWith('sec07')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #e2e8f0; width:680px;">
+              <div style="font-size:42px; margin-bottom:8px;">💻</div>
+              <div style="font-size:26px; font-weight:900; color:#0f172a; margin-bottom:4px;">Desktop Completely Idle</div>
+              <div style="font-size:18px; color:#dc2626; font-weight:800; margin-bottom:10px;">Barely Anything Open... Yet 15 GB Locked!</div>
+              <div style="font-size:15px; color:#64748b;">Hidden Windows Cache Hoarding Memory</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 2. RAM EXPENSIVE & SOLUTION
+      else if (graphic.startsWith('sec08') || graphic.startsWith('sec09')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #cbd5e1; width:680px;">
+              <div style="font-size:20px; font-weight:800; color:#d97706; text-transform:uppercase; margin-bottom:6px;">DDR4 / DDR5 RAM Prices</div>
+              <div style="font-size:48px; font-weight:900; color:#0f172a; margin-bottom:8px;">$120 — $250+</div>
+              <div style="font-size:18px; color:#16a34a; font-weight:800;">Don't Buy More RAM! Fix It For Free!</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec10') || graphic.startsWith('sec11') || graphic.startsWith('sec12') || graphic.startsWith('sec13')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bfdbfe; width:680px;">
+              <div style="display:inline-block; background:#dbeafe; color:#1a6cf0; padding:6px 18px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">OFFICIAL MICROSOFT UTILITY</div>
+              <div style="font-size:44px; font-weight:900; color:#1a6cf0; margin-bottom:6px;">RAMMap</div>
+              <div style="font-size:16px; color:#64748b; font-weight:600;">Advanced Physical Memory Visualizer</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 3. STEP 1: SEARCH RAMMAP
+      else if (graphic.startsWith('sec14')) {
+        const typed = "RAMMap".substring(0, Math.floor(tau * 6) + 1);
+        return `
+          <div class="win-desktop" style="padding:20px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>Google Search - Microsoft Edge</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div style="padding:30px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+                <div style="font-size:36px; font-weight:900; color:#1e293b;">Google</div>
+                <div style="width:80%; background:#f8fafc; border:2px solid #cbd5e1; border-radius:24px; padding:12px 24px; font-size:22px; color:#0f172a; display:flex; justify-content:space-between; align-items:center;">
+                  <span>${typed}<span style="color:#1a6cf0;">|</span></span>
+                  <span>🔍</span>
+                </div>
+                <div style="font-size:15px; color:#64748b; font-weight:600;">Step 1: Type "RAMMap" in search</div>
+              </div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec15') || graphic.startsWith('sec16')) {
+        const cx = 380 + tau * 40;
+        const cy = 180 + tau * 15;
+        return `
+          <div class="win-desktop" style="padding:20px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>RAMMap Search Results - Microsoft Edge</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div style="padding:24px; display:flex; flex-direction:column; gap:8px;">
+                <div style="font-size:14px; color:#64748b;">https://learn.microsoft.com › sysinternals › rammap</div>
+                <div style="font-size:24px; font-weight:800; color:#1a6cf0; text-decoration:underline;">RAMMap - Sysinternals | Microsoft Learn</div>
+                <div style="font-size:14px; color:#334155; line-height:1.4;">RAMMap is an advanced physical memory usage analysis utility for Windows. Free download from official Microsoft site.</div>
+                <div style="margin-top:10px; display:inline-block; background:#dcfce7; color:#16a34a; padding:6px 14px; border-radius:14px; font-size:13px; font-weight:700;">
+                  ✓ Verified Official Microsoft Domain
+                </div>
+              </div>
+            </div>
+            ${cursorHTML(cx, cy, graphic.startsWith('sec16'))}
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 4. VIRUS CHECK & MICROSOFT VERIFIED
+      else if (graphic.startsWith('sec17') || graphic.startsWith('sec18') || graphic.startsWith('sec19')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #fecaca; width:680px;">
+              <div style="font-size:20px; font-weight:800; color:#dc2626; margin-bottom:8px;">💬 COMMENTS CONCERN</div>
+              <div style="font-size:38px; font-weight:900; color:#1e293b; margin-bottom:8px;">"Is It Actually Safe?"</div>
+              <div style="font-size:16px; color:#64748b;">Zero third-party bloat • 100% Genuine System Tool</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec20') || graphic.startsWith('sec21')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bbf7d0; width:680px;">
+              <div style="font-size:48px; margin-bottom:8px;">🛡️</div>
+              <div style="font-size:36px; font-weight:900; color:#16a34a; margin-bottom:6px;">100% Official Microsoft Site</div>
+              <div style="font-size:18px; font-weight:700; color:#1a6cf0; margin-bottom:8px;">learn.microsoft.com/sysinternals</div>
+              <div style="font-size:14px; color:#64748b;">Created by Microsoft CTO Mark Russinovich</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 5. STEP 2: DOWNLOAD RAMMAP
+      else if (graphic.startsWith('sec22') || graphic.startsWith('sec23') || graphic.startsWith('sec24')) {
+        const isClick = graphic.startsWith('sec24');
+        return `
+          <div class="win-desktop" style="padding:20px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>Microsoft Learn - RAMMap Download</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div style="padding:32px; display:flex; flex-direction:column; align-items:center; gap:16px;">
+                <div style="font-size:24px; font-weight:800; color:#0f172a;">Download RAMMap</div>
+                <div style="background:${isClick ? '#1657c7' : '#1a6cf0'}; color:#fff; padding:16px 36px; border-radius:10px; font-size:22px; font-weight:800; box-shadow:0 8px 24px rgba(26,108,240,0.3); transform:${isClick ? 'scale(0.96)' : 'scale(1)'};">
+                  ⬇️ Download RAMMap (671 KB)
+                </div>
+                <div style="font-size:14px; color:#64748b; font-weight:600;">Runs on Windows 10 & Windows 11 (64-bit / 32-bit)</div>
+              </div>
+            </div>
+            ${cursorHTML(480, 200, isClick)}
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec25')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.98); border-radius:12px; padding:24px 36px; box-shadow:0 20px 45px rgba(0,0,0,0.18); border:1px solid #cbd5e1; width:640px;">
+              <div style="font-size:18px; font-weight:800; color:#1e293b; margin-bottom:12px;">Save As...</div>
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px 14px; font-size:16px; font-weight:600; color:#0f172a; margin-bottom:14px;">
+                File: RAMMap.zip (671 KB)
+              </div>
+              <div style="font-size:14px; color:#16a34a; font-weight:700;">✓ Saved to Downloads Folder</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 6. STEP 3: RUN AS ADMINISTRATOR
+      else if (graphic.startsWith('sec26') || graphic.startsWith('sec27')) {
+        return `
+          <div class="win-desktop" style="padding:20px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>File Explorer - Downloads</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div style="padding:24px; display:flex; gap:20px; align-items:center;">
+                <div style="font-size:52px;">📁</div>
+                <div>
+                  <div style="font-size:20px; font-weight:800; color:#0f172a;">RAMMap64.exe</div>
+                  <div style="font-size:14px; color:#64748b;">Sysinternals Memory Tool • Application</div>
+                </div>
+              </div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec28') || graphic.startsWith('sec29')) {
+        const isRun = graphic.startsWith('sec29');
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; width:320px; box-shadow:0 15px 35px rgba(0,0,0,0.18); overflow:hidden;">
+              <div style="padding:10px 16px; font-size:15px; font-weight:700; color:#334155; border-bottom:1px solid #f1f5f9;">RAMMap64.exe</div>
+              <div style="padding:12px 16px; background:${isRun ? '#1a6cf0' : '#f8fafc'}; color:${isRun ? '#ffffff' : '#0f172a'}; font-size:15px; font-weight:700; display:flex; align-items:center; gap:10px;">
+                <span>🛡️</span>
+                <span>Run as administrator</span>
+              </div>
+              <div style="padding:8px 16px; font-size:14px; color:#64748b;">Open</div>
+              <div style="padding:8px 16px; font-size:14px; color:#64748b;">Properties</div>
+            </div>
+            ${cursorHTML(540, 260, isRun)}
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec30') || graphic.startsWith('sec31') || graphic.startsWith('sec32')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bfdbfe; width:680px;">
+              <div style="font-size:44px; margin-bottom:8px;">⏳</div>
+              <div style="font-size:32px; font-weight:900; color:#1a6cf0; margin-bottom:6px;">Loading Memory Processes...</div>
+              <div style="font-size:15px; color:#64748b;">Scanning all active physical RAM pages</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 7. REAL-TIME RAMMAP DASHBOARD & 45% BREAKDOWN
+      else if (graphic.startsWith('sec33') || graphic.startsWith('sec34') || graphic.startsWith('sec35') || graphic.startsWith('sec36') || graphic.startsWith('sec37')) {
+        return `
+          <div class="win-desktop" style="padding:16px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>RAMMap v1.61 - Sysinternals: www.sysinternals.com</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div class="rammap-app">
+                <div class="rm-menubar">
+                  <span class="rm-menu-item">File</span>
+                  <span class="rm-menu-item">Empty</span>
+                  <span class="rm-menu-item">Configure</span>
+                  <span class="rm-menu-item">Help</span>
+                </div>
+                <div style="padding:12px;">
+                  <table class="rm-table">
+                    <tr><th>Use Type</th><th>Active</th><th>Standby</th><th>Total</th></tr>
+                    <tr><td>Process Private</td><td>4,210 MB</td><td>-</td><td>4,210 MB</td></tr>
+                    <tr><td>Mapped File</td><td>1,120 MB</td><td>4,810 MB</td><td>5,930 MB</td></tr>
+                    <tr><td>Paged Pool</td><td>680 MB</td><td>-</td><td>680 MB</td></tr>
+                    <tr><td>Driver Locked</td><td>1,210 MB</td><td>-</td><td>1,210 MB</td></tr>
+                    <tr style="background:#e0edfe; font-weight:700; color:#1a6cf0;">
+                      <td>Total Physical</td><td>7,220 MB (45%)</td><td>8,450 MB (Standby)</td><td>16,000 MB</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec38') || graphic.startsWith('sec39') || graphic.startsWith('sec40') || graphic.startsWith('sec41') || graphic.startsWith('sec42')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #cbd5e1; width:680px;">
+              <div style="display:inline-block; background:#dbeafe; color:#1a6cf0; padding:6px 16px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">REAL-TIME RAM TELEMETRY</div>
+              <div style="font-size:46px; font-weight:900; color:#1e293b; margin-bottom:6px;">45% In Active Use</div>
+              <div style="font-size:22px; font-weight:800; color:#dc2626; margin-bottom:6px;">+ 50% Trapped in Standby Cache!</div>
+              <div style="font-size:15px; color:#64748b;">No memory left for games ➔ Stutters & lag!</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 8. STEP 4: CLICK EMPTY WORKING SETS
+      else if (graphic.startsWith('sec43') || graphic.startsWith('sec44')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bfdbfe; width:680px;">
+              <div style="font-size:20px; font-weight:800; color:#1a6cf0; margin-bottom:8px;">STEP 4: EMPTY MENU</div>
+              <div style="font-size:36px; font-weight:900; color:#1e293b; margin-bottom:8px;">Top Menu Bar: "Empty"</div>
+              <div style="font-size:16px; color:#64748b;">File • <b style="color:#1a6cf0; text-decoration:underline;">Empty</b> • Configure • Help</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec45') || graphic.startsWith('sec46') || graphic.startsWith('sec47')) {
+        const isClick = graphic.startsWith('sec47');
+        return `
+          <div class="win-desktop" style="padding:16px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>RAMMap v1.61 - [Empty Menu]</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div class="rammap-app" style="position:relative;">
+                <div class="rm-menubar">
+                  <span class="rm-menu-item">File</span>
+                  <span class="rm-menu-item active">Empty</span>
+                  <span class="rm-menu-item">Configure</span>
+                  <span class="rm-menu-item">Help</span>
+                </div>
+                <div class="rm-dropdown">
+                  <div class="rm-drop-item highlight">
+                    <span>⚡ Empty Working Sets</span>
+                    <span>✓</span>
+                  </div>
+                  <div class="rm-drop-item">Empty System Working Set</div>
+                  <div class="rm-drop-item">Empty Modified Page List</div>
+                  <div class="rm-drop-item">Empty Standby List</div>
+                  <div class="rm-drop-item">Empty Priority 0 Standby List</div>
+                </div>
+                <div style="padding:40px; text-align:center; color:#94a3b8; font-size:16px;">
+                  Clicking "Empty Working Sets" flushes unneeded process RAM
+                </div>
+              </div>
+            </div>
+            ${cursorHTML(170, 75, isClick)}
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 9. WORKING SETS LOWERING
+      else if (graphic.startsWith('sec48') || graphic.startsWith('sec49') || graphic.startsWith('sec50') || graphic.startsWith('sec51')) {
+        const pct = Math.max(28, Math.round(45 - tau * 15));
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bbf7d0; width:680px;">
+              <div style="display:inline-block; background:#dcfce7; color:#16a34a; padding:6px 18px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">WORKING SETS FLUSHED! ⚡</div>
+              <div style="font-size:52px; font-weight:900; color:#16a34a; margin-bottom:6px;">${pct}%</div>
+              <div style="font-size:18px; font-weight:700; color:#1e293b; margin-bottom:4px;">Memory Usage Plunging In Real Time</div>
+              <div style="font-size:14px; color:#64748b;">Now let's free up the Standby List!</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 10. STEP 5: EMPTY STANDBY LIST
+      else if (graphic.startsWith('sec52') || graphic.startsWith('sec53') || graphic.startsWith('sec54')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bfdbfe; width:680px;">
+              <div style="font-size:20px; font-weight:800; color:#1a6cf0; margin-bottom:8px;">STEP 5: EMPTY STANDBY LIST</div>
+              <div style="font-size:36px; font-weight:900; color:#1e293b; margin-bottom:8px;">Reclaim Ghost Memory</div>
+              <div style="font-size:16px; color:#64748b;">Flushes cached data from closed programs</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      } else if (graphic.startsWith('sec55') || graphic.startsWith('sec56')) {
+        const isClick = graphic.startsWith('sec56');
+        return `
+          <div class="win-desktop" style="padding:16px;">
+            <div class="win-window" style="width:100%; height:calc(100% - 50px);">
+              <div class="win-titlebar">
+                <span>RAMMap v1.61 - [Empty Standby List]</span>
+                <div class="win-controls"><span>─</span><span>□</span><span>✕</span></div>
+              </div>
+              <div class="rammap-app" style="position:relative;">
+                <div class="rm-menubar">
+                  <span class="rm-menu-item">File</span>
+                  <span class="rm-menu-item active">Empty</span>
+                  <span class="rm-menu-item">Configure</span>
+                  <span class="rm-menu-item">Help</span>
+                </div>
+                <div class="rm-dropdown">
+                  <div class="rm-drop-item">Empty Working Sets</div>
+                  <div class="rm-drop-item">Empty System Working Set</div>
+                  <div class="rm-drop-item">Empty Modified Page List</div>
+                  <div class="rm-drop-item highlight">
+                    <span>🔥 Empty Standby List</span>
+                    <span>✓</span>
+                  </div>
+                  <div class="rm-drop-item">Empty Priority 0 Standby List</div>
+                </div>
+              </div>
+            </div>
+            ${cursorHTML(170, 140, isClick)}
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 11. WHAT IS STANDBY LIST (CLOSED APPS STILL IN RAM)
+      else if (graphic.startsWith('sec57') || graphic.startsWith('sec58') || graphic.startsWith('sec59') || graphic.startsWith('sec60')) {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #cbd5e1; width:680px;">
+              <div style="display:inline-block; background:#fee2e2; color:#dc2626; padding:6px 16px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">GHOST MEMORY CACHE</div>
+              <div style="font-size:32px; font-weight:900; color:#0f172a; margin-bottom:6px;">Closed Apps Still In RAM!</div>
+              <div style="font-size:16px; color:#64748b; line-height:1.4;">Chrome tabs, Discord & games you closed hours ago are still hoarding your memory.</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 12. OVER 10 GIGS AVAILABLE NOW
+      else if (graphic.startsWith('sec61') || graphic.startsWith('sec62') || graphic.startsWith('sec63') || graphic.startsWith('sec64')) {
+        const gigs = (10.2 + tau * 0.4).toFixed(1);
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bbf7d0; width:680px;">
+              <div style="display:inline-block; background:#dcfce7; color:#16a34a; padding:6px 18px; border-radius:20px; font-weight:800; font-size:16px; margin-bottom:8px;">MASSIVE RAM RESTORED! 🚀</div>
+              <div style="font-size:52px; font-weight:900; color:#16a34a; margin-bottom:6px;">+${gigs} GB FREE</div>
+              <div style="font-size:18px; font-weight:800; color:#1e293b;">Available Memory: 13.5 GB / 16 GB</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 13. 144 FPS GAMING & SMOOTH HEAVY TASKS
+      else if (graphic.startsWith('sec65') || graphic.startsWith('sec66') || graphic.startsWith('sec67') || graphic.startsWith('sec68') || graphic.startsWith('sec69') || graphic.startsWith('sec70')) {
+        const fps = Math.round(144 + Math.sin(tau * Math.PI * 2) * 2);
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bbf7d0; width:680px;">
+              <div style="display:inline-block; background:#dcfce7; color:#16a34a; padding:6px 18px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">🎮 GAMING BENCHMARK RESTORED</div>
+              <div style="font-size:54px; font-weight:900; color:#16a34a; margin-bottom:6px;">${fps} FPS SOLID</div>
+              <div style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Zero Stutters • Butter Smooth Frame Times</div>
+              <div style="font-size:14px; color:#64748b;">Heavy Tasks & Editing Run Flawlessly</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+
+      // 14. OUTRO & FULL PC OPTIMIZATION
+      else {
+        return `
+          <div class="win-desktop" style="display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(255,255,255,0.95); border-radius:18px; padding:28px 44px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.12); border:1px solid #bfdbfe; width:680px;">
+              <div style="display:inline-block; background:#dbeafe; color:#1a6cf0; padding:6px 18px; border-radius:20px; font-weight:800; font-size:15px; margin-bottom:8px;">PC • WINDOWS • BIOS • GAMES</div>
+              <div style="font-size:42px; font-weight:900; color:#1a6cf0; margin-bottom:6px;">PC Tips by Ez_peter</div>
+              <div style="font-size:26px; font-weight:800; color:#16a34a; margin-bottom:8px;">Follow @Ez_peter 🚀</div>
+              <div style="font-size:14px; color:#64748b;">Save & Share For Daily Windows Hacks!</div>
+            </div>
+            ${winTaskbarHTML}
+          </div>
+        `;
+      }
+    }
+
+    // MAIN DETERMINISTIC RENDER FUNCTION: window.renderAt(t)
+    window.renderAt = function(t) {
+      if (!SCRIPT || SCRIPT.length === 0) return;
+
+      const totalSeconds = SCRIPT.length;
+      const clampedT = clamp(t, 0, totalSeconds - 0.001);
+      const s = Math.floor(clampedT);
+      const tau = clampedT - s;
+      const currentItem = SCRIPT[s];
+
+      // 1. UPDATE PROGRESS BAR
+      const fills = document.querySelectorAll('.prog-fill');
+      fills.forEach((fill, idx) => {
+        if (idx < s) {
+          fill.style.width = '100%';
+        } else if (idx === s) {
+          fill.style.width = `${tau * 100}%`;
+        } else {
+          fill.style.width = '0%';
+        }
+      });
+
+      // 2. UPDATE TOP TEXT
+      const stepLabelEl = document.getElementById('stepLabel');
+      const titleEl = document.getElementById('sceneTitle');
+      const breadcrumbEl = document.getElementById('breadcrumb');
+
+      if (currentItem.stepNumber > 0) {
+        stepLabelEl.textContent = `STEP 0${currentItem.stepNumber}`;
+      } else {
+        stepLabelEl.textContent = '';
+      }
+      titleEl.textContent = currentItem.title;
+      breadcrumbEl.textContent = currentItem.breadcrumb;
+
+      // 3. RENDER SCREEN SCENE
+      const screenEl = document.getElementById('screen');
+      screenEl.innerHTML = renderScreenScene(currentItem.graphic, tau, clampedT);
+
+      // 4. RENDER CAPTIONS
+      const capEl = document.getElementById('captions');
+      if (window.hideCaptions) {
+        capEl.style.display = 'none';
+      } else {
+        capEl.style.display = 'flex';
+
+        const chunks = ALIGNED_CAPTIONS.chunks;
+        let activeChunk = null;
+        for (let i = 0; i < chunks.length; i++) {
+          if (clampedT >= chunks[i].start && clampedT < chunks[i].display_end) {
+            activeChunk = chunks[i];
+            break;
+          }
+        }
+        if (!activeChunk && chunks.length > 0) {
+          if (clampedT >= chunks[chunks.length - 1].start) {
+            activeChunk = chunks[chunks.length - 1];
+          } else {
+            for (let i = 0; i < chunks.length - 1; i++) {
+              if (clampedT >= chunks[i].display_end && clampedT < chunks[i+1].start) {
+                activeChunk = chunks[i];
+                break;
+              }
+            }
+          }
+        }
+
+        if (activeChunk && activeChunk.words.length > 0) {
+          let activeWordIdx = 0;
+          for (let i = 0; i < activeChunk.words.length; i++) {
+            if (clampedT >= activeChunk.words[i].global_start) {
+              activeWordIdx = i;
+            }
+          }
+
+          capEl.innerHTML = activeChunk.words.map((w, idx) => {
+            const isActive = idx === activeWordIdx;
+            return `<span class="caption-word ${isActive ? 'word-active' : ''}">${w.text}</span>`;
+          }).join('');
+        }
+      }
+
+      // 5. RENDER CHARACTERS (Peter on Left, Stewie on Right)
+      const peterEl = document.getElementById('peterImg');
+      const stewieEl = document.getElementById('stewieImg');
+
+      const turns = ALIGNED_CAPTIONS.turn_ranges;
+      let activeTurn = null;
+      for (let i = 0; i < turns.length; i++) {
+        if (clampedT >= turns[i].start && clampedT <= turns[i].end) {
+          activeTurn = turns[i];
+          break;
+        }
+      }
+      if (!activeTurn && turns.length > 0) {
+        for (let i = 0; i < turns.length - 1; i++) {
+          if (clampedT > turns[i].end && clampedT < turns[i+1].start) {
+            const mid = (turns[i].end + turns[i+1].start) / 2;
+            if (clampedT < mid) {
+              activeTurn = turns[i];
+            } else {
+              activeTurn = turns[i+1];
+            }
+            break;
+          }
+        }
+        if (!activeTurn) activeTurn = turns[turns.length - 1];
+      }
+
+      const isPeter = activeTurn && activeTurn.speaker === 'peter';
+      const isStewie = activeTurn && activeTurn.speaker === 'stewie';
+
+      if (isPeter) {
+        const turnElapsed = clampedT - activeTurn.start;
+        const turnRemaining = activeTurn.end - clampedT;
+        let peterX = 0;
+        if (turnElapsed < 0.22) {
+          const inFrac = easeOutCubic(clamp(turnElapsed / 0.22, 0, 1));
+          peterX = -1200 * (1 - inFrac);
+        } else if (turnRemaining < 0.22) {
+          const outFrac = easeInOutQuad(clamp((0.22 - turnRemaining) / 0.22, 0, 1));
+          peterX = -1200 * outFrac;
+        }
+        const bobY = Math.sin(clampedT * Math.PI * 4) * 6;
+        const breathScale = 1.0 + 0.012 * Math.sin(clampedT * Math.PI * 2);
+        peterEl.style.transform = `translateX(${peterX}px) translateY(${bobY}px) scale(${breathScale})`;
+        stewieEl.style.transform = `translateX(1200px)`;
+      } else if (isStewie) {
+        const turnElapsed = clampedT - activeTurn.start;
+        const turnRemaining = activeTurn.end - clampedT;
+        let stewieX = 0;
+        if (turnElapsed < 0.22) {
+          const inFrac = easeOutCubic(clamp(turnElapsed / 0.22, 0, 1));
+          stewieX = 1200 * (1 - inFrac);
+        } else if (turnRemaining < 0.22) {
+          const outFrac = easeInOutQuad(clamp((0.22 - turnRemaining) / 0.22, 0, 1));
+          stewieX = 1200 * outFrac;
+        }
+        const bobY = Math.sin(clampedT * Math.PI * 4) * 6;
+        const breathScale = 1.0 + 0.012 * Math.sin(clampedT * Math.PI * 2);
+        stewieEl.style.transform = `translateX(${stewieX}px) translateY(${bobY}px) scale(${breathScale})`;
+        peterEl.style.transform = `translateX(-1200px)`;
+      } else {
+        peterEl.style.transform = `translateX(-1200px)`;
+        stewieEl.style.transform = `translateX(1200px)`;
+      }
+    };
+
+    // Initial render
+    window.renderAt(0);
+  </script>
+</body>
+</html>

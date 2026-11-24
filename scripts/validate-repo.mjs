@@ -31,15 +31,15 @@ const expectedSkills = [
 const skillRoot = path.join(root, "skills");
 const discovered = (await listFilesRecursively(skillRoot))
   .filter((file) => path.basename(file) === "SKILL.md")
-  .map((file) => path.relative(skillRoot, path.dirname(file))).sort();
+  .map((file) => path.relative(skillRoot, path.dirname(file)).replaceAll("\\", "/")).sort();
 if (JSON.stringify(discovered) !== JSON.stringify([...expectedSkills].sort())) {
   failures.push(`Expected ${expectedSkills.length} skills; found: ${discovered.join(", ")}`);
 }
 for (const skill of discovered) {
   const name = path.basename(skill);
   const markdown = await fs.readFile(path.join(skillRoot, skill, "SKILL.md"), "utf8");
-  const frontmatter = markdown.match(/^---\n([\s\S]*?)\n---/);
-  if (!frontmatter?.[1].split("\n").includes(`name: ${name}`)) failures.push(`${skill}: name must match its folder`);
+  const frontmatter = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!frontmatter?.[1].split(/\r?\n/).includes(`name: ${name}`)) failures.push(`${skill}: name must match its folder`);
   if (!/^description: ".+"$/m.test(frontmatter?.[1] ?? "")) failures.push(`${skill}: missing description`);
   const agentFile = path.join(skillRoot, skill, "agents", "openai.yaml");
   if (!(await pathExists(agentFile))) failures.push(`${skill}: missing UI metadata`);

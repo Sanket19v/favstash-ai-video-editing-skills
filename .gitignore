@@ -19,6 +19,20 @@ tmp/
 # The SFX pack is synthesized: edit-video makes each sound on first use, so no audio is committed
 skills/3-editing/edit-video/assets/sfx/*.wav
 
+# Video production agent workspace assets & renders
+audio/
+frames/
+frames_*/
+output/
+qc_frames/
+test_frames/
+frames_test_t_*.png
+test_*.png
+test_*.jpg
+assets/peter.png
+assets/stewie.png
+video-engine/assets/
+
 # Optional adapter installs
 package-lock.json
 pnpm-lock.yaml
